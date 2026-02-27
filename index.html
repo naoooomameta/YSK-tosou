@@ -1485,8 +1485,441 @@ body {
 }
 
 /* ============================
-   ANIMATIONS
+   強み① 割合グラフ比較
 ============================ */
+.ratio-compare {
+  margin-top: 18px;
+}
+
+.ratio-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 14px;
+  letter-spacing: .03em;
+}
+
+.ratio-col-wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.ratio-col {
+  flex: 1;
+  text-align: center;
+}
+
+.ratio-col-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.ratio-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ratio-bar {
+  width: 80px;
+  height: 180px;
+  display: flex;
+  flex-direction: column-reverse;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+
+.ratio-seg {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: height .4s ease;
+}
+
+.ratio-seg span {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255,255,255,.9);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.ratio-seg.markup   { background: #e74c3c; }
+.ratio-seg.sales    { background: #e67e22; }
+.ratio-seg.margin   { background: #c0392b; }
+.ratio-seg.admin    { background: #d35400; }
+.ratio-seg.work-o   { background: #7f8c8d; }
+.ratio-seg.work-y   { background: var(--navy); }
+.ratio-seg.material { background: #2980b9; }
+
+.ratio-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.rl {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.rl.markup, .rl.sales, .rl.margin, .rl.admin {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+.rl.work-o   { background: #ecf0f1; color: #555; }
+.rl.work-y   { background: #e8f0ff; color: var(--navy); }
+.rl.material { background: #eaf4fb; color: #2471a3; }
+
+.ratio-vs {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+  padding-bottom: 60px;
+  flex-shrink: 0;
+}
+
+.ratio-result {
+  margin-top: 16px;
+  background: var(--navy);
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.ratio-result-icon { font-size: 20px; flex-shrink: 0; }
+
+.ratio-result-text {
+  font-size: 12px;
+  color: rgba(255,255,255,.85);
+  line-height: 1.65;
+}
+
+.ratio-result-text strong { color: var(--gold); }
+.ratio-result-text em { font-style: normal; color: var(--accent2); font-weight: 700; }
+
+/* コスト理由3つ */
+.cost-reasons {
+  margin-top: 18px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.cost-reasons-title {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.cost-reason-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cost-reason-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.cr-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.cr-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 3px;
+}
+
+.cr-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ============================
+   取引先セクション
+============================ */
+.partner-section {
+  background: var(--cream);
+  padding: 32px 20px;
+  border-top: 1px solid var(--border);
+}
+
+.partner-intro {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.7;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+.partner-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.partner-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.partner-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.partner-role {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .08em;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+.partner-name {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.partner-name a {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.partner-desc {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.65;
+  margin-bottom: 8px;
+}
+
+.partner-link {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 1px;
+}
+
+.partner-note {
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  padding: 8px;
+  background: var(--stone);
+  border-radius: 4px;
+}
+
+/* ============================
+   安心保証ブロック
+============================ */
+.guarantee-block {
+  margin-top: 20px;
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.guarantee-block-title {
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--gold);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.guarantee-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.guarantee-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.gi-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.gi-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 3px;
+}
+
+.gi-desc {
+  font-size: 11px;
+  color: rgba(255,255,255,.65);
+  line-height: 1.6;
+}
+
+/* ============================
+   料金：横棒グラフ & 分割払い
+============================ */
+.price-ratio-intro {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.7;
+  margin: 12px 0 18px;
+}
+
+.price-ratio-intro strong { color: var(--navy); }
+
+.hbar-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.hbar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hbar-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  width: 56px;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+.hbar-label.ysk-lbl { color: var(--accent); }
+
+.hbar-track {
+  flex: 1;
+  height: 36px;
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.hbar-seg {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width .5s ease;
+}
+
+.hbar-seg span {
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.hb-waste    { background: #c0392b; }
+.hb-work     { background: #aaa; }
+.hb-work-ysk { background: var(--navy); }
+.hb-small    { background: #2980b9; }
+
+.hbar-note {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+.installment-box {
+  margin-top: 16px;
+  background: linear-gradient(135deg, var(--navy) 0%, #1c4a73 100%);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.inst-title {
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.inst-example {
+  background: rgba(255,255,255,.1);
+  border-radius: 4px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+}
+
+.inst-ex-label {
+  font-size: 10px;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 4px;
+}
+
+.inst-ex-content {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.inst-ex-content strong {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  color: var(--gold);
+}
+
+.inst-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,.7);
+  line-height: 1.6;
+}
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -1565,7 +1998,7 @@ body {
       <div class="fv-eyebrow">栃木・北関東の塗装専門夫婦店</div>
       <div class="fv-headline">
         中間マージンなし。<br>
-        <em>大手より最大40%安く</em>、<br>
+        <em>大手より最低でも40%安く</em>、<br>
         丁寧に塗ります。
       </div>
       <div class="fv-subline">
@@ -1729,60 +2162,123 @@ body {
     </div>
   </div>
 
-  <!-- ⑤ 強み① 費用比較 -->
+  <!-- ⑤ 強み① 費用比較（割合訴求） -->
   <div class="merit1-section">
     <div class="section-header">
       <div class="section-label-tag">MERIT 01</div>
-      <div class="section-title">完全自社施工だから<br>中間マージン0円。</div>
+      <div class="section-title">同じ工事なのに、<br>なぜYSKは<em style="font-style:normal;color:var(--accent)">最低でも40%安い</em>のか？</div>
     </div>
 
-    <div class="compare-wrap">
-      <div class="compare-label">費用構造の比較</div>
-      <div class="compare-cols">
-        <div class="compare-col">
-          <div class="compare-col-title">一般業者・大手</div>
-          <div class="compare-cost-row">
-            <div class="cost-item">営業マンの人件費</div>
-            <div class="cost-item">広告宣伝費</div>
-            <div class="cost-item">下請けマージン</div>
-            <div class="cost-item">本社管理費</div>
-            <div class="cost-item">施工費</div>
+    <!-- 割合グラフ比較 -->
+    <div class="ratio-compare">
+      <div class="ratio-label">あなたが払う「塗装費用」の内訳比較</div>
+
+      <div class="ratio-col-wrap">
+        <!-- 大手 -->
+        <div class="ratio-col">
+          <div class="ratio-col-title">大手・一般業者</div>
+          <div class="ratio-bar-wrap">
+            <div class="ratio-bar">
+              <div class="ratio-seg markup"  style="height:20%"><span>広告費<br>10%</span></div>
+              <div class="ratio-seg sales"   style="height:18%"><span>営業費<br>9%</span></div>
+              <div class="ratio-seg margin"  style="height:24%"><span>下請け<br>マージン<br>12%</span></div>
+              <div class="ratio-seg admin"   style="height:18%"><span>本社<br>管理費<br>9%</span></div>
+              <div class="ratio-seg work-o"  style="height:20%"><span>施工費<br>40%</span></div>
+            </div>
+            <div class="ratio-legend">
+              <span class="rl markup">無駄なコスト 60%</span>
+              <span class="rl work-o">実際の工事 40%</span>
+            </div>
           </div>
-          <div class="compare-total">200<small>万〜</small></div>
         </div>
-        <div class="compare-divider"></div>
-        <div class="compare-col ours">
-          <div class="compare-col-title">YSK塗装</div>
-          <div class="compare-cost-row">
-            <div class="cost-item crossed">営業マンの人件費</div>
-            <div class="cost-item crossed">広告宣伝費</div>
-            <div class="cost-item crossed">下請けマージン</div>
-            <div class="cost-item crossed">本社管理費</div>
-            <div class="cost-item active">施工費のみ ✓</div>
+
+        <!-- VS -->
+        <div class="ratio-vs">VS</div>
+
+        <!-- YSK -->
+        <div class="ratio-col">
+          <div class="ratio-col-title" style="color:var(--accent);">YSK塗装</div>
+          <div class="ratio-bar-wrap">
+            <div class="ratio-bar ysk">
+              <div class="ratio-seg work-y" style="height:80%"><span>施工費<br>80%</span></div>
+              <div class="ratio-seg material" style="height:20%"><span>塗料・<br>資材<br>20%</span></div>
+            </div>
+            <div class="ratio-legend">
+              <span class="rl work-y">実際の工事 80%</span>
+              <span class="rl material">資材費 20%</span>
+            </div>
           </div>
-          <div class="compare-total">120<small>万〜</small></div>
         </div>
       </div>
-      <div class="compare-save">🎉 最大 80万円 の差が生まれる理由はここにあります</div>
+
+      <div class="ratio-result">
+        <div class="ratio-result-icon">💡</div>
+        <div class="ratio-result-text">
+          大手の費用の<strong>40〜60%は「無駄な中間コスト」</strong>。<br>
+          YSKはそこをまるごとカットするから、<br>
+          <em>同じ品質で最低でも40%安くなります。</em>
+        </div>
+      </div>
     </div>
 
-    <div class="cost-flow">
-      <div class="cost-flow-title">💡 余計なコストが発生しない理由</div>
-      <div class="flow-steps">
-        <div class="flow-step">
-          <div class="flow-dot red">1</div>
-          <div class="flow-text">ユースケ＆なおがお客様と直接打ち合わせ</div>
+    <!-- なぜ安い理由3つ -->
+    <div class="cost-reasons">
+      <div class="cost-reasons-title">💡 余計なコストが発生しない3つの理由</div>
+      <div class="cost-reason-list">
+        <div class="cost-reason-item">
+          <div class="cr-num">01</div>
+          <div class="cr-body">
+            <div class="cr-title">お客様から直接ご依頼</div>
+            <div class="cr-desc">代理店・仲介業者を一切挟まないため、中間マージンが発生しません。</div>
+          </div>
         </div>
-        <div class="flow-step">
-          <div class="flow-dot red">2</div>
-          <div class="flow-text">2人が現場で直接施工（下請けなし）</div>
+        <div class="cost-reason-item">
+          <div class="cr-num">02</div>
+          <div class="cr-body">
+            <div class="cr-title">夫婦経営だから人件費を最小化</div>
+            <div class="cr-desc">営業スタッフ・事務員を雇わず、2人でコンパクトに運営。余剰コストがゼロ。</div>
+          </div>
         </div>
-        <div class="flow-step">
-          <div class="flow-dot red">3</div>
-          <div class="flow-text">適正価格で品質そのまま納品</div>
+        <div class="cost-reason-item">
+          <div class="cr-num">03</div>
+          <div class="cr-body">
+            <div class="cr-title">栃木県内の専属取引先と連携</div>
+            <div class="cr-desc">足場・塗料を栃木県内の信頼できる取引先から直接仕入れ。原価を徹底的に抑えています。</div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- ⑤-B 取引先紹介（信頼の見える化） -->
+  <div class="partner-section">
+    <div class="section-header">
+      <div class="section-label-tag">PARTNER</div>
+      <div class="section-title">信頼できる<br>栃木県内の専属取引先</div>
+    </div>
+    <p class="partner-intro">品質を落とさずコストを下げられるのは、長年付き合いのある地元業者との連携があるから。それぞれの専門家と組むことで、YSKは塗装に100%集中できます。</p>
+
+    <div class="partner-cards">
+      <div class="partner-card">
+        <div class="partner-icon">🎨</div>
+        <div class="partner-body">
+          <div class="partner-role">塗料仕入れ先</div>
+          <div class="partner-name"><a href="https://www.onuki-paint.com/" target="_blank" rel="noopener">小野木塗料店</a></div>
+          <div class="partner-desc">プロ向け塗料を専門に扱う栃木の老舗塗料店。大手メーカー品を適正価格で仕入れることで、塗料コストを最適化しています。</div>
+          <a class="partner-link" href="https://www.onuki-paint.com/" target="_blank" rel="noopener">onuki-paint.com →</a>
+        </div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-icon">🏗️</div>
+        <div class="partner-body">
+          <div class="partner-role">足場専属パートナー</div>
+          <div class="partner-name"><a href="https://shiroma-kasetsu.jp/" target="_blank" rel="noopener">白間架設</a></div>
+          <div class="partner-desc">栃木県内で実績豊富な足場専門業者。安全性と施工しやすさにこだわった足場を、スピーディーかつリーズナブルに提供してもらっています。</div>
+          <a class="partner-link" href="https://shiroma-kasetsu.jp/" target="_blank" rel="noopener">shiroma-kasetsu.jp →</a>
+        </div>
+      </div>
+    </div>
+    <div class="partner-note">※ 外注はこの専属取引先のみ。知らない業者が現場に来ることは一切ありません。</div>
   </div>
 
   <!-- ⑥ 強み② 夫婦施工 -->
@@ -1823,6 +2319,41 @@ body {
         <div class="promise-icon">🚫</div>
         <div class="promise-title">しつこい営業・<br>追加費用ゼロ</div>
         <div class="promise-desc">見積もり後のしつこい連絡・急かしは一切しません。</div>
+      </div>
+    </div>
+
+    <!-- 安心保証ブロック -->
+    <div class="guarantee-block">
+      <div class="guarantee-block-title">📋 YSK塗装の安心保証</div>
+      <div class="guarantee-items">
+        <div class="guarantee-item">
+          <div class="gi-icon">🛡️</div>
+          <div class="gi-body">
+            <div class="gi-title">施工保証書 3年付き</div>
+            <div class="gi-desc">塗装工事完了後、正式な保証書を発行。万が一の不具合にも責任をもって対応します。</div>
+          </div>
+        </div>
+        <div class="guarantee-item">
+          <div class="gi-icon">📸</div>
+          <div class="gi-body">
+            <div class="gi-title">施工前後の記録写真を必ず残します</div>
+            <div class="gi-desc">施工の各工程を写真で記録。完了後にお渡しするので、後から見返すことができます。</div>
+          </div>
+        </div>
+        <div class="guarantee-item">
+          <div class="gi-icon">🤝</div>
+          <div class="gi-body">
+            <div class="gi-title">ご近所へのご挨拶まわりを徹底</div>
+            <div class="gi-desc">施工前に必ずご近所へご挨拶。騒音・駐車など近隣トラブルを未然に防ぎます。</div>
+          </div>
+        </div>
+        <div class="guarantee-item">
+          <div class="gi-icon">💳</div>
+          <div class="gi-body">
+            <div class="gi-title">最大24回分割払いに対応</div>
+            <div class="gi-desc">まとまった費用が心配な方も安心。頭金5万円 + 月々2万円×24回など、ご相談ください。</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -2176,14 +2707,46 @@ body {
 
   </div>
 
-  <!-- ⑧ 料金の目安 -->
+  <!-- ⑧ 料金の考え方（割合訴求） -->
   <div class="price-section">
     <div class="section-header">
       <div class="section-label-tag">PRICE</div>
-      <div class="section-title">料金の目安<br>（北関東エリア全域）</div>
+      <div class="section-title">「高い」のは工事費じゃない。<br>大手の料金構造の話。</div>
     </div>
 
-    <div class="price-table">
+    <div class="price-ratio-intro">
+      塗装費用の相場がわかりにくいのは、業者によって「何に費用がかかっているか」が全く違うから。<br>
+      YSKは<strong>工事そのものにだけお金をかけます。</strong>
+    </div>
+
+    <!-- 割合比較バー（横型） -->
+    <div class="hbar-compare">
+      <div class="hbar-row">
+        <div class="hbar-label">大手・一般</div>
+        <div class="hbar-track">
+          <div class="hbar-seg hb-waste" style="width:60%">
+            <span>無駄なコスト 60%</span>
+          </div>
+          <div class="hbar-seg hb-work" style="width:40%">
+            <span>工事 40%</span>
+          </div>
+        </div>
+      </div>
+      <div class="hbar-row">
+        <div class="hbar-label ysk-lbl">YSK塗装</div>
+        <div class="hbar-track">
+          <div class="hbar-seg hb-work-ysk" style="width:80%">
+            <span>工事・材料 80%</span>
+          </div>
+          <div class="hbar-seg hb-small" style="width:20%">
+            <span>20%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hbar-note">支払い金額が同じなら、工事に使われる割合が高い方が得。</div>
+
+    <div class="price-table" style="margin-top:18px;">
       <div class="price-row header">
         <div class="price-cell label" style="background:transparent;">施工内容</div>
         <div class="price-cell">大手相場</div>
@@ -2191,33 +2754,35 @@ body {
       </div>
       <div class="price-row">
         <div class="price-cell label">外壁フル塗装（30坪）</div>
-        <div class="price-cell">
-          <span class="old-price">200万〜</span>
-        </div>
-        <div class="price-cell">
-          <span class="new-price">120<small>万〜</small></span>
-        </div>
+        <div class="price-cell"><span class="old-price">200万〜</span></div>
+        <div class="price-cell"><span class="new-price" style="font-size:15px;color:var(--muted);">まずは<br>無料相談へ</span></div>
       </div>
       <div class="price-row">
         <div class="price-cell label">屋根塗装（30坪）</div>
-        <div class="price-cell">
-          <span class="old-price">80万〜</span>
-        </div>
-        <div class="price-cell">
-          <span class="new-price">50<small>万〜</small></span>
-        </div>
+        <div class="price-cell"><span class="old-price">80万〜</span></div>
+        <div class="price-cell"><span class="new-price" style="font-size:15px;color:var(--muted);">まずは<br>無料相談へ</span></div>
       </div>
       <div class="price-row">
         <div class="price-cell label">外壁＋屋根セット</div>
-        <div class="price-cell">
-          <span class="old-price">250万〜</span>
-        </div>
-        <div class="price-cell">
-          <span class="new-price">145<small>万〜</small></span>
-        </div>
+        <div class="price-cell"><span class="old-price">250万〜</span></div>
+        <div class="price-cell"><span class="new-price" style="font-size:15px;color:var(--muted);">まずは<br>無料相談へ</span></div>
       </div>
     </div>
-    <div class="price-note">※ 上記は目安価格です。築年数・面積・塗料の種類によって変わります。まずは無料見積もりをお申し込みください。出張費・見積もり費は一切かかりません。</div>
+    <div class="price-note">大手相場より<strong>最低でも40%低い見積もり</strong>をお出しします。まずはLINEで写真を送るだけでOK。出張費・見積もり費は一切かかりません。</div>
+
+    <!-- 分割払い訴求 -->
+    <div class="installment-box">
+      <div class="inst-title">💳 一括払いが難しい方も安心</div>
+      <div class="inst-body">
+        <div class="inst-example">
+          <div class="inst-ex-label">分割払いの例</div>
+          <div class="inst-ex-content">
+            頭金 <strong>5万円</strong> + 月々 <strong>2万円 × 24回</strong>
+          </div>
+        </div>
+        <div class="inst-desc">最大24回分割に対応。無理のない支払いで、大切なお家を守ることができます。詳しくはご相談ください。</div>
+      </div>
+    </div>
   </div>
 
   <!-- ⑨ FAQ -->
@@ -2239,6 +2804,10 @@ body {
       <div class="faq-item">
         <div class="faq-q">大手より安いのに品質は大丈夫ですか？</div>
         <div class="faq-a">使用する塗料・施工方法は大手と同じです。安い理由は「中間マージンゼロ」だから。品質を落とすことで安くしているのではありません。累計120件の実績と5.0の口コミがその証です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">分割払いはできますか？</div>
+        <div class="faq-a">はい、最大24回の分割払いに対応しています。「頭金5万円＋月々2万円×24回」などご状況に合わせてご相談ください。一括払いが難しい方もお気軽にご連絡ください。</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">施工中は家にいなくても大丈夫ですか？</div>
