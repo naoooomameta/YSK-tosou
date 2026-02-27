@@ -1920,6 +1920,576 @@ body {
   color: rgba(255,255,255,.7);
   line-height: 1.6;
 }
+
+/* ============================
+   対応工事メニュー
+============================ */
+.menu-section {
+  background: var(--white);
+  padding: 32px 20px 36px;
+  border-top: 4px solid var(--stone);
+}
+
+.menu-intro {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.75;
+  margin: 12px 0 20px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.menu-card {
+  background: var(--cream);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-card-wide {
+  grid-column: 1 / -1;
+  flex-direction: row;
+}
+
+.menu-img {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.menu-card-wide .menu-img {
+  width: 110px;
+  height: auto;
+  min-height: 100px;
+}
+
+.menu-img-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,.75);
+  letter-spacing: .05em;
+}
+
+.menu-body {
+  padding: 10px 12px 12px;
+  flex: 1;
+}
+
+.menu-name {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.menu-desc {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.65;
+  margin-bottom: 7px;
+}
+
+.menu-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(232,80,26,.08);
+  padding: 4px 8px;
+  border-radius: 3px;
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.menu-cta {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.menu-cta-text {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.menu-cta-text strong { color: var(--navy); }
+
+/* ============================
+   取引先 v2（画像メイン）
+============================ */
+.partner-card-v2 {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,.1);
+  margin-bottom: 16px;
+}
+
+.partner-img-link {
+  display: block;
+  text-decoration: none;
+}
+
+.partner-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: var(--stone);
+}
+
+.partner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform .3s ease;
+}
+
+.partner-card-v2:hover .partner-img {
+  transform: scale(1.03);
+}
+
+.partner-img-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--navy), var(--navy2));
+  color: rgba(255,255,255,.7);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.partner-img-fallback span:first-child {
+  font-size: 40px;
+}
+
+.partner-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.65) 0%, transparent 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 14px;
+  gap: 3px;
+}
+
+.partner-img-role {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.partner-img-visit {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
+}
+
+.partner-body-v2 {
+  padding: 16px;
+}
+
+.partner-role-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .05em;
+  margin-bottom: 4px;
+}
+
+.partner-name-v2 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.partner-name-v2 a {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.partner-desc-v2 {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.partner-link-v2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--navy);
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background .2s;
+}
+
+.partner-link-v2:hover {
+  background: var(--navy2);
+}
+
+.form-section {
+  background: var(--navy);
+  padding: 36px 20px 48px;
+}
+
+.form-section-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.form-section-header .section-label-tag {
+  border-color: rgba(255,255,255,.3);
+  color: rgba(255,255,255,.5);
+  margin: 0 auto 10px;
+}
+
+.form-section-header .section-title {
+  color: #fff;
+}
+
+.form-lead {
+  font-size: 13px;
+  color: rgba(255,255,255,.7);
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+.form-lead strong { color: var(--gold); }
+
+.form-guarantees {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.fg-item {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--navy);
+  background: var(--gold);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* フォーム本体 */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-required {
+  font-size: 10px;
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.form-optional {
+  font-size: 10px;
+  background: rgba(255,255,255,.2);
+  color: rgba(255,255,255,.7);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 400;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid rgba(255,255,255,.2);
+  border-radius: 6px;
+  background: rgba(255,255,255,.07);
+  color: #fff;
+  font-size: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+  outline: none;
+  transition: border-color .2s, background .2s;
+  -webkit-appearance: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(255,255,255,.35);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--gold);
+  background: rgba(255,255,255,.12);
+}
+
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: #e74c3c;
+}
+
+.form-select {
+  color: rgba(255,255,255,.7);
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.5)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.form-select option {
+  background: var(--navy);
+  color: #fff;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.form-hint {
+  font-size: 11px;
+  color: rgba(255,255,255,.45);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+/* チェックボックス */
+.form-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px 12px;
+  background: rgba(255,255,255,.06);
+  border: 1.5px solid rgba(255,255,255,.12);
+  border-radius: 6px;
+  transition: background .15s, border-color .15s;
+}
+
+.form-check:hover {
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.25);
+}
+
+.form-check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.form-check span {
+  font-size: 13px;
+  color: rgba(255,255,255,.85);
+  line-height: 1.4;
+}
+
+/* 写真アップロード */
+.form-upload-area {
+  position: relative;
+  border: 2px dashed rgba(255,255,255,.3);
+  border-radius: 8px;
+  padding: 24px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .2s, background .2s;
+  background: rgba(255,255,255,.04);
+}
+
+.form-upload-area:hover {
+  border-color: var(--gold);
+  background: rgba(255,255,255,.08);
+}
+
+.form-upload-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.form-upload-icon { font-size: 28px; margin-bottom: 4px; }
+
+.form-upload-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255,255,255,.8);
+}
+
+.form-upload-hint {
+  font-size: 11px;
+  color: rgba(255,255,255,.4);
+  margin-top: 4px;
+}
+
+.form-upload-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.preview-thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,.2);
+}
+
+/* 送信ボタン */
+.form-submit-btn {
+  width: 100%;
+  padding: 18px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: .04em;
+  position: relative;
+  overflow: hidden;
+  transition: opacity .2s;
+}
+
+.form-submit-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.form-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.form-privacy-note {
+  font-size: 10px;
+  color: rgba(255,255,255,.35);
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 4px;
+}
+
+/* 送信完了 */
+.form-success {
+  background: rgba(0,168,50,.15);
+  border: 1.5px solid rgba(0,168,50,.5);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.fs-icon { font-size: 36px; margin-bottom: 8px; }
+
+.fs-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.fs-body {
+  font-size: 13px;
+  color: rgba(255,255,255,.7);
+  line-height: 1.7;
+}
+
+/* エラー */
+.form-error-msg {
+  background: rgba(231,76,60,.15);
+  border: 1.5px solid rgba(231,76,60,.5);
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 13px;
+  color: rgba(255,255,255,.8);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+/* フローティングバー（フォームボタン版） */
+.float-form {
+  flex: 1;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 900;
+  font-size: 14px;
+  padding: 13px;
+  border-radius: 4px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  letter-spacing: .04em;
+  width: 100%;
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -2259,25 +2829,65 @@ body {
     <p class="partner-intro">品質を落とさずコストを下げられるのは、長年付き合いのある地元業者との連携があるから。それぞれの専門家と組むことで、YSKは塗装に100%集中できます。</p>
 
     <div class="partner-cards">
-      <div class="partner-card">
-        <div class="partner-icon">🎨</div>
-        <div class="partner-body">
-          <div class="partner-role">塗料仕入れ先</div>
-          <div class="partner-name"><a href="https://www.onuki-paint.com/" target="_blank" rel="noopener">小野木塗料店</a></div>
-          <div class="partner-desc">プロ向け塗料を専門に扱う栃木の老舗塗料店。大手メーカー品を適正価格で仕入れることで、塗料コストを最適化しています。</div>
-          <a class="partner-link" href="https://www.onuki-paint.com/" target="_blank" rel="noopener">onuki-paint.com →</a>
+
+      <!-- 小野木塗料店 -->
+      <div class="partner-card-v2">
+        <a href="https://www.onuki-paint.com/" target="_blank" rel="noopener" class="partner-img-link">
+          <div class="partner-img-wrap">
+            <img
+              src="https://www.onuki-paint.com/wp-content/themes/onuki/images/ogp.jpg"
+              alt="小野木塗料店"
+              class="partner-img"
+              onerror="this.parentElement.innerHTML='<div class=\'partner-img-fallback\'><span>🎨</span><span>小野木塗料店</span></div>'"
+            >
+            <div class="partner-img-overlay">
+              <span class="partner-img-role">塗料仕入れ先</span>
+              <span class="partner-img-visit">サイトを見る →</span>
+            </div>
+          </div>
+        </a>
+        <div class="partner-body-v2">
+          <div class="partner-role-tag">🎨 塗料仕入れ先</div>
+          <div class="partner-name-v2">
+            <a href="https://www.onuki-paint.com/" target="_blank" rel="noopener">小野木塗料店</a>
+          </div>
+          <div class="partner-desc-v2">プロ向け塗料を専門に扱う栃木の老舗塗料店。大手メーカー品を適正価格で直接仕入れることで、塗料コストを最適化しています。</div>
+          <a class="partner-link-v2" href="https://www.onuki-paint.com/" target="_blank" rel="noopener">
+            🔗 onuki-paint.com
+          </a>
         </div>
       </div>
-      <div class="partner-card">
-        <div class="partner-icon">🏗️</div>
-        <div class="partner-body">
-          <div class="partner-role">足場専属パートナー</div>
-          <div class="partner-name"><a href="https://shiroma-kasetsu.jp/" target="_blank" rel="noopener">白間架設</a></div>
-          <div class="partner-desc">栃木県内で実績豊富な足場専門業者。安全性と施工しやすさにこだわった足場を、スピーディーかつリーズナブルに提供してもらっています。</div>
-          <a class="partner-link" href="https://shiroma-kasetsu.jp/" target="_blank" rel="noopener">shiroma-kasetsu.jp →</a>
+
+      <!-- 白間架設 -->
+      <div class="partner-card-v2">
+        <a href="https://shiroma-kasetsu.jp/" target="_blank" rel="noopener" class="partner-img-link">
+          <div class="partner-img-wrap">
+            <img
+              src="https://shiroma-kasetsu.jp/wp-content/uploads/2022/01/ogp.jpg"
+              alt="白間架設"
+              class="partner-img"
+              onerror="this.parentElement.innerHTML='<div class=\'partner-img-fallback\'><span>🏗️</span><span>白間架設</span></div>'"
+            >
+            <div class="partner-img-overlay">
+              <span class="partner-img-role">足場専属パートナー</span>
+              <span class="partner-img-visit">サイトを見る →</span>
+            </div>
+          </div>
+        </a>
+        <div class="partner-body-v2">
+          <div class="partner-role-tag">🏗️ 足場専属パートナー</div>
+          <div class="partner-name-v2">
+            <a href="https://shiroma-kasetsu.jp/" target="_blank" rel="noopener">白間架設</a>
+          </div>
+          <div class="partner-desc-v2">栃木県内で実績豊富な足場専門業者。安全性と施工しやすさにこだわった足場を、スピーディーかつリーズナブルに提供してもらっています。</div>
+          <a class="partner-link-v2" href="https://shiroma-kasetsu.jp/" target="_blank" rel="noopener">
+            🔗 shiroma-kasetsu.jp
+          </a>
         </div>
       </div>
+
     </div>
+
     <div class="partner-note">※ 外注はこの専属取引先のみ。知らない業者が現場に来ることは一切ありません。</div>
   </div>
 
@@ -2355,6 +2965,152 @@ body {
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ⑥-B 対応工事メニュー -->
+  <div class="menu-section">
+    <div class="section-header">
+      <div class="section-label-tag">MENU</div>
+      <div class="section-title">外壁・屋根以外も<br>まとめてお任せください</div>
+    </div>
+    <p class="menu-intro">「ここだけちょっと気になってた」という小さな箇所も、大歓迎です。外壁塗装と同時施工なら費用もさらにお得になります。</p>
+
+    <div class="menu-grid">
+
+      <!-- 看板塗装 -->
+      <div class="menu-card">
+        <div class="menu-img" style="background:linear-gradient(135deg,#2c3e50,#4a6fa5);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="10" width="40" height="24" rx="3" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+            <line x1="16" y1="34" x2="14" y2="44" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="32" y1="34" x2="34" y2="44" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
+            <rect x="10" y="16" width="20" height="3" rx="1.5" fill="rgba(255,255,255,0.7)"/>
+            <rect x="10" y="22" width="14" height="2" rx="1" fill="rgba(255,255,255,0.45)"/>
+            <circle cx="37" cy="20" r="4" fill="rgba(245,200,66,0.9)"/>
+          </svg>
+          <div class="menu-img-label">看板塗装</div>
+        </div>
+        <div class="menu-body">
+          <div class="menu-name">看板塗装</div>
+          <div class="menu-desc">色褪せ・剥がれが目立ち始めた看板を塗り直し。店舗・自宅の表札・門柱など小規模なものからご相談ください。</div>
+          <div class="menu-tag">✓ 個人宅・小規模店舗OK</div>
+        </div>
+      </div>
+
+      <!-- フェンス塗装 -->
+      <div class="menu-card">
+        <div class="menu-img" style="background:linear-gradient(135deg,#27ae60,#1e8449);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="20" width="40" height="4" rx="2" fill="rgba(255,255,255,0.6)"/>
+            <rect x="4" y="30" width="40" height="4" rx="2" fill="rgba(255,255,255,0.6)"/>
+            <rect x="7"  y="12" width="5" height="26" rx="2" fill="rgba(255,255,255,0.8)"/>
+            <rect x="17" y="12" width="5" height="26" rx="2" fill="rgba(255,255,255,0.8)"/>
+            <rect x="27" y="12" width="5" height="26" rx="2" fill="rgba(255,255,255,0.8)"/>
+            <rect x="37" y="12" width="5" height="26" rx="2" fill="rgba(255,255,255,0.8)"/>
+            <polygon points="9.5,9 12,13 7,13" fill="rgba(255,255,255,0.8)"/>
+            <polygon points="19.5,9 22,13 17,13" fill="rgba(255,255,255,0.8)"/>
+            <polygon points="29.5,9 32,13 27,13" fill="rgba(255,255,255,0.8)"/>
+            <polygon points="39.5,9 42,13 37,13" fill="rgba(255,255,255,0.8)"/>
+          </svg>
+          <div class="menu-img-label">フェンス塗装</div>
+        </div>
+        <div class="menu-body">
+          <div class="menu-name">フェンス塗装</div>
+          <div class="menu-desc">錆びや色褪せが進んだフェンスの塗り替え。防錆処理を行ってから仕上げるので耐久性も向上します。</div>
+          <div class="menu-tag">✓ 防錆処理込み</div>
+        </div>
+      </div>
+
+      <!-- 樋（とい）塗装 -->
+      <div class="menu-card">
+        <div class="menu-img" style="background:linear-gradient(135deg,#2980b9,#1a5276);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="4" width="8" height="32" rx="4" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+            <path d="M24 36 Q16 40 14 46" stroke="rgba(255,255,255,0.6)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <rect x="8" y="10" width="14" height="5" rx="2" fill="rgba(255,255,255,0.5)"/>
+            <rect x="26" y="10" width="14" height="5" rx="2" fill="rgba(255,255,255,0.5)"/>
+            <circle cx="34" cy="40" r="4" fill="rgba(135,206,250,0.6)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+            <path d="M32 40 Q34 37 36 40" stroke="rgba(255,255,255,0.7)" stroke-width="1" fill="none"/>
+          </svg>
+          <div class="menu-img-label">樋（とい）塗装</div>
+        </div>
+        <div class="menu-body">
+          <div class="menu-name">樋（とい）塗装</div>
+          <div class="menu-desc">雨樋の劣化・変色を塗装で改善。外壁塗装と同時施工が多く、まとめてキレイに仕上げるのが人気です。</div>
+          <div class="menu-tag">✓ 外壁と同時施工でお得</div>
+        </div>
+      </div>
+
+      <!-- 雨戸・戸袋塗装 -->
+      <div class="menu-card">
+        <div class="menu-img" style="background:linear-gradient(135deg,#7f8c8d,#555f61);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="8" width="16" height="32" rx="2" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+            <rect x="26" y="8" width="16" height="32" rx="2" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+            <line x1="6"  y1="16" x2="22" y2="16" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <line x1="6"  y1="24" x2="22" y2="24" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <line x1="6"  y1="32" x2="22" y2="32" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <line x1="26" y1="16" x2="42" y2="16" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <line x1="26" y1="24" x2="42" y2="24" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <line x1="26" y1="32" x2="42" y2="32" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <circle cx="21" cy="24" r="2" fill="rgba(255,255,255,0.7)"/>
+            <circle cx="27" cy="24" r="2" fill="rgba(255,255,255,0.7)"/>
+          </svg>
+          <div class="menu-img-label">雨戸・戸袋塗装</div>
+        </div>
+        <div class="menu-body">
+          <div class="menu-name">雨戸・戸袋塗装</div>
+          <div class="menu-desc">サビや色褪せが気になる雨戸・戸袋も対応。付帯部まとめて塗り替えると見た目が格段にキレイになります。</div>
+          <div class="menu-tag">✓ 付帯部まとめてOK</div>
+        </div>
+      </div>
+
+      <!-- シーリング（コーキング） -->
+      <div class="menu-card">
+        <div class="menu-img" style="background:linear-gradient(135deg,#d35400,#a04000);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="10" width="18" height="28" rx="2" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+            <rect x="26" y="10" width="18" height="28" rx="2" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+            <!-- 目地ライン -->
+            <rect x="21" y="10" width="6" height="28" rx="1" fill="rgba(245,200,66,0.85)"/>
+            <!-- コーキングガン -->
+            <rect x="28" y="30" width="14" height="5" rx="2" fill="rgba(255,255,255,0.7)" transform="rotate(-30 28 30)"/>
+            <circle cx="40" cy="24" r="3" fill="rgba(255,255,255,0.5)"/>
+          </svg>
+          <div class="menu-img-label">シーリング工事</div>
+        </div>
+        <div class="menu-body">
+          <div class="menu-name">シーリング（コーキング）</div>
+          <div class="menu-desc">サイディングの目地・窓周りのシーリングが劣化すると雨漏りの原因に。打ち替え・増し打ちで防水性を回復。</div>
+          <div class="menu-tag">✓ 雨漏り防止に直結</div>
+        </div>
+      </div>
+
+      <!-- 小規模・単品塗装 -->
+      <div class="menu-card menu-card-wide">
+        <div class="menu-img" style="background:linear-gradient(135deg,#8e44ad,#6c3483);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="16" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+            <path d="M16 24 Q20 16 24 24 Q28 32 32 24" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="36" cy="14" r="5" fill="rgba(245,200,66,0.9)"/>
+            <rect x="34" y="12" width="4" height="2" rx="1" fill="white"/>
+            <rect x="34" y="15" width="4" height="2" rx="1" fill="white"/>
+          </svg>
+          <div class="menu-img-label">その他・単品塗装</div>
+        </div>
+        <div class="menu-body">
+          <div class="menu-name">「ここだけ」の単品塗装もOK</div>
+          <div class="menu-desc">「玄関ドアだけ」「ポストだけ」「基礎部分だけ」など、小さな箇所も遠慮なくご相談ください。大手が断るような小規模案件にも対応します。</div>
+          <div class="menu-tag">✓ 小さな依頼も大歓迎 ✓ まずはLINEで写真を送るだけ</div>
+        </div>
+      </div>
+
+    </div><!-- /.menu-grid -->
+
+    <div class="menu-cta">
+      <div class="menu-cta-text">どの工事もまずは<strong>無料でご相談・見積もり</strong>ができます。</div>
+      <button class="works-cta-btn">💬 LINEで写真を送って相談する</button>
     </div>
   </div>
 
@@ -2777,7 +3533,7 @@ body {
         <div class="inst-example">
           <div class="inst-ex-label">分割払いの例</div>
           <div class="inst-ex-content">
-            頭金 <strong>5万円</strong> + 月々 <strong>2万円 × 24回</strong>
+            頭金 <strong>50万円</strong> + 月々 <strong>2万円 × 24回</strong>
           </div>
         </div>
         <div class="inst-desc">最大24回分割に対応。無理のない支払いで、大切なお家を守ることができます。詳しくはご相談ください。</div>
@@ -2807,7 +3563,7 @@ body {
       </div>
       <div class="faq-item">
         <div class="faq-q">分割払いはできますか？</div>
-        <div class="faq-a">はい、最大24回の分割払いに対応しています。「頭金5万円＋月々2万円×24回」などご状況に合わせてご相談ください。一括払いが難しい方もお気軽にご連絡ください。</div>
+        <div class="faq-a">はい、最大24回の分割払いに対応しています。「頭金50万円＋月々2万円×24回」などご状況に合わせてご相談ください。一括払いが難しい方もお気軽にご連絡ください。</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">施工中は家にいなくても大丈夫ですか？</div>
@@ -2816,34 +3572,188 @@ body {
     </div>
   </div>
 
-  <!-- ⑩ 最終CTA -->
-  <div class="final-cta">
-    <div class="final-cta-tag">📞 無料相談受付中</div>
-    <h2>
-      栃木・北関東なら<br>
-      <em>YSKにお任せください。</em>
-    </h2>
-    <div class="final-cta-note">
-      見積もり無料・しつこい営業なし・北関東全域対応
+  <!-- ⑩ お問い合わせフォーム -->
+  <div class="form-section" id="contact">
+    <div class="form-section-header">
+      <div class="section-label-tag">CONTACT</div>
+      <div class="section-title">無料お見積もり・<br>ご相談フォーム</div>
+      <p class="form-lead">内容を確認後、<strong>1〜2営業日以内</strong>にご連絡します。<br>しつこい営業は一切しません。</p>
     </div>
 
-    <div class="cta-btn-group">
-      <button class="btn-line-big">
-        💬 LINEで無料相談する
-        <span class="sub">24時間受付 / 写真送るだけでOK</span>
-      </button>
-      <button class="btn-tel-big">
-        📞 電話でのご相談はこちら<br>
-        <span style="font-family:'Oswald',sans-serif;font-size:20px;letter-spacing:.06em;">0120-XXX-XXX</span>
-      </button>
+    <div class="form-guarantees">
+      <span class="fg-item">✓ 見積もり・出張費 完全無料</span>
+      <span class="fg-item">✓ 断ってもOK</span>
+      <span class="fg-item">✓ 北関東全域対応</span>
     </div>
 
-    <div class="cta-guarantees">
-      <div class="cta-guarantee-item">見積もり・出張費 完全無料</div>
-      <div class="cta-guarantee-item">断っても一切しつこくしません</div>
-      <div class="cta-guarantee-item">栃木・群馬・茨城・埼玉 北関東全域対応</div>
-      <div class="cta-guarantee-item">夫婦2人のみで施工・下請け一切なし</div>
+    <!-- Web3Forms 送信フォーム -->
+    <!-- ★ Web3Formsのアクセスキーを取得して下記 value="" に貼り付けてください -->
+    <!-- 取得URL: https://web3forms.com/ （メールアドレスを入れるだけで無料取得できます） -->
+    <form
+      id="contact-form"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+      enctype="multipart/form-data"
+      novalidate
+    >
+      <!-- Web3Forms アクセスキー（★ここを変更） -->
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+      <!-- 件名 -->
+      <input type="hidden" name="subject" value="【YSK塗装】お見積もりのご依頼">
+      <!-- 返信先に自動設定 -->
+      <input type="hidden" name="from_name" value="YSK塗装 お問い合わせフォーム">
+      <!-- スパム対策 honeypot -->
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <!-- お名前 -->
+      <div class="form-group">
+        <label class="form-label" for="name">
+          お名前 <span class="form-required">必須</span>
+        </label>
+        <input
+          class="form-input"
+          type="text"
+          id="name"
+          name="name"
+          placeholder="例：山田 太郎"
+          required
+        >
+      </div>
+
+      <!-- 電話番号 -->
+      <div class="form-group">
+        <label class="form-label" for="phone">
+          電話番号 <span class="form-required">必須</span>
+        </label>
+        <input
+          class="form-input"
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="例：090-1234-5678"
+          required
+        >
+        <div class="form-hint">折り返しご連絡しやすい番号をご入力ください</div>
+      </div>
+
+      <!-- 住所 -->
+      <div class="form-group">
+        <label class="form-label" for="address">
+          お住まいの市区町村 <span class="form-required">必須</span>
+        </label>
+        <input
+          class="form-input"
+          type="text"
+          id="address"
+          name="address"
+          placeholder="例：栃木県日光市今市"
+          required
+        >
+      </div>
+
+      <!-- 築年数 -->
+      <div class="form-group">
+        <label class="form-label" for="age">
+          築年数・建物の種類 <span class="form-optional">任意</span>
+        </label>
+        <div class="form-row">
+          <select class="form-select" id="age" name="築年数">
+            <option value="">築年数を選択</option>
+            <option>5年未満</option>
+            <option>5〜10年</option>
+            <option>10〜15年</option>
+            <option>15〜20年</option>
+            <option>20〜25年</option>
+            <option>25〜30年</option>
+            <option>30年以上</option>
+            <option>不明</option>
+          </select>
+          <select class="form-select" name="建物の種類">
+            <option value="">建物の種類</option>
+            <option>木造一戸建て</option>
+            <option>鉄骨一戸建て</option>
+            <option>軽量鉄骨</option>
+            <option>RC造（鉄筋コンクリート）</option>
+            <option>その他</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ご希望の工事内容 -->
+      <div class="form-group">
+        <label class="form-label">
+          ご希望の工事内容 <span class="form-optional">任意</span>
+        </label>
+        <div class="form-checks">
+          <label class="form-check"><input type="checkbox" name="工事内容[]" value="外壁塗装"><span>外壁塗装</span></label>
+          <label class="form-check"><input type="checkbox" name="工事内容[]" value="屋根塗装"><span>屋根塗装</span></label>
+          <label class="form-check"><input type="checkbox" name="工事内容[]" value="外壁＋屋根セット"><span>外壁＋屋根セット</span></label>
+          <label class="form-check"><input type="checkbox" name="工事内容[]" value="シーリング工事"><span>シーリング工事</span></label>
+          <label class="form-check"><input type="checkbox" name="工事内容[]" value="フェンス・樋・雨戸など付帯部"><span>フェンス・樋・雨戸など付帯部</span></label>
+          <label class="form-check"><input type="checkbox" name="工事内容[]" value="その他・相談したい"><span>その他・まず相談したい</span></label>
+        </div>
+      </div>
+
+      <!-- 写真アップロード -->
+      <div class="form-group">
+        <label class="form-label" for="photos">
+          外壁・気になる箇所の写真 <span class="form-optional">任意</span>
+        </label>
+        <div class="form-upload-area" id="upload-area">
+          <input
+            class="form-upload-input"
+            type="file"
+            id="photos"
+            name="photos"
+            accept="image/*"
+            multiple
+            onchange="handleFiles(this)"
+          >
+          <div class="form-upload-icon">📷</div>
+          <div class="form-upload-text">タップして写真を選ぶ</div>
+          <div class="form-upload-hint">複数枚OK（jpg/png/heic）</div>
+        </div>
+        <div class="form-upload-preview" id="preview-wrap"></div>
+      </div>
+
+      <!-- メッセージ -->
+      <div class="form-group">
+        <label class="form-label" for="message">
+          ご質問・ご要望など <span class="form-optional">任意</span>
+        </label>
+        <textarea
+          class="form-textarea"
+          id="message"
+          name="message"
+          placeholder="「ひび割れが気になる」「雨漏りが心配」「まずは相談だけでも」など、気軽にお書きください。"
+          rows="4"
+        ></textarea>
+      </div>
+
+      <!-- 送信ボタン -->
+      <button class="form-submit-btn" type="submit" id="submit-btn">
+        <span id="submit-text">無料で見積もりを依頼する　›</span>
+        <span id="submit-loading" style="display:none;">送信中…</span>
+      </button>
+
+      <div class="form-privacy-note">
+        送信いただいた情報は、お見積もり・ご相談の対応のみに使用します。第三者への提供は一切しません。
+      </div>
+
+    </form>
+
+    <!-- 送信完了メッセージ -->
+    <div class="form-success" id="form-success" style="display:none;">
+      <div class="fs-icon">✅</div>
+      <div class="fs-title">送信が完了しました！</div>
+      <div class="fs-body">1〜2営業日以内にご登録の電話番号にご連絡します。<br>しばらくお待ちください。</div>
     </div>
+
+    <!-- 送信エラーメッセージ -->
+    <div class="form-error-msg" id="form-error" style="display:none;">
+      <div>⚠️ 送信に失敗しました。時間をおいて再度お試しいただくか、お電話でご連絡ください。</div>
+    </div>
+
   </div>
 
   <!-- Footer -->
@@ -2864,8 +3774,9 @@ body {
 
 <!-- フローティングCTAバー -->
 <div class="float-bar">
-  <button class="float-line">💬 LINEで無料相談</button>
-  <button class="float-tel">📞 電話で相談</button>
+  <button class="float-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+    📝 無料お見積もりはこちら
+  </button>
 </div>
 
 <script>
@@ -2874,7 +3785,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     const filter = btn.dataset.filter;
     document.querySelectorAll('.ba-card').forEach(card => {
       if (filter === 'all' || card.dataset.area === filter) {
@@ -2884,6 +3794,69 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
       }
     });
   });
+});
+
+// 写真プレビュー
+function handleFiles(input) {
+  const wrap = document.getElementById('preview-wrap');
+  wrap.innerHTML = '';
+  Array.from(input.files).forEach(file => {
+    if (!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.className = 'preview-thumb';
+      wrap.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+// フォーム送信（Web3Forms）
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  // バリデーション
+  let valid = true;
+  ['name','phone','address'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) {
+      el.classList.add('error');
+      valid = false;
+    } else {
+      el.classList.remove('error');
+    }
+  });
+  if (!valid) return;
+
+  const btn = document.getElementById('submit-btn');
+  const btnText = document.getElementById('submit-text');
+  const btnLoading = document.getElementById('submit-loading');
+  btn.disabled = true;
+  btnText.style.display = 'none';
+  btnLoading.style.display = 'inline';
+
+  try {
+    const formData = new FormData(this);
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      this.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    } else {
+      throw new Error('送信失敗');
+    }
+  } catch {
+    document.getElementById('form-error').style.display = 'block';
+    btn.disabled = false;
+    btnText.style.display = 'inline';
+    btnLoading.style.display = 'none';
+  }
 });
 </script>
 </body>
