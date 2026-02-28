@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>YSK塗装｜栃木・北関東の外壁・屋根塗装 完全自社施工 中間マージン0円</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@600;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&family=Oswald:wght@600;700&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap" rel="stylesheet">
 <style>
 /* ============================
    RESET & BASE
@@ -31,7 +31,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Noto Sans JP', 'Zen Kaku Gothic New', sans-serif;
-  background: #EDE9E2;
+  background: #FAF7F2;
   color: var(--text);
   font-size: 15px;
   line-height: 1.7;
@@ -118,7 +118,8 @@ body {
    HEADER STRIP
 ============================ */
 .header-strip {
-  background: var(--navy);
+  background: #FFFFFF;
+  border-bottom: 2px solid var(--navy);
   padding: 8px 16px;
   display: flex;
   align-items: center;
@@ -128,13 +129,13 @@ body {
 .header-logo {
   font-family: 'Oswald', sans-serif;
   font-size: 22px;
-  color: #fff;
+  color: var(--navy);
   letter-spacing: .12em;
 }
 
 .header-logo span {
   font-size: 10px;
-  color: rgba(255,255,255,.55);
+  color: var(--muted);
   display: block;
   letter-spacing: .06em;
   font-family: 'Noto Sans JP', sans-serif;
@@ -144,7 +145,7 @@ body {
 
 .header-tel {
   font-size: 13px;
-  color: var(--gold);
+  color: var(--navy);
   font-weight: 700;
   text-align: right;
   line-height: 1.3;
@@ -153,7 +154,7 @@ body {
 .header-tel small {
   display: block;
   font-size: 9px;
-  color: rgba(255,255,255,.5);
+  color: var(--muted);
   font-weight: 400;
 }
 
@@ -192,28 +193,19 @@ body {
    ① FV
 ============================ */
 .fv {
-  background: var(--navy);
+  background: #FAF7F2;
   position: relative;
   overflow: hidden;
 }
 
 .fv-bg-pattern {
-  position: absolute;
-  inset: 0;
-  background:
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 40px,
-      rgba(255,255,255,.02) 40px,
-      rgba(255,255,255,.02) 41px
-    );
+  display: none;
 }
 
 .fv-photo {
   width: 100%;
-  height: 240px;
-  background: linear-gradient(160deg, #1e4570 0%, #0a2033 100%);
+  height: 280px;
+  background: linear-gradient(160deg, #c8d8e8 0%, #9ab4cc 50%, #6a8caa 100%);
   position: relative;
   display: flex;
   align-items: center;
@@ -222,7 +214,7 @@ body {
 }
 
 .fv-photo-label {
-  color: rgba(255,255,255,.25);
+  color: rgba(26,46,69,.4);
   font-size: 13px;
   letter-spacing: .1em;
   text-align: center;
@@ -231,7 +223,7 @@ body {
 .fv-photo-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, rgba(15,42,69,.9) 100%);
+  background: linear-gradient(to bottom, transparent 50%, rgba(154,180,204,.5) 100%);
 }
 
 .fv-badge-group {
@@ -269,61 +261,104 @@ body {
   50%       { box-shadow: 0 0 0 6px rgba(232,80,26,0); }
 }
 
+/* 夫婦バッジ（FV左下・A案） */
+.fv-couple-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 4px solid var(--accent);
+  z-index: 3;
+}
+
+.fv-couple-avatar {
+  width: 36px;
+  height: 36px;
+  background: #F2EDE5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.fv-couple-name {
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+.fv-couple-sub {
+  font-size: 9px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
 .fv-copy {
-  padding: 20px 20px 0;
+  padding: 24px 20px 0;
   position: relative;
   z-index: 2;
+  background: #FAF7F2;
 }
 
 .fv-eyebrow {
   font-size: 11px;
-  color: var(--gold);
-  letter-spacing: .15em;
+  color: #fff;
+  letter-spacing: .1em;
   font-weight: 700;
-  margin-bottom: 8px;
-  display: flex;
+  margin-bottom: 12px;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
+  background: var(--navy);
+  padding: 4px 12px;
+  border-radius: 2px;
 }
 
 .fv-eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 2px;
-  background: var(--gold);
+  display: none;
 }
 
 .fv-headline {
-  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-family: 'Noto Serif JP', serif;
   font-size: 26px;
   font-weight: 900;
-  color: #fff;
-  line-height: 1.35;
+  color: var(--navy);
+  line-height: 1.45;
   letter-spacing: -.01em;
   margin-bottom: 10px;
 }
 
 .fv-headline em {
   font-style: normal;
-  color: var(--gold);
+  color: var(--accent);
+  background: linear-gradient(transparent 60%, rgba(232,80,10,.12) 60%);
   position: relative;
 }
 
 .fv-subline {
-  font-size: 13px;
-  color: rgba(255,255,255,.75);
-  line-height: 1.6;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
   margin-bottom: 20px;
 }
 
-.fv-subline strong { color: var(--gold); font-size: 15px; }
+.fv-subline strong { color: var(--navy); font-weight: 900; font-size: inherit; }
 
 .fv-cta {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 0 20px 20px;
+  background: #FAF7F2;
 }
 
 .btn-primary {
@@ -342,6 +377,14 @@ body {
   position: relative;
   overflow: hidden;
   letter-spacing: .03em;
+  box-shadow: 0 5px 0 #b33d08;
+  transform: translateY(0);
+  transition: transform .1s, box-shadow .1s;
+}
+
+.btn-primary:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #b33d08;
 }
 
 .btn-primary::before {
@@ -367,7 +410,7 @@ body {
 
 .fv-note {
   font-size: 11px;
-  color: rgba(255,255,255,.5);
+  color: var(--muted);
   text-align: center;
 }
 
@@ -715,7 +758,7 @@ body {
    ④ 悩み共感
 ============================ */
 .trouble-section {
-  background: var(--navy);
+  background: #FAF7F2;
   padding: 32px 20px;
   position: relative;
   overflow: hidden;
@@ -729,11 +772,11 @@ body {
   font-family: 'Oswald', sans-serif;
   font-size: 180px;
   font-weight: 700;
-  color: rgba(255,255,255,.03);
+  color: rgba(15,42,69,.04);
   line-height: 1;
 }
 
-.trouble-section .section-title { color: #fff; }
+.trouble-section .section-title { color: var(--navy); }
 
 .trouble-list {
   list-style: none;
@@ -744,21 +787,22 @@ body {
 }
 
 .trouble-item {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.08);
-  border-left: 2px solid var(--accent);
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
   border-radius: 0 6px 6px 0;
   padding: 14px 16px;
   display: flex;
   gap: 14px;
   align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
 }
 
 .trouble-icon-wrap {
   width: 44px;
   height: 44px;
-  background: rgba(232,80,26,.1);
-  border: 1px solid rgba(232,80,26,.25);
+  background: rgba(232,80,26,.08);
+  border: 1px solid rgba(232,80,26,.2);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -767,15 +811,15 @@ body {
 }
 
 .trouble-body { flex: 1; }
-.trouble-main { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.4; }
-.trouble-sub  { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 4px; }
+.trouble-main { font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.4; }
+.trouble-sub  { font-size: 11px; color: var(--muted); margin-top: 4px; }
 
 .trouble-resolve {
   margin-top: 20px;
-  background: rgba(232,80,26,.15);
-  border: 1px solid rgba(232,80,26,.4);
+  background: var(--navy);
+  border: none;
   border-radius: 4px;
-  padding: 14px 16px;
+  padding: 16px;
   text-align: center;
 }
 
@@ -1455,60 +1499,62 @@ body {
    ⑩ 最終CTA
 ============================ */
 .final-cta {
-  background: linear-gradient(160deg, var(--navy) 0%, #0a1f35 100%);
-  padding: 40px 20px 60px;
+  background: #FAF7F2;
+  padding: 40px 20px 48px;
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid var(--border);
 }
 
 .final-cta::before {
   content: '';
   position: absolute;
-  top: -60px; left: -60px;
-  width: 200px; height: 200px;
+  top: -40px; left: -40px;
+  width: 180px; height: 180px;
   border-radius: 50%;
-  background: rgba(232,80,26,.08);
+  background: rgba(232,80,26,.05);
 }
 
 .final-cta::after {
   content: '';
   position: absolute;
-  bottom: -40px; right: -40px;
-  width: 160px; height: 160px;
+  bottom: -30px; right: -30px;
+  width: 140px; height: 140px;
   border-radius: 50%;
-  background: rgba(245,200,66,.06);
+  background: rgba(15,42,69,.04);
 }
 
 .final-cta-tag {
   display: inline-block;
-  background: var(--accent);
-  color: #fff;
+  background: transparent;
+  color: var(--accent);
   font-size: 11px;
   font-weight: 700;
   padding: 5px 16px;
   border-radius: 20px;
+  border: 1.5px solid var(--accent);
   letter-spacing: .08em;
   margin-bottom: 14px;
 }
 
 .final-cta h2 {
-  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-family: 'Noto Serif JP', serif;
   font-size: 22px;
   font-weight: 900;
-  color: #fff;
-  line-height: 1.45;
+  color: var(--navy);
+  line-height: 1.5;
   margin-bottom: 6px;
 }
 
 .final-cta h2 em {
   font-style: normal;
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .final-cta-note {
   font-size: 12px;
-  color: rgba(255,255,255,.55);
+  color: var(--muted);
   margin-bottom: 24px;
 }
 
@@ -1526,7 +1572,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--green);
+  background: var(--accent);
   color: #fff;
   font-weight: 900;
   font-size: 16px;
@@ -1537,6 +1583,13 @@ body {
   letter-spacing: .03em;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 5px 0 #b33d08;
+  transition: transform .1s, box-shadow .1s;
+}
+
+.btn-line-big:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #b33d08;
 }
 
 .btn-line-big::before {
@@ -1561,15 +1614,16 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: rgba(255,255,255,.1);
-  border: 2px solid rgba(255,255,255,.35);
-  color: #fff;
+  background: var(--white);
+  border: 2px solid var(--navy);
+  color: var(--navy);
   font-weight: 900;
   font-size: 15px;
   padding: 15px;
   border-radius: 5px;
   cursor: pointer;
   letter-spacing: .03em;
+  text-decoration: none;
 }
 
 .cta-guarantees {
@@ -1582,7 +1636,7 @@ body {
 
 .cta-guarantee-item {
   font-size: 11px;
-  color: rgba(255,255,255,.6);
+  color: var(--muted);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2205,33 +2259,33 @@ body {
    セクション間 CTA バナー
 ============================ */
 .section-cta-banner {
-  background: linear-gradient(135deg, #0F2A45 0%, #1A3E60 100%);
-  padding: 28px 20px;
+  background: #FAF7F2;
+  padding: 32px 20px;
   text-align: center;
-  border-top: 3px solid var(--accent);
-  border-bottom: 3px solid var(--accent);
+  border-top: 3px solid var(--navy);
+  border-bottom: 1px solid var(--border);
 }
 
 .scb-label {
   font-size: 11px;
-  color: var(--gold);
+  color: var(--accent);
   font-weight: 700;
   letter-spacing: .12em;
   margin-bottom: 8px;
 }
 
 .scb-title {
-  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-family: 'Noto Serif JP', serif;
   font-size: 18px;
   font-weight: 900;
-  color: #fff;
-  line-height: 1.45;
+  color: var(--navy);
+  line-height: 1.55;
   margin-bottom: 16px;
 }
 
 .scb-title em {
   font-style: normal;
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .scb-btns {
@@ -2247,7 +2301,7 @@ body {
   gap: 8px;
   width: 100%;
   padding: 16px;
-  background: #E8500A;
+  background: var(--accent);
   border: none;
   border-radius: 6px;
   color: white;
@@ -2255,11 +2309,14 @@ body {
   font-weight: 800;
   letter-spacing: .04em;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(232,80,10,0.45);
-  transition: opacity .2s;
+  box-shadow: 0 5px 0 #b33d08;
+  transition: transform .1s, box-shadow .1s;
 }
 
-.scb-btn-form:hover { opacity: .9; }
+.scb-btn-form:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #b33d08;
+}
 
 .scb-btn-tel {
   display: flex;
@@ -2268,10 +2325,10 @@ body {
   gap: 8px;
   width: 100%;
   padding: 13px;
-  background: rgba(255,255,255,.1);
-  border: 1.5px solid rgba(255,255,255,.3);
+  background: var(--white);
+  border: 2px solid var(--navy);
   border-radius: 6px;
-  color: white;
+  color: var(--navy);
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
@@ -2279,11 +2336,11 @@ body {
   transition: background .2s;
 }
 
-.scb-btn-tel:hover { background: rgba(255,255,255,.15); }
+.scb-btn-tel:hover { background: #f0f4f8; }
 
 .scb-note {
   font-size: 11px;
-  color: rgba(255,255,255,.45);
+  color: var(--muted);
   margin-top: 10px;
 }
 
@@ -2416,7 +2473,15 @@ body {
 
 .form-section {
   background: var(--navy);
-  padding: 36px 20px 48px;
+  padding: 0 0 48px;
+}
+
+.form-section-inner {
+  background: var(--white);
+  margin: 0 16px;
+  border-radius: 12px;
+  padding: 28px 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
 }
 
 .form-section-header {
@@ -2425,23 +2490,23 @@ body {
 }
 
 .form-section-header .section-label-tag {
-  border-color: rgba(255,255,255,.3);
-  color: rgba(255,255,255,.5);
+  border-color: var(--accent);
+  color: var(--accent);
   margin: 0 auto 10px;
 }
 
 .form-section-header .section-title {
-  color: #fff;
+  color: var(--navy);
 }
 
 .form-lead {
   font-size: 13px;
-  color: rgba(255,255,255,.7);
+  color: var(--muted);
   line-height: 1.7;
   margin-top: 10px;
 }
 
-.form-lead strong { color: var(--gold); }
+.form-lead strong { color: var(--accent); font-weight: 900; }
 
 .form-guarantees {
   display: flex;
@@ -2476,7 +2541,7 @@ body {
 .form-label {
   font-size: 13px;
   font-weight: 700;
-  color: #fff;
+  color: var(--navy);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -2493,8 +2558,8 @@ body {
 
 .form-optional {
   font-size: 10px;
-  background: rgba(255,255,255,.2);
-  color: rgba(255,255,255,.7);
+  background: var(--stone);
+  color: var(--muted);
   padding: 2px 6px;
   border-radius: 3px;
   font-weight: 400;
@@ -2505,10 +2570,10 @@ body {
 .form-textarea {
   width: 100%;
   padding: 12px 14px;
-  border: 1.5px solid rgba(255,255,255,.2);
+  border: 1.5px solid var(--border);
   border-radius: 6px;
-  background: rgba(255,255,255,.07);
-  color: #fff;
+  background: var(--white);
+  color: var(--text);
   font-size: 15px;
   font-family: 'Noto Sans JP', sans-serif;
   outline: none;
@@ -2518,14 +2583,14 @@ body {
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: rgba(255,255,255,.35);
+  color: var(--border);
 }
 
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  border-color: var(--gold);
-  background: rgba(255,255,255,.12);
+  border-color: var(--navy);
+  background: #FAFCFF;
 }
 
 .form-input.error,
@@ -2535,17 +2600,17 @@ body {
 }
 
 .form-select {
-  color: rgba(255,255,255,.7);
+  color: var(--text);
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.5)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6560' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
   padding-right: 36px;
 }
 
 .form-select option {
-  background: var(--navy);
-  color: #fff;
+  background: var(--white);
+  color: var(--text);
 }
 
 .form-row {
@@ -2556,7 +2621,7 @@ body {
 
 .form-hint {
   font-size: 11px;
-  color: rgba(255,255,255,.45);
+  color: var(--muted);
 }
 
 .form-textarea {
@@ -2578,15 +2643,15 @@ body {
   gap: 10px;
   cursor: pointer;
   padding: 10px 12px;
-  background: rgba(255,255,255,.06);
-  border: 1.5px solid rgba(255,255,255,.12);
+  background: var(--cream);
+  border: 1.5px solid var(--border);
   border-radius: 6px;
   transition: background .15s, border-color .15s;
 }
 
 .form-check:hover {
-  background: rgba(255,255,255,.1);
-  border-color: rgba(255,255,255,.25);
+  background: #eee8df;
+  border-color: var(--navy);
 }
 
 .form-check input[type="checkbox"] {
@@ -2598,25 +2663,25 @@ body {
 
 .form-check span {
   font-size: 13px;
-  color: rgba(255,255,255,.85);
+  color: var(--text);
   line-height: 1.4;
 }
 
 /* 写真アップロード */
 .form-upload-area {
   position: relative;
-  border: 2px dashed rgba(255,255,255,.3);
+  border: 2px dashed var(--border);
   border-radius: 8px;
   padding: 24px 16px;
   text-align: center;
   cursor: pointer;
   transition: border-color .2s, background .2s;
-  background: rgba(255,255,255,.04);
+  background: var(--cream);
 }
 
 .form-upload-area:hover {
-  border-color: var(--gold);
-  background: rgba(255,255,255,.08);
+  border-color: var(--navy);
+  background: #eee8df;
 }
 
 .form-upload-input {
@@ -2633,12 +2698,12 @@ body {
 .form-upload-text {
   font-size: 14px;
   font-weight: 700;
-  color: rgba(255,255,255,.8);
+  color: var(--navy);
 }
 
 .form-upload-hint {
   font-size: 11px;
-  color: rgba(255,255,255,.4);
+  color: var(--muted);
   margin-top: 4px;
 }
 
@@ -2654,7 +2719,7 @@ body {
   height: 72px;
   object-fit: cover;
   border-radius: 6px;
-  border: 2px solid rgba(255,255,255,.2);
+  border: 2px solid var(--border);
 }
 
 /* 送信ボタン */
@@ -2671,12 +2736,19 @@ body {
   letter-spacing: .04em;
   position: relative;
   overflow: hidden;
-  transition: opacity .2s;
+  transition: transform .1s, box-shadow .1s;
+  box-shadow: 0 5px 0 #b33d08;
+}
+
+.form-submit-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #b33d08;
 }
 
 .form-submit-btn:disabled {
   opacity: .6;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .form-submit-btn::before {
@@ -2690,7 +2762,7 @@ body {
 
 .form-privacy-note {
   font-size: 10px;
-  color: rgba(255,255,255,.35);
+  color: var(--muted);
   text-align: center;
   line-height: 1.6;
   margin-top: 4px;
@@ -2698,8 +2770,8 @@ body {
 
 /* 送信完了 */
 .form-success {
-  background: rgba(0,168,50,.15);
-  border: 1.5px solid rgba(0,168,50,.5);
+  background: rgba(0,168,50,.08);
+  border: 1.5px solid rgba(0,168,50,.4);
   border-radius: 8px;
   padding: 24px;
   text-align: center;
@@ -2711,24 +2783,24 @@ body {
 .fs-title {
   font-size: 18px;
   font-weight: 900;
-  color: #fff;
+  color: var(--navy);
   margin-bottom: 8px;
 }
 
 .fs-body {
   font-size: 13px;
-  color: rgba(255,255,255,.7);
+  color: var(--muted);
   line-height: 1.7;
 }
 
 /* エラー */
 .form-error-msg {
-  background: rgba(231,76,60,.15);
-  border: 1.5px solid rgba(231,76,60,.5);
+  background: rgba(231,76,60,.08);
+  border: 1.5px solid rgba(231,76,60,.4);
   border-radius: 8px;
   padding: 14px;
   font-size: 13px;
-  color: rgba(255,255,255,.8);
+  color: #c0392b;
   margin-top: 8px;
   line-height: 1.6;
 }
@@ -2741,19 +2813,19 @@ body {
   gap: 7px;
   width: 100%;
   padding: 12px 16px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: var(--white);
+  border: 2px solid var(--navy);
   border-radius: 6px;
-  color: rgba(255,255,255,0.85);
+  color: var(--navy);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   letter-spacing: .03em;
   margin-top: 10px;
   transition: background .2s;
   box-sizing: border-box;
 }
-.btn-tel-sub:hover { background: rgba(255,255,255,0.14); }
+.btn-tel-sub:hover { background: #f0f4f8; }
 
 /* 中間CTA 2ボタングループ */
 .mid-cta-group {
@@ -2811,19 +2883,20 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: var(--navy);
+  background: var(--white);
+  border: 2px solid var(--navy);
   border-radius: 8px;
   padding: 14px 16px;
   margin-bottom: 16px;
   text-decoration: none;
-  color: white;
-  transition: opacity .2s;
+  color: var(--navy);
+  transition: background .2s;
 }
-.contact-tel-banner:hover { opacity: .88; }
+.contact-tel-banner:hover { background: #f0f4f8; }
 .ctb-icon {
   width: 40px;
   height: 40px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(15,42,69,.08);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2831,10 +2904,10 @@ body {
   flex-shrink: 0;
 }
 .ctb-body { flex: 1; }
-.ctb-label { font-size: 10px; opacity: .7; margin-bottom: 2px; letter-spacing: .04em; }
-.ctb-num { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: .05em; line-height: 1.2; }
-.ctb-hours { font-size: 10px; opacity: .6; margin-top: 2px; }
-.ctb-arrow { font-size: 20px; opacity: .4; flex-shrink: 0; }
+.ctb-label { font-size: 10px; color: var(--muted); margin-bottom: 2px; letter-spacing: .04em; }
+.ctb-num { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; color: var(--navy); letter-spacing: .05em; line-height: 1.2; }
+.ctb-hours { font-size: 10px; color: var(--muted); margin-top: 2px; }
+.ctb-arrow { font-size: 20px; color: var(--muted); flex-shrink: 0; }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -2899,6 +2972,14 @@ body {
     <div class="fv-photo">
       <div class="fv-photo-label">📸 施工写真（夫婦）</div>
       <div class="fv-photo-overlay"></div>
+      <!-- 夫婦バッジ（A案特徴：左下） -->
+      <div class="fv-couple-badge">
+        <div class="fv-couple-avatar">👫</div>
+        <div class="fv-couple-info">
+          <div class="fv-couple-name">矢部 勇哉・美穂</div>
+          <div class="fv-couple-sub">夫婦で直接施工します</div>
+        </div>
+      </div>
       <div class="fv-badge-group">
         <div class="fv-badge">
           累計施工
@@ -2929,7 +3010,7 @@ body {
       </button>
       <a href="tel:09044100549" class="btn-tel-sub">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-          <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="rgba(255,255,255,0.7)" stroke-width="1.2" stroke-linejoin="round" fill="rgba(255,255,255,0.1)"/>
+          <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="var(--navy)" stroke-width="1.2" stroke-linejoin="round" fill="rgba(26,46,69,0.1)"/>
         </svg>
         電話で相談する（無料）&ensp;090-4410-0549
       </a>
@@ -4203,17 +4284,21 @@ body {
 
   <!-- ⑩ お問い合わせフォーム -->
   <div class="form-section" id="contact">
-    <div class="form-section-header">
-      <div class="section-label-tag">CONTACT</div>
-      <div class="section-title">無料お見積もり・<br>ご相談フォーム</div>
-      <p class="form-lead">内容を確認後、<strong>1〜2営業日以内</strong>にご連絡します。<br>しつこい営業は一切しません。</p>
+    <!-- ネイビーヘッダー -->
+    <div style="background:var(--navy);padding:32px 20px 52px;text-align:center;">
+      <div style="display:inline-block;font-family:'Oswald',sans-serif;font-size:10px;letter-spacing:.15em;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.3);padding:3px 10px;border-radius:2px;margin-bottom:12px;">CONTACT</div>
+      <div style="font-family:'Noto Serif JP',serif;font-size:22px;font-weight:900;color:#fff;line-height:1.4;">無料お見積もり・<br>ご相談フォーム</div>
+      <p style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.7;margin-top:10px;">内容を確認後、<strong style="color:var(--gold);">1〜2営業日以内</strong>にご連絡します。<br>しつこい営業は一切しません。</p>
     </div>
+
+    <!-- 白カード本体 -->
+    <div style="margin:-28px 16px 32px;position:relative;z-index:2;background:var(--white);border-radius:12px;padding:24px 20px;box-shadow:0 4px 28px rgba(0,0,0,.18);">
 
     <!-- 電話でもOKバナー -->
     <a href="tel:09044100549" class="contact-tel-banner">
       <div class="ctb-icon">
         <svg width="22" height="22" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="white" stroke-width="1.4" stroke-linejoin="round" fill="rgba(255,255,255,0.2)"/>
+          <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="var(--navy)" stroke-width="1.4" stroke-linejoin="round" fill="rgba(15,42,69,0.1)"/>
         </svg>
       </div>
       <div class="ctb-body">
@@ -4397,6 +4482,8 @@ body {
     <div class="form-error-msg" id="form-error" style="display:none;">
       <div>⚠️ 送信に失敗しました。時間をおいて再度お試しいただくか、お電話でご連絡ください。</div>
     </div>
+
+    </div><!-- /white card -->
 
   </div>
 
