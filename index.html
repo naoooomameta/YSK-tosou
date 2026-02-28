@@ -1698,100 +1698,156 @@ body {
   font-weight: 700;
   color: var(--muted);
   text-align: center;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
   letter-spacing: .03em;
 }
 
 .ratio-col-wrap {
   display: flex;
-  align-items: flex-end;
-  gap: 8px;
+  align-items: stretch;
+  gap: 4px;
 }
 
+/* 各カラム：バー＋ラベルを横並びにする */
 .ratio-col {
   flex: 1;
-  text-align: center;
-}
-
-.ratio-col-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.ratio-bar-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+}
+
+.ratio-col-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* バー本体エリア：バー＋外部ラベルを横並び */
+.ratio-bar-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
 }
 
 .ratio-bar {
-  width: 80px;
-  height: 180px;
+  width: 72px;
+  flex-shrink: 0;
+  height: 260px;
   display: flex;
   flex-direction: column-reverse;
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+  box-shadow: 0 3px 12px rgba(0,0,0,.15);
 }
 
+/* セグメント内テキストは非表示にしてラベルは外に出す */
 .ratio-seg {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: height .4s ease;
+  position: relative;
 }
 
 .ratio-seg span {
-  font-size: 12px;
-  font-weight: 700;
-  color: rgba(255,255,255,.9);
-  text-align: center;
-  line-height: 1.3;
+  display: none; /* テキストはバー外のラベルで表示 */
 }
 
 .ratio-seg.markup   { background: #e74c3c; }
 .ratio-seg.sales    { background: #e67e22; }
 .ratio-seg.margin   { background: #c0392b; }
 .ratio-seg.admin    { background: #d35400; }
-.ratio-seg.work-o   { background: #7f8c8d; }
+.ratio-seg.work-o   { background: #95a5a6; }
 .ratio-seg.work-y   { background: var(--navy); }
 .ratio-seg.material { background: #2980b9; }
 
+/* バー右側の外部ラベルリスト */
+.ratio-ext-labels {
+  flex: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  height: 260px;
+  padding-left: 7px;
+  gap: 0;
+}
+
+.rel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.rel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.rel-dot.markup   { background: #e74c3c; }
+.rel-dot.sales    { background: #e67e22; }
+.rel-dot.margin   { background: #c0392b; }
+.rel-dot.admin    { background: #d35400; }
+.rel-dot.work-o   { background: #95a5a6; }
+.rel-dot.work-y   { background: var(--navy); }
+.rel-dot.material { background: #2980b9; }
+
+/* バー内に大きく%だけ表示（大きなセグメントのみ） */
+.ratio-seg-pct {
+  position: absolute;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,.9);
+  pointer-events: none;
+}
+
+/* 下部レジェンド（まとめ） */
 .ratio-legend {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   width: 100%;
+  margin-top: 10px;
 }
 
 .rl {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  padding: 3px 6px;
-  border-radius: 3px;
+  padding: 6px 8px;
+  border-radius: 4px;
   text-align: center;
 }
 
-.rl.markup, .rl.sales, .rl.margin, .rl.admin {
+.rl.markup, .rl.sales, .rl.margin, .rl.admin, .rl.bad {
   background: #fdecea;
   color: #c0392b;
 }
 
 .rl.work-o   { background: #ecf0f1; color: #555; }
-.rl.work-y   { background: #e8f0ff; color: var(--navy); }
+.rl.work-y   { background: #e8f0ff; color: var(--navy); font-weight: 900; }
 .rl.material { background: #eaf4fb; color: #2471a3; }
 
 .ratio-vs {
   font-family: 'Oswald', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--muted);
-  padding-bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  padding: 0 2px;
+  padding-bottom: 120px;
 }
 
 .ratio-result {
@@ -3356,16 +3412,23 @@ body {
           <div class="ratio-col-title">大手・一般業者</div>
           <div class="ratio-bar-wrap">
             <div class="ratio-bar">
-              <div class="ratio-seg markup"  style="height:20%"><span>広告費<br>10%</span></div>
-              <div class="ratio-seg sales"   style="height:18%"><span>営業費<br>9%</span></div>
-              <div class="ratio-seg margin"  style="height:24%"><span>下請け<br>マージン<br>12%</span></div>
-              <div class="ratio-seg admin"   style="height:18%"><span>本社<br>管理費<br>9%</span></div>
-              <div class="ratio-seg work-o"  style="height:20%"><span>施工費<br>40%</span></div>
+              <div class="ratio-seg markup"  style="height:20%"></div>
+              <div class="ratio-seg sales"   style="height:18%"></div>
+              <div class="ratio-seg margin"  style="height:24%"></div>
+              <div class="ratio-seg admin"   style="height:18%"></div>
+              <div class="ratio-seg work-o"  style="height:20%"></div>
             </div>
-            <div class="ratio-legend">
-              <span class="rl markup">無駄なコスト 60%</span>
-              <span class="rl work-o">実際の工事 40%</span>
+            <div class="ratio-ext-labels">
+              <div class="rel"><span class="rel-dot work-o"></span><span>施工費 40%</span></div>
+              <div class="rel"><span class="rel-dot admin"></span><span>管理費 9%</span></div>
+              <div class="rel"><span class="rel-dot margin"></span><span>下請 12%</span></div>
+              <div class="rel"><span class="rel-dot sales"></span><span>営業費 9%</span></div>
+              <div class="rel"><span class="rel-dot markup"></span><span>広告費 10%</span></div>
             </div>
+          </div>
+          <div class="ratio-legend">
+            <span class="rl bad">😱 無駄なコスト 60%</span>
+            <span class="rl work-o">実際の工事 40%</span>
           </div>
         </div>
 
@@ -3377,13 +3440,17 @@ body {
           <div class="ratio-col-title" style="color:var(--accent);">YSK塗装</div>
           <div class="ratio-bar-wrap">
             <div class="ratio-bar ysk">
-              <div class="ratio-seg work-y" style="height:80%"><span>施工費<br>80%</span></div>
-              <div class="ratio-seg material" style="height:20%"><span>塗料・<br>資材<br>20%</span></div>
+              <div class="ratio-seg work-y"   style="height:80%"></div>
+              <div class="ratio-seg material" style="height:20%"></div>
             </div>
-            <div class="ratio-legend">
-              <span class="rl work-y">実際の工事 80%</span>
-              <span class="rl material">資材費 20%</span>
+            <div class="ratio-ext-labels">
+              <div class="rel"><span class="rel-dot work-y"></span><span>施工費 80%</span></div>
+              <div class="rel"><span class="rel-dot material"></span><span>資材費 20%</span></div>
             </div>
+          </div>
+          <div class="ratio-legend">
+            <span class="rl work-y">✅ 実際の工事 80%</span>
+            <span class="rl material">資材費 20%</span>
           </div>
         </div>
       </div>
