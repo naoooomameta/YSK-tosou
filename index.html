@@ -2109,6 +2109,9 @@ body {
 .ratio-seg.work-o   { background: #95a5a6; }
 .ratio-seg.work-y   { background: var(--navy); }
 .ratio-seg.material { background: #2980b9; }
+.ratio-seg.paint-y  { background: #2471a3; }
+.ratio-seg.scaffold-y { background: #5dade2; }
+.ratio-seg.ad-y     { background: #85c1e9; }
 
 /* バー右側の外部ラベルリスト */
 .ratio-ext-labels {
@@ -2145,6 +2148,9 @@ body {
 .rel-dot.work-o   { background: #95a5a6; }
 .rel-dot.work-y   { background: var(--navy); }
 .rel-dot.material { background: #2980b9; }
+.rel-dot.paint-y  { background: #2471a3; }
+.rel-dot.scaffold-y { background: #5dade2; }
+.rel-dot.ad-y     { background: #85c1e9; }
 
 /* バー内に大きく%だけ表示（大きなセグメントのみ） */
 .ratio-seg-pct {
@@ -2180,6 +2186,61 @@ body {
 .rl.work-o   { background: #ecf0f1; color: #555; }
 .rl.work-y   { background: #e8f0ff; color: var(--navy2); font-weight: 900; }
 .rl.material { background: #eaf4fb; color: #2471a3; }
+.rl.paint-y  { background: #eaf4fb; color: #2471a3; }
+.rl.scaffold-y { background: #eaf4fb; color: #2980b9; }
+.rl.ad-y     { background: #eaf4fb; color: #5dade2; }
+
+/* 中間コスト ブラケット */
+.ratio-bracket {
+  position: absolute;
+  right: -28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+.ratio-bracket-line {
+  width: 2px;
+  background: #c0392b;
+  flex: 1;
+}
+.ratio-bracket-label {
+  writing-mode: vertical-rl;
+  font-size: 11px;
+  font-weight: 900;
+  color: #c0392b;
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
+.ratio-bar-wrap { position: relative; }
+
+/* 大きな節約バッジ */
+.savings-badge {
+  margin-top: 14px;
+  background: linear-gradient(135deg, var(--accent) 0%, #d44000 100%);
+  border-radius: 8px;
+  padding: 14px 16px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(232,80,26,.25);
+}
+.savings-badge-main {
+  font-family: 'Oswald', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+.savings-badge-main em {
+  font-style: normal;
+  font-size: 48px;
+  color: var(--gold);
+}
+.savings-badge-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,.88);
+  margin-top: 4px;
+  line-height: 1.5;
+}
 
 .ratio-vs {
   font-family: 'Oswald', sans-serif;
@@ -2496,6 +2557,31 @@ body {
 .hb-work     { background: #aaa; }
 .hb-work-ysk { background: var(--navy); }
 .hb-small    { background: #2980b9; }
+.hb-material-ysk { background: #2471a3; }
+.hb-ad-ysk   { background: #85c1e9; }
+
+/* 横棒の内訳詳細 */
+.hbar-detail {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 3px;
+  padding-left: 64px;
+}
+.hbar-detail-item {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.hbar-detail-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
 
 .hbar-note {
   font-size: 13px;
@@ -4064,7 +4150,7 @@ body {
   <div class="merit1-section">
     <div class="section-header">
       <div class="section-label-tag">MERIT 01</div>
-      <div class="section-title">同じ工事なのに、<br>なぜYSKは<em style="font-style:normal;color:var(--accent)">最低でも40%安い</em>のか？</div>
+      <div class="section-title">同じ工事なのに、<br>なぜYSKは<em style="font-style:normal;color:var(--accent)">トータル40%安い</em>のか？</div>
     </div>
 
     <!-- 割合グラフ比較 -->
@@ -4076,24 +4162,29 @@ body {
         <div class="ratio-col">
           <div class="ratio-col-title">大手・一般業者</div>
           <div class="ratio-bar-wrap">
-            <div class="ratio-bar">
-              <div class="ratio-seg markup"  style="height:20%"></div>
-              <div class="ratio-seg sales"   style="height:18%"></div>
-              <div class="ratio-seg margin"  style="height:24%"></div>
-              <div class="ratio-seg admin"   style="height:18%"></div>
-              <div class="ratio-seg work-o"  style="height:20%"></div>
+            <div class="ratio-bar" style="position:relative;">
+              <div class="ratio-seg work-o"  style="height:40%"></div>
+              <div class="ratio-seg admin"   style="height:9%"></div>
+              <div class="ratio-seg margin"  style="height:32%"></div>
+              <div class="ratio-seg sales"   style="height:9%"></div>
+              <div class="ratio-seg markup"  style="height:10%"></div>
+              <!-- 中間コスト60%ブラケット -->
+              <div class="ratio-bracket" style="top:0;height:60%;right:-30px;">
+                <div style="font-size:10px;font-weight:900;color:#c0392b;background:#fdecea;border-radius:3px;padding:2px 5px;white-space:nowrap;">60%</div>
+                <div class="ratio-bracket-line" style="height:100%;"></div>
+              </div>
             </div>
             <div class="ratio-ext-labels">
               <div class="rel"><span class="rel-dot work-o"></span><span>施工費 40%</span></div>
               <div class="rel"><span class="rel-dot admin"></span><span>管理費 9%</span></div>
-              <div class="rel"><span class="rel-dot margin"></span><span>下請 12%</span></div>
+              <div class="rel"><span class="rel-dot margin"></span><span>下請 32%</span></div>
               <div class="rel"><span class="rel-dot sales"></span><span>営業費 9%</span></div>
               <div class="rel"><span class="rel-dot markup"></span><span>広告費 10%</span></div>
             </div>
           </div>
           <div class="ratio-legend">
-            <span class="rl bad">無駄なコスト 60%</span>
-            <span class="rl work-o">実際の工事 40%</span>
+            <span class="rl bad">中間コスト 60%</span>
+            <span class="rl work-o">施工費 40%</span>
           </div>
         </div>
 
@@ -4105,27 +4196,38 @@ body {
           <div class="ratio-col-title" style="color:var(--accent);">YSK塗装</div>
           <div class="ratio-bar-wrap">
             <div class="ratio-bar ysk">
-              <div class="ratio-seg work-y"   style="height:80%"></div>
-              <div class="ratio-seg material" style="height:20%"></div>
+              <div class="ratio-seg work-y"      style="height:45%"></div>
+              <div class="ratio-seg paint-y"     style="height:30%"></div>
+              <div class="ratio-seg scaffold-y"  style="height:20%"></div>
+              <div class="ratio-seg ad-y"        style="height:5%"></div>
             </div>
             <div class="ratio-ext-labels">
-              <div class="rel"><span class="rel-dot work-y"></span><span>施工費 80%</span></div>
-              <div class="rel"><span class="rel-dot material"></span><span>資材費 20%</span></div>
+              <div class="rel"><span class="rel-dot work-y"></span><span>施工費 45%</span></div>
+              <div class="rel"><span class="rel-dot paint-y"></span><span>塗料消耗費 30%</span></div>
+              <div class="rel"><span class="rel-dot scaffold-y"></span><span>足場費 20%</span></div>
+              <div class="rel"><span class="rel-dot ad-y"></span><span>広告費 5%</span></div>
             </div>
           </div>
           <div class="ratio-legend">
-            <span class="rl work-y">実際の工事 80%</span>
-            <span class="rl material">資材費 20%</span>
+            <span class="rl work-y">施工費 45%</span>
+            <span class="rl paint-y">資材費 50%</span>
+            <span class="rl ad-y">広告費 5%</span>
           </div>
         </div>
+      </div>
+
+      <!-- 節約バッジ -->
+      <div class="savings-badge">
+        <div class="savings-badge-main">トータルで<em>40%</em>OFF</div>
+        <div class="savings-badge-sub">中間コストを徹底カット。<br>お支払い額のほぼ全額が「工事と資材」に使われます。</div>
       </div>
 
       <div class="ratio-result">
         <div class="ratio-result-icon">💡</div>
         <div class="ratio-result-text">
-          大手の費用の<strong>40〜60%は「無駄な中間コスト」</strong>。<br>
-          YSKはそこをまるごとカットするから、<br>
-          <em>同じ品質で最低でも40%安くなります。</em>
+          大手の費用の<strong>60%は「中間コスト」</strong>（広告費・営業費・下請・管理費）。<br>
+          YSKは中間コストをほぼゼロにし、<strong>95%を施工と資材に還元</strong>。<br>
+          だから<em>同じ品質でトータル40%お安くなります。</em>
         </div>
       </div>
     </div>
@@ -4137,22 +4239,22 @@ body {
         <div class="cost-reason-item">
           <div class="cr-num">01</div>
           <div class="cr-body">
-            <div class="cr-title">お客様から直接ご依頼</div>
-            <div class="cr-desc">代理店・仲介業者を一切挟まないため、中間マージンが発生しません。</div>
+            <div class="cr-title">下請なし — お客様から直接施工</div>
+            <div class="cr-desc">大手の最大コスト「下請 32%」を完全カット。代理店・仲介業者を一切挟まないため、中間マージンがゼロ。</div>
           </div>
         </div>
         <div class="cost-reason-item">
           <div class="cr-num">02</div>
           <div class="cr-body">
-            <div class="cr-title">夫婦経営だから人件費を最小化</div>
-            <div class="cr-desc">営業スタッフ・事務員を雇わず、2人でコンパクトに運営。余剰コストがゼロ。</div>
+            <div class="cr-title">夫婦経営で営業費・管理費を最小化</div>
+            <div class="cr-desc">営業スタッフ・事務員を雇わず、2人でコンパクトに運営。大手で18%かかる営業費+管理費を大幅削減。</div>
           </div>
         </div>
         <div class="cost-reason-item">
           <div class="cr-num">03</div>
           <div class="cr-body">
             <div class="cr-title">栃木県内の専属取引先と連携</div>
-            <div class="cr-desc">足場・塗料を栃木県内の信頼できる取引先から直接仕入れ。原価を徹底的に抑えています。</div>
+            <div class="cr-desc">足場・塗料を栃木県内の信頼できる取引先から直接仕入れ。資材費50%の内訳も塗料30%+足場20%と明朗会計。</div>
           </div>
         </div>
       </div>
@@ -4946,7 +5048,7 @@ body {
 
     <div class="price-ratio-intro">
       塗装費用の相場がわかりにくいのは、業者によって「何に費用がかかっているか」が全く違うから。<br>
-      YSKは<strong>工事そのものにだけお金をかけます。</strong>
+      YSKは<strong>工事と資材にだけお金をかけます。</strong>
     </div>
 
     <!-- 割合比較バー（横型） -->
@@ -4955,26 +5057,38 @@ body {
         <div class="hbar-label">大手・一般</div>
         <div class="hbar-track">
           <div class="hbar-seg hb-waste" style="width:60%">
-            <span>無駄なコスト 60%</span>
+            <span>中間コスト 60%</span>
           </div>
           <div class="hbar-seg hb-work" style="width:40%">
-            <span>工事 40%</span>
+            <span>施工費 40%</span>
           </div>
         </div>
+      </div>
+      <div class="hbar-detail">
+        <div class="hbar-detail-item"><span class="hbar-detail-dot" style="background:#c0392b"></span>広告10% 営業9% 下請32% 管理9%</div>
       </div>
       <div class="hbar-row">
         <div class="hbar-label ysk-lbl">YSK塗装</div>
         <div class="hbar-track">
-          <div class="hbar-seg hb-work-ysk" style="width:80%">
-            <span>工事・材料 80%</span>
+          <div class="hbar-seg hb-work-ysk" style="width:45%">
+            <span>施工費 45%</span>
           </div>
-          <div class="hbar-seg hb-small" style="width:20%">
-            <span>20%</span>
+          <div class="hbar-seg hb-material-ysk" style="width:50%">
+            <span>資材費 50%</span>
+          </div>
+          <div class="hbar-seg hb-ad-ysk" style="width:5%">
+            <span></span>
           </div>
         </div>
       </div>
+      <div class="hbar-detail">
+        <div class="hbar-detail-item"><span class="hbar-detail-dot" style="background:var(--navy)"></span>施工45%</div>
+        <div class="hbar-detail-item"><span class="hbar-detail-dot" style="background:#2471a3"></span>塗料30%</div>
+        <div class="hbar-detail-item"><span class="hbar-detail-dot" style="background:#5dade2"></span>足場20%</div>
+        <div class="hbar-detail-item"><span class="hbar-detail-dot" style="background:#85c1e9"></span>広告5%</div>
+      </div>
     </div>
-    <div class="hbar-note">支払い金額が同じなら、工事に使われる割合が高い方が得。</div>
+    <div class="hbar-note">中間コスト60%をカットし、トータルで40%お安い料金設定を実現。</div>
 
     <div class="price-table" style="margin-top:18px;">
       <div class="price-row header">
@@ -4998,7 +5112,7 @@ body {
         <div class="price-cell"><span class="new-price">80〜100<small>万</small></span></div>
       </div>
     </div>
-    <div class="price-note">大手相場より<strong>最低でも40%低い見積もり</strong>をお出しします。築年数・面積・塗料の種類によって変わります。まずは無料でご相談ください。出張費・見積もり費は一切かかりません。</div>
+    <div class="price-note">大手と比べて<strong>トータルで40%お安い料金設定</strong>になっています。中間コストを徹底的にカットし、施工と資材に95%を還元。築年数・面積・塗料の種類によって変わります。まずは無料でご相談ください。出張費・見積もり費は一切かかりません。</div>
 
     <!-- 分割払い訴求 -->
     <div class="installment-box">
