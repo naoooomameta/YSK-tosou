@@ -2190,6 +2190,32 @@ body {
 .rl.scaffold-y { background: #eaf4fb; color: #2980b9; }
 .rl.ad-y     { background: #eaf4fb; color: #5dade2; }
 
+.rl-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.rl-sub {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  padding: 5px 8px 2px;
+}
+.rl-sub-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.rl-sub-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
 /* 中間コスト ブラケット */
 .ratio-bracket {
   position: absolute;
@@ -4210,7 +4236,13 @@ body {
           </div>
           <div class="ratio-legend">
             <span class="rl work-y">施工費 45%</span>
-            <span class="rl paint-y">資材費 50%</span>
+            <div class="rl-group">
+              <span class="rl paint-y">資材費 50%</span>
+              <div class="rl-sub">
+                <span class="rl-sub-item"><span class="rl-sub-dot" style="background:#2471a3"></span>塗料消耗費 30%</span>
+                <span class="rl-sub-item"><span class="rl-sub-dot" style="background:#5dade2"></span>足場費 20%</span>
+              </div>
+            </div>
             <span class="rl ad-y">広告費 5%</span>
           </div>
         </div>
