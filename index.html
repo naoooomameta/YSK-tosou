@@ -269,7 +269,7 @@ body {
 .fv-photo {
   width: 100%;
   height: 280px;
-  background: linear-gradient(160deg, #5BA8D8 0%, #3A7FC0 50%, #1B3A6B 100%);
+  background: url('images/hero-couple.jpg') center/cover no-repeat;
   position: relative;
   display: flex;
   align-items: center;
@@ -278,6 +278,7 @@ body {
 }
 
 .fv-photo-label {
+  display: none;
   color: rgba(26,46,69,.4);
   font-size: 15px;
   letter-spacing: .1em;
@@ -344,12 +345,8 @@ body {
 .fv-couple-avatar {
   width: 36px;
   height: 36px;
-  background: #F2EDE5;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
+  object-fit: cover;
   flex-shrink: 0;
 }
 
@@ -1369,15 +1366,8 @@ body {
 .avatar-circle {
   width: 80px;
   height: 80px;
-  background: var(--stone);
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  color: var(--muted);
-  text-align: center;
-  line-height: 1.4;
+  object-fit: cover;
   border: 3px solid var(--white);
   box-shadow: 0 2px 10px rgba(0,0,0,.1);
 }
@@ -3602,7 +3592,7 @@ body {
       <div class="fv-photo-overlay"></div>
       <!-- 夫婦バッジ（A案特徴：左下） -->
       <div class="fv-couple-badge">
-        <div class="fv-couple-avatar">👫</div>
+        <img src="images/couple-avatar.jpg" alt="YSK塗装 夫婦" class="fv-couple-avatar">
         <div class="fv-couple-info">
           <div class="fv-couple-sub">夫婦で直接施工します</div>
         </div>
@@ -3695,7 +3685,7 @@ body {
     </div>
 
     <div class="area-map-placeholder">
-      🗾 北関東対応エリアマップ（画像差し替え）
+      <img src="images/area-map.png" alt="北関東対応エリアマップ" style="width:100%;height:100%;object-fit:contain;border-radius:8px;">
     </div>
 
     <div class="area-note">
@@ -4253,7 +4243,7 @@ body {
 
     <div class="couple-intro">
       <div class="couple-avatar-wrap">
-        <div class="avatar-circle">似顔絵<br>イラスト<br>（夫婦）</div>
+        <img src="images/couple-avatar.jpg" alt="ユースケ & なお" class="avatar-circle">
         <div class="avatar-name">ユースケ & なお</div>
       </div>
       <div class="couple-text">
@@ -4381,15 +4371,7 @@ body {
 
       <!-- 看板塗装 -->
       <div class="menu-card">
-        <div class="menu-img" style="background:linear-gradient(135deg,#2c3e50,#4a6fa5);">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="10" width="40" height="24" rx="3" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-            <line x1="16" y1="34" x2="14" y2="44" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
-            <line x1="32" y1="34" x2="34" y2="44" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round"/>
-            <rect x="10" y="16" width="20" height="3" rx="1.5" fill="rgba(255,255,255,0.7)"/>
-            <rect x="10" y="22" width="14" height="2" rx="1" fill="rgba(255,255,255,0.45)"/>
-            <circle cx="37" cy="20" r="4" fill="rgba(245,200,66,0.9)"/>
-          </svg>
+        <div class="menu-img" style="background:url('images/service-sign.jpg') center/cover no-repeat;">
           <div class="menu-img-label">看板塗装</div>
         </div>
         <div class="menu-body">
@@ -4401,19 +4383,7 @@ body {
 
       <!-- フェンス塗装 -->
       <div class="menu-card">
-        <div class="menu-img" style="background:linear-gradient(135deg,#27ae60,#1e8449);">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="20" width="40" height="4" rx="2" fill="rgba(255,255,255,0.6)"/>
-            <rect x="4" y="30" width="40" height="4" rx="2" fill="rgba(255,255,255,0.6)"/>
-            <rect x="7"  y="12" width="5" height="26" rx="2" fill="rgba(255,255,255,0.8)"/>
-            <rect x="17" y="12" width="5" height="26" rx="2" fill="rgba(255,255,255,0.8)"/>
-            <rect x="27" y="12" width="5" height="26" rx="2" fill="rgba(255,255,255,0.8)"/>
-            <rect x="37" y="12" width="5" height="26" rx="2" fill="rgba(255,255,255,0.8)"/>
-            <polygon points="9.5,9 12,13 7,13" fill="rgba(255,255,255,0.8)"/>
-            <polygon points="19.5,9 22,13 17,13" fill="rgba(255,255,255,0.8)"/>
-            <polygon points="29.5,9 32,13 27,13" fill="rgba(255,255,255,0.8)"/>
-            <polygon points="39.5,9 42,13 37,13" fill="rgba(255,255,255,0.8)"/>
-          </svg>
+        <div class="menu-img" style="background:url('images/service-fence.jpg') center/cover no-repeat;">
           <div class="menu-img-label">フェンス塗装</div>
         </div>
         <div class="menu-body">
@@ -4425,15 +4395,7 @@ body {
 
       <!-- 樋（とい）塗装 -->
       <div class="menu-card">
-        <div class="menu-img" style="background:linear-gradient(135deg,#2980b9,#1a5276);">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="20" y="4" width="8" height="32" rx="4" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-            <path d="M24 36 Q16 40 14 46" stroke="rgba(255,255,255,0.6)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            <rect x="8" y="10" width="14" height="5" rx="2" fill="rgba(255,255,255,0.5)"/>
-            <rect x="26" y="10" width="14" height="5" rx="2" fill="rgba(255,255,255,0.5)"/>
-            <circle cx="34" cy="40" r="4" fill="rgba(135,206,250,0.6)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-            <path d="M32 40 Q34 37 36 40" stroke="rgba(255,255,255,0.7)" stroke-width="1" fill="none"/>
-          </svg>
+        <div class="menu-img" style="background:url('images/service-gutter.jpg') center/cover no-repeat;">
           <div class="menu-img-label">樋（とい）塗装</div>
         </div>
         <div class="menu-body">
@@ -4445,19 +4407,7 @@ body {
 
       <!-- 雨戸・戸袋塗装 -->
       <div class="menu-card">
-        <div class="menu-img" style="background:linear-gradient(135deg,#7f8c8d,#555f61);">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="8" width="16" height="32" rx="2" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-            <rect x="26" y="8" width="16" height="32" rx="2" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-            <line x1="6"  y1="16" x2="22" y2="16" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-            <line x1="6"  y1="24" x2="22" y2="24" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-            <line x1="6"  y1="32" x2="22" y2="32" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-            <line x1="26" y1="16" x2="42" y2="16" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-            <line x1="26" y1="24" x2="42" y2="24" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-            <line x1="26" y1="32" x2="42" y2="32" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-            <circle cx="21" cy="24" r="2" fill="rgba(255,255,255,0.7)"/>
-            <circle cx="27" cy="24" r="2" fill="rgba(255,255,255,0.7)"/>
-          </svg>
+        <div class="menu-img" style="background:url('images/service-shutter.jpg') center/cover no-repeat;">
           <div class="menu-img-label">雨戸・戸袋塗装</div>
         </div>
         <div class="menu-body">
@@ -4469,16 +4419,7 @@ body {
 
       <!-- シーリング（コーキング） -->
       <div class="menu-card">
-        <div class="menu-img" style="background:linear-gradient(135deg,#d35400,#a04000);">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="10" width="18" height="28" rx="2" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
-            <rect x="26" y="10" width="18" height="28" rx="2" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
-            <!-- 目地ライン -->
-            <rect x="21" y="10" width="6" height="28" rx="1" fill="rgba(245,200,66,0.85)"/>
-            <!-- コーキングガン -->
-            <rect x="28" y="30" width="14" height="5" rx="2" fill="rgba(255,255,255,0.7)" transform="rotate(-30 28 30)"/>
-            <circle cx="40" cy="24" r="3" fill="rgba(255,255,255,0.5)"/>
-          </svg>
+        <div class="menu-img" style="background:url('images/service-caulking.jpg') center/cover no-repeat;">
           <div class="menu-img-label">シーリング工事</div>
         </div>
         <div class="menu-body">
@@ -4490,14 +4431,7 @@ body {
 
       <!-- 小規模・単品塗装 -->
       <div class="menu-card menu-card-wide">
-        <div class="menu-img" style="background:linear-gradient(135deg,#8e44ad,#6c3483);">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="24" cy="24" r="16" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
-            <path d="M16 24 Q20 16 24 24 Q28 32 32 24" stroke="rgba(255,255,255,0.8)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <circle cx="36" cy="14" r="5" fill="rgba(245,200,66,0.9)"/>
-            <rect x="34" y="12" width="4" height="2" rx="1" fill="white"/>
-            <rect x="34" y="15" width="4" height="2" rx="1" fill="white"/>
-          </svg>
+        <div class="menu-img" style="background:url('images/service-small.jpg') center/cover no-repeat;">
           <div class="menu-img-label">その他・単品塗装</div>
         </div>
         <div class="menu-body">
@@ -4609,11 +4543,11 @@ body {
           <span class="case-area-badge tochigi">栃木県 / 日光市</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:linear-gradient(135deg,#7a6e62,#5a5047);">
+          <div class="ba-img before" style="background:url('images/case01-before.jpg') center/cover no-repeat;">
             <div class="ba-label b">BEFORE</div>
             <div class="ba-img-text">外壁：ひび割れ・色褪せ<br>屋根：苔・雨染み</div>
           </div>
-          <div class="ba-img after" style="background:linear-gradient(135deg,#3d6e8a,#1e4a68);">
+          <div class="ba-img after" style="background:url('images/case01-after.jpg') center/cover no-repeat;">
             <div class="ba-label a">AFTER</div>
             <div class="ba-img-text">外壁：ネイビー系で<br>一新。防水も完璧</div>
           </div>
@@ -4644,11 +4578,11 @@ body {
           <span class="case-area-badge tochigi">栃木県 / 宇都宮市</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:linear-gradient(135deg,#8a7a6a,#6a5a4a);">
+          <div class="ba-img before" style="background:url('images/case02-before.jpg') center/cover no-repeat;">
             <div class="ba-label b">BEFORE</div>
             <div class="ba-img-text">全体的に薄汚れ<br>シーリング劣化</div>
           </div>
-          <div class="ba-img after" style="background:linear-gradient(135deg,#c8a87a,#a07848);">
+          <div class="ba-img after" style="background:url('images/case02-after.jpg') center/cover no-repeat;">
             <div class="ba-label a">AFTER</div>
             <div class="ba-img-text">暖かみあるベージュで<br>高級感が増した</div>
           </div>
@@ -4679,11 +4613,11 @@ body {
           <span class="case-area-badge tochigi">栃木県 / 鹿沼市</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:linear-gradient(135deg,#6b5a4a,#4a3a2a);">
+          <div class="ba-img before" style="background:url('images/case03-before.jpg') center/cover no-repeat;">
             <div class="ba-label b">BEFORE</div>
             <div class="ba-img-text">屋根：黒ずみ・<br>苔・ひび割れ</div>
           </div>
-          <div class="ba-img after" style="background:linear-gradient(135deg,#3a3a4a,#222234);">
+          <div class="ba-img after" style="background:url('images/case03-after.jpg') center/cover no-repeat;">
             <div class="ba-label a">AFTER</div>
             <div class="ba-img-text">チャコールグレーで<br>引き締まった印象に</div>
           </div>
@@ -4714,11 +4648,11 @@ body {
           <span class="case-area-badge tochigi">栃木県 / 芳賀郡</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:linear-gradient(135deg,#887560,#605040);">
+          <div class="ba-img before" style="background:url('images/case04-before.jpg') center/cover no-repeat;">
             <div class="ba-label b">BEFORE</div>
             <div class="ba-img-text">モルタル外壁に<br>大きなクラック</div>
           </div>
-          <div class="ba-img after" style="background:linear-gradient(135deg,#e8dcc8,#c8b898);">
+          <div class="ba-img after" style="background:url('images/case04-after.jpg') center/cover no-repeat;">
             <div class="ba-label a">AFTER</div>
             <div class="ba-img-text">クラック補修後に<br>明るいホワイト系で</div>
           </div>
@@ -4749,11 +4683,11 @@ body {
           <span class="case-area-badge gunma">群馬県 / 前橋市</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:linear-gradient(135deg,#7a7060,#5a5245);">
+          <div class="ba-img before" style="background:url('images/case05-before.jpg') center/cover no-repeat;">
             <div class="ba-label b">BEFORE</div>
             <div class="ba-img-text">サイディング目地の<br>コーキング劣化・浮き</div>
           </div>
-          <div class="ba-img after" style="background:linear-gradient(135deg,#5a7a5a,#3a5a3a);">
+          <div class="ba-img after" style="background:url('images/case05-after.jpg') center/cover no-repeat;">
             <div class="ba-label a">AFTER</div>
             <div class="ba-img-text">落ち着いたオリーブグリーン<br>で個性的な仕上がりに</div>
           </div>
@@ -4784,11 +4718,11 @@ body {
           <span class="case-area-badge ibaraki">茨城県 / 水戸市</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:linear-gradient(135deg,#806858,#5e4e40);">
+          <div class="ba-img before" style="background:url('images/case06-before.jpg') center/cover no-repeat;">
             <div class="ba-label b">BEFORE</div>
             <div class="ba-img-text">外壁：チョーキング<br>屋根：錆び・塗膜剥がれ</div>
           </div>
-          <div class="ba-img after" style="background:linear-gradient(135deg,#d0c0a0,#b0a080);">
+          <div class="ba-img after" style="background:url('images/case06-after.jpg') center/cover no-repeat;">
             <div class="ba-label a">AFTER</div>
             <div class="ba-img-text">外壁はサンドベージュ<br>屋根はブラックで一新</div>
           </div>
@@ -4819,11 +4753,11 @@ body {
           <span class="case-area-badge saitama">埼玉県 / 熊谷市</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:linear-gradient(135deg,#787878,#585858);">
+          <div class="ba-img before" style="background:url('images/case07-before.jpg') center/cover no-repeat;">
             <div class="ba-label b">BEFORE</div>
             <div class="ba-img-text">ALC外壁の<br>全体的な経年劣化</div>
           </div>
-          <div class="ba-img after" style="background:linear-gradient(135deg,#f0e8d8,#d8c8a8);">
+          <div class="ba-img after" style="background:url('images/case07-after.jpg') center/cover no-repeat;">
             <div class="ba-label a">AFTER</div>
             <div class="ba-img-text">クリーンホワイトで<br>清潔感のある外観に</div>
           </div>
@@ -4854,11 +4788,11 @@ body {
           <span class="case-area-badge tochigi">栃木県 / 日光市</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:linear-gradient(135deg,#6a5a4a,#4a3a2c);">
+          <div class="ba-img before" style="background:url('images/case08-before.jpg') center/cover no-repeat;">
             <div class="ba-label b">BEFORE</div>
             <div class="ba-img-text">瓦屋根：苔・雨漏り<br>心配あり</div>
           </div>
-          <div class="ba-img after" style="background:linear-gradient(135deg,#4a3a30,#2a2020);">
+          <div class="ba-img after" style="background:url('images/case08-after.jpg') center/cover no-repeat;">
             <div class="ba-label a">AFTER</div>
             <div class="ba-img-text">ディープブラウンで<br>重厚感のある仕上がり</div>
           </div>
@@ -4889,11 +4823,11 @@ body {
           <span class="case-area-badge gunma">群馬県 / 高崎市</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:linear-gradient(135deg,#7a7060,#5a5245);">
+          <div class="ba-img before" style="background:url('images/case09-before.jpg') center/cover no-repeat;">
             <div class="ba-label b">BEFORE</div>
             <div class="ba-img-text">外壁：色褪せ・汚れ<br>付帯部も劣化</div>
           </div>
-          <div class="ba-img after" style="background:linear-gradient(135deg,#607090,#405070);">
+          <div class="ba-img after" style="background:url('images/case09-after.jpg') center/cover no-repeat;">
             <div class="ba-label a">AFTER</div>
             <div class="ba-img-text">スレートグレーで<br>モダンな外観に変身</div>
           </div>
