@@ -126,10 +126,11 @@ body {
 .header-strip {
   background: #FFFFFF;
   border-bottom: 3px solid var(--sky);
-  padding: 8px 12px;
+  padding: 8px 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
   box-shadow: 0 2px 8px rgba(27,58,107,.08);
   position: sticky;
   top: 0;
@@ -137,7 +138,7 @@ body {
 }
 
 .header-logo-img {
-  height: 56px;
+  height: 48px;
   width: auto;
   display: block;
 }
@@ -158,17 +159,18 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
+  min-width: 0;
 }
 
 .header-tel {
-  font-size: 20px;
+  font-size: 18px;
   color: var(--navy);
   font-weight: 800;
   text-align: right;
   line-height: 1.2;
   text-decoration: none;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
   letter-spacing: .03em;
 }
 
@@ -4168,9 +4170,10 @@ body {
         <a href="https://www.onuki-paint.com/" target="_blank" rel="noopener" class="partner-img-link">
           <div class="partner-img-wrap">
             <img
-              src="https://www.onuki-paint.com/wp-content/themes/onuki/images/ogp.jpg"
+              src="images/onuki-logo.png"
               alt="大貫塗料店"
               class="partner-img"
+              style="object-fit: contain; background: #fff; padding: 12px;"
               onerror="this.parentElement.innerHTML='<div class=\'partner-img-fallback\'><span>🎨</span><span>大貫塗料店</span></div>'"
             >
             <div class="partner-img-overlay">
