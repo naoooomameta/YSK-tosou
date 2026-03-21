@@ -271,7 +271,7 @@ body {
 .fv-photo {
   width: 100%;
   height: 320px;
-  background: url('images/hero-couple.png?v=2') 35% center/cover no-repeat;
+  background: url('images/hero-couple.png?v=2') center center/cover no-repeat;
   position: relative;
   display: flex;
   align-items: center;
@@ -329,41 +329,6 @@ body {
 }
 
 /* 夫婦バッジ（FV左下・A案） */
-.fv-couple-badge {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  background: #FFFFFF;
-  border-radius: 8px;
-  padding: 10px 14px;
-  box-shadow: 0 4px 20px rgba(0,0,0,.15);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border-left: 4px solid var(--accent);
-  z-index: 3;
-}
-
-.fv-couple-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.fv-couple-name {
-  font-size: 13px;
-  font-weight: 900;
-  color: var(--navy);
-  line-height: 1.3;
-}
-
-.fv-couple-sub {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 1px;
-}
 
 .fv-copy {
   padding: 24px 20px 0;
@@ -3585,13 +3550,6 @@ body {
     <div class="fv-photo">
       <div class="fv-photo-label">📸 施工写真（夫婦）</div>
       <div class="fv-photo-overlay"></div>
-      <!-- 夫婦バッジ（A案特徴：左下） -->
-      <div class="fv-couple-badge">
-        <svg class="fv-couple-avatar" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="18" fill="#1B3A6B"/><circle cx="18" cy="13" r="6" fill="#fff" opacity=".8"/><ellipse cx="18" cy="30" rx="10" ry="8" fill="#fff" opacity=".8"/></svg>
-        <div class="fv-couple-info">
-          <div class="fv-couple-sub">夫婦で直接施工します</div>
-        </div>
-      </div>
       <div class="fv-badge-group">
         <div class="fv-badge">
           累計施工
