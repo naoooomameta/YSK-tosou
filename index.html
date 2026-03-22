@@ -73,23 +73,6 @@ body {
   display: none; /* 旧LINEボタン非表示 */
 }
 
-.float-tel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-  padding: 11px 8px;
-  background: var(--navy2);
-  border: none;
-  border-right: 1px solid rgba(255,255,255,0.15);
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity .2s;
-}
-.float-tel:hover { opacity: .85; }
 
 .float-form {
   flex: 1;
@@ -162,37 +145,6 @@ body {
   min-width: 0;
 }
 
-.header-tel {
-  font-size: 18px;
-  color: var(--navy);
-  font-weight: 800;
-  text-align: right;
-  line-height: 1.2;
-  text-decoration: none;
-  flex-shrink: 1;
-  min-width: 0;
-  letter-spacing: .03em;
-}
-
-.header-tel-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  background: var(--navy);
-  border-radius: 50%;
-  margin-right: 4px;
-  vertical-align: middle;
-}
-
-.header-tel small {
-  display: block;
-  font-size: 11px;
-  color: var(--accent);
-  font-weight: 700;
-  letter-spacing: .02em;
-}
 
 .header-cta-btn {
   display: inline-flex;
@@ -2681,25 +2633,6 @@ body {
   box-shadow: 0 2px 0 #b33d08;
 }
 
-.scb-btn-tel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 13px;
-  background: var(--navy);
-  border: 2px solid var(--navy);
-  border-radius: 6px;
-  color: var(--white);
-  font-size: 16px;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: .03em;
-  transition: opacity .2s;
-}
-
-.scb-btn-tel:hover { opacity: .85; }
 
 .scb-note {
   font-size: 13px;
@@ -3190,27 +3123,6 @@ body {
   line-height: 1.6;
 }
 
-/* FV 電話サブボタン */
-.btn-tel-sub {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  width: 100%;
-  padding: 12px 16px;
-  background: var(--white);
-  border: 2px solid var(--sky);
-  border-radius: 6px;
-  color: var(--navy);
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: .03em;
-  margin-top: 10px;
-  transition: background .2s;
-  box-sizing: border-box;
-}
-.btn-tel-sub:hover { background: #f0f4f8; }
 
 /* 中間CTA 2ボタングループ */
 .mid-cta-group {
@@ -3236,63 +3148,7 @@ body {
 }
 .mid-cta-form:hover { opacity: .9; transform: translateY(-1px); }
 .mid-cta-form:active { transform: translateY(0); }
-.mid-cta-tel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 13px 16px;
-  background: var(--navy);
-  border: none;
-  border-radius: 6px;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: .03em;
-  transition: opacity .2s;
-  box-sizing: border-box;
-}
-.mid-cta-tel svg path { stroke: white; }
-.mid-cta-tel small {
-  font-size: 13px;
-  font-weight: 400;
-  opacity: .75;
-  margin-left: 4px;
-}
-.mid-cta-tel:hover { opacity: .8; }
 
-/* フォームセクション 電話バナー */
-.contact-tel-banner {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--white);
-  border: 2px solid var(--sky);
-  border-radius: 8px;
-  padding: 14px 16px;
-  margin-bottom: 16px;
-  text-decoration: none;
-  color: var(--navy);
-  transition: background .2s;
-}
-.contact-tel-banner:hover { background: #f0f4f8; }
-.ctb-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(15,42,69,.08);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.ctb-body { flex: 1; }
-.ctb-label { font-size: 12px; color: var(--muted); margin-bottom: 2px; letter-spacing: .04em; }
-.ctb-num { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); letter-spacing: .05em; line-height: 1.2; }
-.ctb-hours { font-size: 12px; color: var(--muted); margin-top: 2px; }
-.ctb-arrow { font-size: 22px; color: var(--muted); flex-shrink: 0; }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -3508,10 +3364,6 @@ body {
       <img src="images/logo.png?v=2" alt="YSK塗装ロゴ" class="header-logo-img">
     </div>
     <div class="header-right">
-      <a href="tel:09040041821" class="header-tel">
-        <span class="header-tel-icon"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="#fff" stroke-width="1.4" stroke-linejoin="round" fill="rgba(255,255,255,0.3)"/></svg></span>090-4004-1821
-        <small>受付中 8:00〜20:00</small>
-      </a>
       <a href="#contact" class="header-cta-btn">
         無料見積もり<small>かんたん60秒</small>
       </a>
@@ -3578,12 +3430,6 @@ body {
         【無料】夫婦に直接相談してみる
         <span class="arrow">›</span>
       </button>
-      <a href="tel:09040041821" class="btn-tel-sub">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-          <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="var(--navy)" stroke-width="1.2" stroke-linejoin="round" fill="rgba(26,46,69,0.1)"/>
-        </svg>
-        電話で相談する（無料）&ensp;090-4004-1821
-      </a>
     </div>
     <div class="fv-note">しつこい営業は一切しません。まずはお気軽に。</div>
     <div style="text-align:center;"><span class="speed-badge">24時間以内にご連絡します</span></div>
@@ -3995,9 +3841,6 @@ body {
       <button class="scb-btn-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         【無料】夫婦に直接相談してみる
       </button>
-      <a href="tel:09040041821" class="scb-btn-tel">
-        📞 今すぐ電話する &ensp; 090-4004-1821
-      </a>
     </div>
     <div class="scb-note">しつこい営業・追加費用は一切なし</div>
   </div>
@@ -4183,9 +4026,6 @@ body {
       <button class="scb-btn-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         【無料】夫婦に直接相談してみる
       </button>
-      <a href="tel:09040041821" class="scb-btn-tel">
-        📞 電話で聞いてみる &ensp; 090-4004-1821
-      </a>
     </div>
     <div class="scb-note">出張費・見積もり費は完全無料</div>
   </div>
@@ -4404,12 +4244,6 @@ body {
         <button class="mid-cta-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
           【無料】夫婦に直接相談してみる
         </button>
-        <a href="tel:09040041821" class="mid-cta-tel">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-            <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="white" stroke-width="1.2" stroke-linejoin="round" fill="rgba(255,255,255,0.2)"/>
-          </svg>
-          電話で相談<small>090-4004-1821</small>
-        </a>
       </div>
     </div>
   </div>
@@ -4814,12 +4648,6 @@ body {
         <button class="mid-cta-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
           【無料】夫婦に直接相談してみる
         </button>
-        <a href="tel:09040041821" class="mid-cta-tel">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-            <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="white" stroke-width="1.2" stroke-linejoin="round" fill="rgba(255,255,255,0.2)"/>
-          </svg>
-          電話で相談<small>090-4004-1821</small>
-        </a>
       </div>
     </div>
 
@@ -4918,9 +4746,6 @@ body {
       <button class="scb-btn-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         【無料】夫婦に直接相談してみる
       </button>
-      <a href="tel:09040041821" class="scb-btn-tel">
-        📞 電話で聞いてみる &ensp; 090-4004-1821
-      </a>
     </div>
     <div class="scb-note">出張費・見積もり費は完全無料</div>
   </div>
@@ -4977,7 +4802,7 @@ body {
         <div class="flow-line"></div>
         <div class="flow-content">
           <div class="flow-title">お問い合わせ・ご相談</div>
-          <div class="flow-desc">フォーム・お電話・LINEからお気軽にご連絡ください。ご相談だけでも大歓迎です。</div>
+          <div class="flow-desc">フォーム・LINEからお気軽にご連絡ください。ご相談だけでも大歓迎です。</div>
           <div class="flow-time">最短即日ご連絡</div>
         </div>
       </div>
@@ -5025,7 +4850,7 @@ body {
 
     <div class="flow-note">
       <div class="flow-note-speed">お問い合わせから最短24時間以内にご連絡</div>
-      <div class="flow-note-sub">お電話なら即日対応。フォーム・LINEも<strong>原則24時間以内</strong>にお返事します。<br>「まだ検討中…」という段階でもお気軽にどうぞ。</div>
+      <div class="flow-note-sub">フォーム・LINEなら<strong>原則24時間以内</strong>にお返事します。<br>「まだ検討中…」という段階でもお気軽にどうぞ。</div>
     </div>
   </div>
 
@@ -5037,9 +4862,6 @@ body {
       <button class="scb-btn-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         【無料】夫婦に直接相談してみる
       </button>
-      <a href="tel:09040041821" class="scb-btn-tel">
-        📞 今すぐ電話する &ensp; 090-4004-1821
-      </a>
     </div>
     <div class="scb-note">出張費・見積もり費は完全無料</div>
   </div>
@@ -5053,9 +4875,6 @@ body {
       <button class="scb-btn-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         【無料】夫婦に直接相談してみる
       </button>
-      <a href="tel:09040041821" class="scb-btn-tel">
-        📞 電話でも受付中 &ensp; 090-4004-1821
-      </a>
     </div>
     <div class="scb-note">受付時間 8:00〜20:00 ／ 断っても一切しつこくしません</div>
     <div style="text-align:center;margin-top:8px;"><span class="speed-badge">フォーム・LINEは原則24時間以内にご返信</span></div>
@@ -5075,20 +4894,6 @@ body {
     <!-- 白カード本体 -->
     <div style="margin:-28px 16px 32px;position:relative;z-index:2;background:var(--white);border-radius:12px;padding:24px 20px;box-shadow:0 4px 24px rgba(27,58,107,.12);border:1px solid rgba(27,58,107,.08);">
 
-    <!-- 電話でもOKバナー -->
-    <a href="tel:09040041821" class="contact-tel-banner">
-      <div class="ctb-icon">
-        <svg width="22" height="22" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="var(--navy)" stroke-width="1.4" stroke-linejoin="round" fill="rgba(15,42,69,0.1)"/>
-        </svg>
-      </div>
-      <div class="ctb-body">
-        <div class="ctb-label">お電話でもご相談できます</div>
-        <div class="ctb-num">090-4004-1821</div>
-        <div class="ctb-hours">受付 8:00〜20:00 / 年中無休</div>
-      </div>
-      <div class="ctb-arrow">›</div>
-    </a>
 
     <div class="form-guarantees">
       <span class="fg-item">✓ 見積もり・出張費 完全無料</span>
@@ -5261,7 +5066,7 @@ body {
 
     <!-- 送信エラーメッセージ -->
     <div class="form-error-msg" id="form-error" style="display:none;">
-      <div>⚠️ 送信に失敗しました。時間をおいて再度お試しいただくか、お電話でご連絡ください。</div>
+      <div>⚠️ 送信に失敗しました。時間をおいて再度お試しください。</div>
     </div>
 
     </div><!-- /white card -->
@@ -5286,13 +5091,6 @@ body {
 
 <!-- フローティングCTAバー -->
 <div class="float-bar">
-  <a href="tel:09040041821" class="float-tel">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="white" stroke-width="1.3" stroke-linejoin="round" fill="rgba(255,255,255,0.15)"/>
-    </svg>
-    <span class="float-btn-main">電話で相談</span>
-    <span class="float-btn-sub">090-4004-1821</span>
-  </a>
   <button class="float-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="2" y="3" width="12" height="9" rx="1.5" stroke="white" stroke-width="1.3" fill="rgba(255,255,255,0.15)"/>
