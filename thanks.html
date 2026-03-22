@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>送信完了 | YSK塗装</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy:   #1B3A6B;
+  --navy2:  #2A5298;
+  --sky:    #4A9FD4;
+  --accent: #E8501A;
+  --accent2:#FF6B35;
+  --gold:   #F5C842;
+  --cream:  #F0F6FC;
+  --text:   #1A1A1A;
+  --muted:  #5A6A7A;
+  --border: #C8D8E8;
+  --white:  #FFFFFF;
+  --green:  #00A832;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+.thanks-wrap {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==== ヘッダー ==== */
+.thanks-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+  padding: 16px 20px;
+  text-align: center;
+}
+
+.thanks-header-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: 0.05em;
+}
+
+/* ==== メインコンテンツ ==== */
+.thanks-main {
+  flex: 1;
+  padding: 40px 20px 32px;
+  text-align: center;
+}
+
+/* チェックアイコン */
+.thanks-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), #2DBE5A);
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,168,50,0.25);
+  animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.thanks-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.thanks-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.thanks-message {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.thanks-message strong {
+  color: var(--text);
+}
+
+/* ==== 次のステップ ==== */
+.next-step-card {
+  background: var(--cream);
+  border-radius: 12px;
+  padding: 24px 20px;
+  margin-bottom: 24px;
+}
+
+.next-step-label {
+  display: inline-block;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  letter-spacing: 0.08em;
+}
+
+.next-step-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.next-step-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* LINE メリットリスト */
+.line-benefits {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.line-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.line-benefit-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #06C755;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.line-benefit-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* LINE ボタン */
+.line-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 20px;
+  background: #06C755;
+  color: var(--white);
+  font-size: 17px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+  box-shadow: 0 4px 16px rgba(6,199,85,0.3);
+}
+
+.line-btn:hover {
+  background: #05B04C;
+}
+
+.line-btn:active {
+  transform: scale(0.98);
+}
+
+.line-btn svg {
+  flex-shrink: 0;
+}
+
+/* ==== 連絡先情報 ==== */
+.contact-info-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.contact-info-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.contact-info-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.contact-info-row + .contact-info-row {
+  border-top: 1px solid var(--cream);
+}
+
+.contact-info-label {
+  color: var(--muted);
+  font-size: 12px;
+  min-width: 60px;
+}
+
+.contact-info-value {
+  font-weight: 700;
+}
+
+.contact-info-value a {
+  color: var(--navy2);
+  text-decoration: none;
+}
+
+/* ==== トップへ戻る ==== */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 14px;
+  text-decoration: none;
+  padding: 12px 0;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--navy);
+}
+
+/* ==== フッター ==== */
+.thanks-footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.6);
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.thanks-footer-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+</style>
+</head>
+<body>
+
+<div class="thanks-wrap">
+
+  <!-- ヘッダー -->
+  <div class="thanks-header">
+    <div class="thanks-header-logo">YSK塗装</div>
+  </div>
+
+  <!-- メインコンテンツ -->
+  <div class="thanks-main">
+
+    <!-- 完了アイコン -->
+    <div class="thanks-icon">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="thanks-title">お問い合わせ<br>ありがとうございます！</div>
+
+    <div class="thanks-message">
+      お見積もりのご依頼を受け付けました。<br>
+      <strong>1〜2営業日以内</strong>にご登録の電話番号へ<br>
+      ご連絡いたします。しばらくお待ちください。
+    </div>
+
+    <!-- LINE誘導カード -->
+    <div class="next-step-card">
+      <span class="next-step-label">📱 NEXT STEP</span>
+      <div class="next-step-title">LINEでもっと便利に！</div>
+      <div class="next-step-desc">
+        YSK塗装の公式LINEを友だち追加すると、<br>やり取りがさらにスムーズになります。
+      </div>
+
+      <div class="line-benefits">
+        <div class="line-benefit-item">
+          <div class="line-benefit-icon">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span>写真を送るだけでカンタン相談</span>
+        </div>
+        <div class="line-benefit-item">
+          <div class="line-benefit-icon">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span>お見積もり進捗をリアルタイムで確認</span>
+        </div>
+        <div class="line-benefit-item">
+          <div class="line-benefit-icon">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span>施工中の写真・報告もLINEでお届け</span>
+        </div>
+        <div class="line-benefit-item">
+          <div class="line-benefit-icon">
+            <svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span>LINE限定のお得な情報をお届け</span>
+        </div>
+      </div>
+
+      <!-- ★ LINE公式アカウントのURLをここに設定してください -->
+      <a href="https://lin.ee/XXXXXXXXX" class="line-btn" target="_blank" rel="noopener">
+        <!-- LINE ロゴ SVG -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+          <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+        </svg>
+        友だち追加する
+      </a>
+    </div>
+
+    <!-- 連絡先情報 -->
+    <div class="contact-info-card">
+      <div class="contact-info-title">お急ぎの方はお電話ください</div>
+      <div class="contact-info-row">
+        <span class="contact-info-label">電話</span>
+        <span class="contact-info-value"><a href="tel:09040041821">090-4004-1821</a></span>
+      </div>
+      <div class="contact-info-row">
+        <span class="contact-info-label">受付</span>
+        <span class="contact-info-value">9:00〜18:00（年中無休）</span>
+      </div>
+    </div>
+
+    <!-- トップページへ戻る -->
+    <a href="index.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <path d="M10 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      トップページに戻る
+    </a>
+
+  </div>
+
+  <!-- フッター -->
+  <div class="thanks-footer">
+    <div class="thanks-footer-logo">YSK塗装</div>
+    栃木県 外壁・屋根塗装専門 / 完全自社施工
+  </div>
+
+</div>
+
+</body>
+</html>
