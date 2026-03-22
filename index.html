@@ -2450,21 +2450,35 @@ body {
   margin-bottom: 10px;
 }
 
-.inst-example {
+.inst-plan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.inst-plan-item {
   background: rgba(255,255,255,.1);
   border-radius: 4px;
   padding: 10px 14px;
-  margin-bottom: 8px;
 }
 
-.inst-ex-label {
-  font-size: 12px;
-  color: rgba(255,255,255,.55);
+.inst-plan-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
   margin-bottom: 4px;
 }
 
+.inst-plan-name span {
+  font-weight: 500;
+  color: rgba(255,255,255,.5);
+  font-size: 12px;
+  margin-left: 6px;
+}
+
 .inst-ex-content {
-  font-size: 16px;
+  font-size: 15px;
   color: #fff;
   font-weight: 700;
   line-height: 1.5;
@@ -2472,7 +2486,7 @@ body {
 
 .inst-ex-content strong {
   font-family: 'Oswald', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   color: var(--gold);
 }
 
@@ -4756,13 +4770,27 @@ body {
         一括払いが難しい方も安心
       </div>
       <div class="inst-body">
-        <div class="inst-example">
-          <div class="inst-ex-label">分割払いの例</div>
-          <div class="inst-ex-content">
-            頭金 <strong>50万円</strong> + 月々 <strong>2万円 × 24回</strong>
+        <div class="inst-plan-list">
+          <div class="inst-plan-item">
+            <div class="inst-plan-name">外壁＋屋根セット<span>100万円の場合</span></div>
+            <div class="inst-ex-content">
+              頭金 <strong>50万円</strong> + 月々 <strong>2.1万円 × 24回</strong>
+            </div>
+          </div>
+          <div class="inst-plan-item">
+            <div class="inst-plan-name">屋根のみ塗装<span>50万円の場合</span></div>
+            <div class="inst-ex-content">
+              頭金 <strong>20万円</strong> + 月々 <strong>1.3万円 × 24回</strong>
+            </div>
+          </div>
+          <div class="inst-plan-item">
+            <div class="inst-plan-name">外壁フル塗装<span>80万円の場合</span></div>
+            <div class="inst-ex-content">
+              頭金 <strong>30万円</strong> + 月々 <strong>2.1万円 × 24回</strong>
+            </div>
           </div>
         </div>
-        <div class="inst-desc">最大24回分割に対応。無理のない支払いで、大切なお家を守ることができます。詳しくはご相談ください。</div>
+        <div class="inst-desc">最大24回分割に対応。無理のない支払いで、大切なお家を守ることができます。金額・回数はご状況に合わせて調整可能です。</div>
       </div>
     </div>
   </div>
