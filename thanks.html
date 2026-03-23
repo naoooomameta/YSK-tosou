@@ -50,11 +50,20 @@ body {
 }
 
 .thanks-header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   font-family: 'Noto Serif JP', serif;
   font-size: 20px;
   font-weight: 900;
   color: var(--white);
   letter-spacing: 0.05em;
+}
+
+.thanks-header-logo img {
+  height: 40px;
+  width: auto;
 }
 
 /* ==== メインコンテンツ ==== */
@@ -294,7 +303,7 @@ body {
 
   <!-- ヘッダー -->
   <div class="thanks-header">
-    <div class="thanks-header-logo">YSK塗装</div>
+    <div class="thanks-header-logo"><img src="images/logo.png" alt="YSK塗装ロゴ">YSK塗装</div>
   </div>
 
   <!-- メインコンテンツ -->
