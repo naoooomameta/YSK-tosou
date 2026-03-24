@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>送信完了｜YSK塗装</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy:   #1B3A6B;
+  --navy2:  #2A5298;
+  --accent: #E8501A;
+  --green:  #00A832;
+  --cream:  #F0F6FC;
+  --text:   #1A1A1A;
+  --muted:  #5A6A7A;
+  --white:  #FFFFFF;
+  --bg:     #F5F9FD;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  background-image: radial-gradient(circle, rgba(27,58,107,.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thanks-wrap {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--white);
+  box-shadow: 0 0 60px rgba(0,0,0,.25);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.thanks-logo {
+  margin-bottom: 32px;
+}
+
+.thanks-logo img {
+  height: 80px;
+  width: auto;
+  display: block;
+}
+
+.thanks-icon {
+  width: 72px;
+  height: 72px;
+  background: rgba(0,168,50,.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.thanks-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.thanks-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.thanks-body {
+  font-size: 15px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.thanks-tel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--cream);
+  border: 1.5px solid rgba(27,58,107,.15);
+  border-radius: 8px;
+  padding: 14px 24px;
+  margin-bottom: 24px;
+  text-decoration: none;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 18px;
+  transition: opacity .2s;
+}
+
+.thanks-tel:hover { opacity: .8; }
+
+.thanks-tel-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.thanks-back {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--navy);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: opacity .2s;
+}
+
+.thanks-back:hover { opacity: .85; }
+
+.thanks-footer {
+  margin-top: 40px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="thanks-wrap">
+
+  <div class="thanks-logo">
+    <img src="images/ysk-logo.png" alt="YSK塗装">
+  </div>
+
+  <div class="thanks-icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 13l4 4L19 7" stroke="#00A832" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="thanks-title">送信が完了しました！</div>
+
+  <div class="thanks-body">
+    お問い合わせありがとうございます。<br>
+    1〜2営業日以内にご登録の電話番号に<br>
+    ご連絡いたします。<br>
+    しばらくお待ちください。
+  </div>
+
+  <a href="tel:09040041821" class="thanks-tel">
+    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="#1B3A6B" stroke-width="1.3" stroke-linejoin="round" fill="rgba(27,58,107,0.1)"/>
+    </svg>
+    <span>090-4004-1821</span>
+  </a>
+
+  <a href="index.html" class="thanks-back">トップページに戻る</a>
+
+  <div class="thanks-footer">&copy; YSK塗装 All Rights Reserved.</div>
+
+</div>
+
+</body>
+</html>
