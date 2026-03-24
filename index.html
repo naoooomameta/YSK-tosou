@@ -5423,8 +5423,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     const data = await res.json();
 
     if (data.success) {
-      this.style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
+      window.location.href = 'thanks.html';
     } else {
       throw new Error('送信失敗');
     }
