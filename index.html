@@ -5252,22 +5252,11 @@ body {
       <span class="fg-item">✓ 北関東全域対応</span>
     </div>
 
-    <!-- Web3Forms 送信フォーム -->
-    <!-- ★ Web3Formsのアクセスキーを取得して下記 value="" に貼り付けてください -->
-    <!-- 取得URL: https://web3forms.com/ （メールアドレスを入れるだけで無料取得できます） -->
+    <!-- Google Apps Script 送信フォーム -->
     <form
       id="contact-form"
-      action="https://api.web3forms.com/submit"
-      method="POST"
-      enctype="multipart/form-data"
       novalidate
     >
-      <!-- Web3Forms アクセスキー（★ここを変更） -->
-      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-      <!-- 件名 -->
-      <input type="hidden" name="subject" value="【YSK塗装】お見積もりのご依頼">
-      <!-- 返信先に自動設定 -->
-      <input type="hidden" name="from_name" value="YSK塗装 お問い合わせフォーム">
       <!-- スパム対策 honeypot -->
       <input type="checkbox" name="botcheck" style="display:none;">
 
@@ -5486,7 +5475,7 @@ function handleFiles(input) {
   });
 }
 
-// フォーム送信（Web3Forms）
+// フォーム送信（Google Apps Script）
 document.getElementById('contact-form').addEventListener('submit', async function(e) {
   e.preventDefault();
 
@@ -5511,10 +5500,21 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   btnLoading.style.display = 'inline';
 
   try {
-    const formData = new FormData(this);
-    const res = await fetch('https://api.web3forms.com/submit', {
+    // フォームデータをJSON化
+    var checks = [];
+    document.querySelectorAll('input[name="工事内容[]"]:checked').forEach(function(c){ checks.push(c.value); });
+
+    var payload = {
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      address: document.getElementById('address').value,
+      age: document.getElementById('age').value,
+      message: (checks.length ? '【工事内容】' + checks.join(', ') + '\n' : '') + document.getElementById('message').value
+    };
+
+    const res = await fetch('https://script.google.com/macros/s/AKfycbwKI_mowTslMfF3JKiBXKtC74OCOJAWT0CcyaxQQ6cUJxvVP9O6AtASgCO6jtTv8OM/exec', {
       method: 'POST',
-      body: formData
+      body: JSON.stringify(payload)
     });
     const data = await res.json();
 
