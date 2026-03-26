@@ -5504,12 +5504,31 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     var checks = [];
     document.querySelectorAll('input[name="工事内容[]"]:checked').forEach(function(c){ checks.push(c.value); });
 
+    // 写真をBase64に変換
+    var photoFiles = document.getElementById('photos').files;
+    var photos = [];
+    for (var i = 0; i < photoFiles.length; i++) {
+      var base64 = await new Promise(function(resolve) {
+        var reader = new FileReader();
+        reader.onload = function() {
+          resolve(reader.result.split(',')[1]);
+        };
+        reader.readAsDataURL(photoFiles[i]);
+      });
+      photos.push({
+        name: photoFiles[i].name,
+        type: photoFiles[i].type,
+        data: base64
+      });
+    }
+
     var payload = {
       name: document.getElementById('name').value,
       phone: document.getElementById('phone').value,
       address: document.getElementById('address').value,
       age: document.getElementById('age').value,
-      message: (checks.length ? '【工事内容】' + checks.join(', ') + '\n' : '') + document.getElementById('message').value
+      message: (checks.length ? '【工事内容】' + checks.join(', ') + '\n' : '') + document.getElementById('message').value,
+      photos: photos
     };
 
     const res = await fetch('https://script.google.com/macros/s/AKfycbwKI_mowTslMfF3JKiBXKtC74OCOJAWT0CcyaxQQ6cUJxvVP9O6AtASgCO6jtTv8OM/exec', {
