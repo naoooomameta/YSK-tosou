@@ -5504,12 +5504,10 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     var checks = [];
     document.querySelectorAll('input[name="工事内容[]"]:checked').forEach(function(c){ checks.push(c.value); });
 
-    // 写真ファイルを取得（最大5枚）
+    // 写真ファイルを取得（最大5枚）・圧縮
     var photoInput = document.getElementById('photos');
     var photoFiles = Array.from(photoInput.files).slice(0, 5);
-
-    // 写真がある場合は先に圧縮しておく
-    var compressedPhotos = [];
+    var photos = [];
     for (var i = 0; i < photoFiles.length; i++) {
       var base64 = await new Promise(function(resolve) {
         var reader = new FileReader();
@@ -5517,21 +5515,18 @@ document.getElementById('contact-form').addEventListener('submit', async functio
           var img = new Image();
           img.onload = function() {
             var canvas = document.createElement('canvas');
-            var maxW = 800;
+            var maxW = 400;
             var scale = Math.min(1, maxW / img.width);
             canvas.width = img.width * scale;
             canvas.height = img.height * scale;
             canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
-            resolve(canvas.toDataURL('image/jpeg', 0.5).split(',')[1]);
+            resolve(canvas.toDataURL('image/jpeg', 0.3).split(',')[1]);
           };
           img.src = reader.result;
         };
         reader.readAsDataURL(photoFiles[i]);
       });
-      compressedPhotos.push({
-        name: photoFiles[i].name.replace(/\.[^.]+$/, '.jpg'),
-        data: base64
-      });
+      photos.push({ name: photoFiles[i].name.replace(/\.[^.]+$/, '.jpg'), type: 'image/jpeg', data: base64 });
     }
 
     var payload = {
@@ -5540,7 +5535,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
       address: document.getElementById('address').value,
       age: document.getElementById('age').value,
       message: (checks.length ? '【工事内容】' + checks.join(', ') + '\n' : '') + document.getElementById('message').value,
-      photoCount: photoFiles.length
+      photos: photos
     };
 
     var GAS_URL = 'https://script.google.com/macros/s/AKfycbwKI_mowTslMfF3JKiBXKtC74OCOJAWT0CcyaxQQ6cUJxvVP9O6AtASgCO6jtTv8OM/exec';
@@ -5552,31 +5547,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     });
 
     if (res.ok) {
-      var result = await res.json();
       fbq('track', 'Lead');
-
-      // 写真がある場合はfetchで1枚ずつ送信（失敗しても遷移する）
-      if (compressedPhotos.length > 0 && result.row) {
-        btnLoading.textContent = '写真をアップロード中…';
-        for (var j = 0; j < compressedPhotos.length; j++) {
-          try {
-            await fetch(GAS_URL, {
-              method: 'POST',
-              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-              body: JSON.stringify({
-                type: 'photo',
-                row: result.row,
-                fileName: compressedPhotos[j].name,
-                mimeType: 'image/jpeg',
-                data: compressedPhotos[j].data
-              })
-            });
-          } catch(photoErr) {
-            // 写真アップロード失敗しても続行
-          }
-        }
-      }
-
       window.location.href = 'thanks.html';
     } else {
       throw new Error('送信失敗');
