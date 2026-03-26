@@ -5504,21 +5504,32 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     var checks = [];
     document.querySelectorAll('input[name="工事内容[]"]:checked').forEach(function(c){ checks.push(c.value); });
 
-    // 写真をBase64に変換
+    // 写真をBase64に変換（圧縮）
     var photoFiles = document.getElementById('photos').files;
     var photos = [];
     for (var i = 0; i < photoFiles.length; i++) {
-      var base64 = await new Promise(function(resolve) {
+      var compressed = await new Promise(function(resolve) {
         var reader = new FileReader();
         reader.onload = function() {
-          resolve(reader.result.split(',')[1]);
+          var img = new Image();
+          img.onload = function() {
+            var canvas = document.createElement('canvas');
+            var maxW = 800;
+            var scale = Math.min(1, maxW / img.width);
+            canvas.width = img.width * scale;
+            canvas.height = img.height * scale;
+            canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+            var dataUrl = canvas.toDataURL('image/jpeg', 0.6);
+            resolve(dataUrl.split(',')[1]);
+          };
+          img.src = reader.result;
         };
         reader.readAsDataURL(photoFiles[i]);
       });
       photos.push({
-        name: photoFiles[i].name,
-        type: photoFiles[i].type,
-        data: base64
+        name: photoFiles[i].name.replace(/\.[^.]+$/, '.jpg'),
+        type: 'image/jpeg',
+        data: compressed
       });
     }
 
