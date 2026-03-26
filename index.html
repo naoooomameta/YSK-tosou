@@ -5323,7 +5323,7 @@ body {
             <option>30年以上</option>
             <option>不明</option>
           </select>
-          <select class="form-select" name="建物の種類">
+          <select class="form-select" name="建物の種類" id="building-type">
             <option value="">建物の種類</option>
             <option>木造一戸建て</option>
             <option>鉄骨一戸建て</option>
@@ -5511,7 +5511,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
       name: document.getElementById('name').value,
       phone: document.getElementById('phone').value,
       address: document.getElementById('address').value,
-      age: document.getElementById('age').value,
+      age: [document.getElementById('age').value, document.getElementById('building-type').value].filter(Boolean).join(' / '),
       message: (checks.length ? '【工事内容】' + checks.join(', ') + '\n' : '') + document.getElementById('message').value,
       photoCount: photoCount
     };
