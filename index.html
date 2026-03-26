@@ -5504,41 +5504,16 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     var checks = [];
     document.querySelectorAll('input[name="工事内容[]"]:checked').forEach(function(c){ checks.push(c.value); });
 
-    // 写真をBase64に変換（圧縮）
+    // 写真の枚数を記録（写真はLINEで送ってもらう）
     var photoFiles = document.getElementById('photos').files;
-    var photos = [];
-    for (var i = 0; i < photoFiles.length; i++) {
-      var compressed = await new Promise(function(resolve) {
-        var reader = new FileReader();
-        reader.onload = function() {
-          var img = new Image();
-          img.onload = function() {
-            var canvas = document.createElement('canvas');
-            var maxW = 800;
-            var scale = Math.min(1, maxW / img.width);
-            canvas.width = img.width * scale;
-            canvas.height = img.height * scale;
-            canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
-            var dataUrl = canvas.toDataURL('image/jpeg', 0.6);
-            resolve(dataUrl.split(',')[1]);
-          };
-          img.src = reader.result;
-        };
-        reader.readAsDataURL(photoFiles[i]);
-      });
-      photos.push({
-        name: photoFiles[i].name.replace(/\.[^.]+$/, '.jpg'),
-        type: 'image/jpeg',
-        data: compressed
-      });
-    }
+    var photoNote = photoFiles.length > 0 ? '【写真' + photoFiles.length + '枚添付あり（LINEで送付依頼）】\n' : '';
 
     var payload = {
       name: document.getElementById('name').value,
       phone: document.getElementById('phone').value,
       address: document.getElementById('address').value,
       age: document.getElementById('age').value,
-      message: (checks.length ? '【工事内容】' + checks.join(', ') + '\n' : '') + document.getElementById('message').value,
+      message: photoNote + (checks.length ? '【工事内容】' + checks.join(', ') + '\n' : '') + document.getElementById('message').value,
       photos: photos
     };
 
