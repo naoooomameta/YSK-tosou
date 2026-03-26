@@ -5504,30 +5504,8 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     var checks = [];
     document.querySelectorAll('input[name="工事内容[]"]:checked').forEach(function(c){ checks.push(c.value); });
 
-    // 写真ファイルを取得（最大5枚）・圧縮
-    var photoInput = document.getElementById('photos');
-    var photoFiles = Array.from(photoInput.files).slice(0, 5);
-    var photos = [];
-    for (var i = 0; i < photoFiles.length; i++) {
-      var base64 = await new Promise(function(resolve) {
-        var reader = new FileReader();
-        reader.onload = function() {
-          var img = new Image();
-          img.onload = function() {
-            var canvas = document.createElement('canvas');
-            var maxW = 400;
-            var scale = Math.min(1, maxW / img.width);
-            canvas.width = img.width * scale;
-            canvas.height = img.height * scale;
-            canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
-            resolve(canvas.toDataURL('image/jpeg', 0.3).split(',')[1]);
-          };
-          img.src = reader.result;
-        };
-        reader.readAsDataURL(photoFiles[i]);
-      });
-      photos.push({ name: photoFiles[i].name.replace(/\.[^.]+$/, '.jpg'), type: 'image/jpeg', data: base64 });
-    }
+    // 写真の枚数を記録
+    var photoCount = document.getElementById('photos').files.length;
 
     var payload = {
       name: document.getElementById('name').value,
@@ -5535,7 +5513,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
       address: document.getElementById('address').value,
       age: document.getElementById('age').value,
       message: (checks.length ? '【工事内容】' + checks.join(', ') + '\n' : '') + document.getElementById('message').value,
-      photos: photos
+      photoCount: photoCount
     };
 
     var GAS_URL = 'https://script.google.com/macros/s/AKfycbwKI_mowTslMfF3JKiBXKtC74OCOJAWT0CcyaxQQ6cUJxvVP9O6AtASgCO6jtTv8OM/exec';
@@ -5548,13 +5526,12 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
     if (res.ok) {
       fbq('track', 'Lead');
-      window.location.href = 'thanks.html';
+      window.location.href = photoCount > 0 ? 'thanks.html?photos=' + photoCount : 'thanks.html';
     } else {
-      throw new Error('送信失敗: ' + res.status);
+      throw new Error('送信失敗');
     }
-  } catch(err) {
+  } catch {
     document.getElementById('form-error').style.display = 'block';
-    document.getElementById('form-error').textContent = 'エラー: ' + err.message;
     btn.disabled = false;
     btnText.style.display = 'inline';
     btnLoading.style.display = 'none';
