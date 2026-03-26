@@ -5555,16 +5555,21 @@ document.getElementById('contact-form').addEventListener('submit', async functio
       var result = await res.json();
       fbq('track', 'Lead');
 
-      // 圧縮済み写真をsendBeaconで1枚ずつ送信
+      // 写真がある場合はfetchで1枚ずつ送信（全て完了してから遷移）
       if (compressedPhotos.length > 0 && result.row) {
+        btnLoading.textContent = '写真をアップロード中…';
         for (var j = 0; j < compressedPhotos.length; j++) {
-          navigator.sendBeacon(GAS_URL, JSON.stringify({
-            type: 'photo',
-            row: result.row,
-            fileName: compressedPhotos[j].name,
-            mimeType: 'image/jpeg',
-            data: compressedPhotos[j].data
-          }));
+          await fetch(GAS_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+              type: 'photo',
+              row: result.row,
+              fileName: compressedPhotos[j].name,
+              mimeType: 'image/jpeg',
+              data: compressedPhotos[j].data
+            })
+          });
         }
       }
 
