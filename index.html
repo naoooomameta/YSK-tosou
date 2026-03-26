@@ -5533,13 +5533,16 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
     const res = await fetch('https://script.google.com/macros/s/AKfycbwKI_mowTslMfF3JKiBXKtC74OCOJAWT0CcyaxQQ6cUJxvVP9O6AtASgCO6jtTv8OM/exec', {
       method: 'POST',
-      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
     });
 
-    // no-corsモードではレスポンスが読めないため、送信成功とみなす
-    fbq('track', 'Lead');
-    window.location.href = 'thanks.html';
+    if (res.ok) {
+      fbq('track', 'Lead');
+      window.location.href = 'thanks.html';
+    } else {
+      throw new Error('送信失敗');
+    }
   } catch {
     document.getElementById('form-error').style.display = 'block';
     btn.disabled = false;
