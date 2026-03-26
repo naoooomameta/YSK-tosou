@@ -5366,7 +5366,7 @@ body {
           >
           <div class="form-upload-icon">📷</div>
           <div class="form-upload-text">タップして写真を選ぶ</div>
-          <div class="form-upload-hint">複数枚OK（jpg/png/heic）</div>
+          <div class="form-upload-hint">最大5枚まで（jpg/png/heic）</div>
         </div>
         <div class="form-upload-preview" id="preview-wrap"></div>
       </div>
@@ -5504,8 +5504,35 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     var checks = [];
     document.querySelectorAll('input[name="工事内容[]"]:checked').forEach(function(c){ checks.push(c.value); });
 
-    // 写真ファイルを取得
-    var photoFiles = document.getElementById('photos').files;
+    // 写真ファイルを取得（最大5枚）
+    var photoInput = document.getElementById('photos');
+    var photoFiles = Array.from(photoInput.files).slice(0, 5);
+
+    // 写真がある場合は先に圧縮しておく
+    var compressedPhotos = [];
+    for (var i = 0; i < photoFiles.length; i++) {
+      var base64 = await new Promise(function(resolve) {
+        var reader = new FileReader();
+        reader.onload = function() {
+          var img = new Image();
+          img.onload = function() {
+            var canvas = document.createElement('canvas');
+            var maxW = 800;
+            var scale = Math.min(1, maxW / img.width);
+            canvas.width = img.width * scale;
+            canvas.height = img.height * scale;
+            canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+            resolve(canvas.toDataURL('image/jpeg', 0.5).split(',')[1]);
+          };
+          img.src = reader.result;
+        };
+        reader.readAsDataURL(photoFiles[i]);
+      });
+      compressedPhotos.push({
+        name: photoFiles[i].name.replace(/\.[^.]+$/, '.jpg'),
+        data: base64
+      });
+    }
 
     var payload = {
       name: document.getElementById('name').value,
@@ -5528,34 +5555,16 @@ document.getElementById('contact-form').addEventListener('submit', async functio
       var result = await res.json();
       fbq('track', 'Lead');
 
-      // 写真がある場合は裏側で1枚ずつ送信（ユーザーはthanksへ遷移済み）
-      if (photoFiles.length > 0 && result.row) {
-        var row = result.row;
-        for (var i = 0; i < photoFiles.length; i++) {
-          (function(file, idx) {
-            var reader = new FileReader();
-            reader.onload = function() {
-              var img = new Image();
-              img.onload = function() {
-                var canvas = document.createElement('canvas');
-                var maxW = 800;
-                var scale = Math.min(1, maxW / img.width);
-                canvas.width = img.width * scale;
-                canvas.height = img.height * scale;
-                canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
-                var base64 = canvas.toDataURL('image/jpeg', 0.6).split(',')[1];
-                navigator.sendBeacon(GAS_URL, JSON.stringify({
-                  type: 'photo',
-                  row: row,
-                  fileName: file.name.replace(/\.[^.]+$/, '.jpg'),
-                  mimeType: 'image/jpeg',
-                  data: base64
-                }));
-              };
-              img.src = reader.result;
-            };
-            reader.readAsDataURL(file);
-          })(photoFiles[i], i);
+      // 圧縮済み写真をsendBeaconで1枚ずつ送信
+      if (compressedPhotos.length > 0 && result.row) {
+        for (var j = 0; j < compressedPhotos.length; j++) {
+          navigator.sendBeacon(GAS_URL, JSON.stringify({
+            type: 'photo',
+            row: result.row,
+            fileName: compressedPhotos[j].name,
+            mimeType: 'image/jpeg',
+            data: compressedPhotos[j].data
+          }));
         }
       }
 
