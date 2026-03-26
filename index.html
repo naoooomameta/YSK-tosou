@@ -5550,10 +5550,11 @@ document.getElementById('contact-form').addEventListener('submit', async functio
       fbq('track', 'Lead');
       window.location.href = 'thanks.html';
     } else {
-      throw new Error('送信失敗');
+      throw new Error('送信失敗: ' + res.status);
     }
-  } catch {
+  } catch(err) {
     document.getElementById('form-error').style.display = 'block';
+    document.getElementById('form-error').textContent = 'エラー: ' + err.message;
     btn.disabled = false;
     btnText.style.display = 'inline';
     btnLoading.style.display = 'none';
