@@ -5504,27 +5504,61 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     var checks = [];
     document.querySelectorAll('input[name="工事内容[]"]:checked').forEach(function(c){ checks.push(c.value); });
 
-    // 写真の枚数を記録（写真はLINEで送ってもらう）
+    // 写真ファイルを取得
     var photoFiles = document.getElementById('photos').files;
-    var photoNote = photoFiles.length > 0 ? '【写真' + photoFiles.length + '枚添付あり（LINEで送付依頼）】\n' : '';
 
     var payload = {
       name: document.getElementById('name').value,
       phone: document.getElementById('phone').value,
       address: document.getElementById('address').value,
       age: document.getElementById('age').value,
-      message: photoNote + (checks.length ? '【工事内容】' + checks.join(', ') + '\n' : '') + document.getElementById('message').value,
-      photos: photos
+      message: (checks.length ? '【工事内容】' + checks.join(', ') + '\n' : '') + document.getElementById('message').value,
+      photoCount: photoFiles.length
     };
 
-    const res = await fetch('https://script.google.com/macros/s/AKfycbwKI_mowTslMfF3JKiBXKtC74OCOJAWT0CcyaxQQ6cUJxvVP9O6AtASgCO6jtTv8OM/exec', {
+    var GAS_URL = 'https://script.google.com/macros/s/AKfycbwKI_mowTslMfF3JKiBXKtC74OCOJAWT0CcyaxQQ6cUJxvVP9O6AtASgCO6jtTv8OM/exec';
+
+    const res = await fetch(GAS_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
     });
 
     if (res.ok) {
+      var result = await res.json();
       fbq('track', 'Lead');
+
+      // 写真がある場合は裏側で1枚ずつ送信（ユーザーはthanksへ遷移済み）
+      if (photoFiles.length > 0 && result.row) {
+        var row = result.row;
+        for (var i = 0; i < photoFiles.length; i++) {
+          (function(file, idx) {
+            var reader = new FileReader();
+            reader.onload = function() {
+              var img = new Image();
+              img.onload = function() {
+                var canvas = document.createElement('canvas');
+                var maxW = 800;
+                var scale = Math.min(1, maxW / img.width);
+                canvas.width = img.width * scale;
+                canvas.height = img.height * scale;
+                canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+                var base64 = canvas.toDataURL('image/jpeg', 0.6).split(',')[1];
+                navigator.sendBeacon(GAS_URL, JSON.stringify({
+                  type: 'photo',
+                  row: row,
+                  fileName: file.name.replace(/\.[^.]+$/, '.jpg'),
+                  mimeType: 'image/jpeg',
+                  data: base64
+                }));
+              };
+              img.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+          })(photoFiles[i], i);
+        }
+      }
+
       window.location.href = 'thanks.html';
     } else {
       throw new Error('送信失敗');
