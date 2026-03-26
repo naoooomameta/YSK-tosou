@@ -109,23 +109,6 @@ body {
   display: none; /* 旧LINEボタン非表示 */
 }
 
-.float-tel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1px;
-  padding: 11px 8px;
-  background: var(--navy2);
-  border: none;
-  border-right: 1px solid rgba(255,255,255,0.15);
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity .2s;
-}
-.float-tel:hover { opacity: .85; }
 
 .float-form {
   flex: 1;
@@ -156,109 +139,6 @@ body {
   letter-spacing: .02em;
 }
 
-/* ============================
-   HEADER STRIP
-============================ */
-.header-strip {
-  background: #FFFFFF;
-  border-bottom: 3px solid var(--sky);
-  padding: 8px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  box-shadow: 0 2px 8px rgba(27,58,107,.08);
-  position: sticky;
-  top: 0;
-  z-index: 900;
-}
-
-.header-logo-img {
-  height: 48px;
-  width: auto;
-  display: block;
-}
-
-.header-logo {
-  font-family: 'Oswald', sans-serif;
-  font-size: 25px;
-  color: var(--navy);
-  letter-spacing: .12em;
-  flex-shrink: 0;
-}
-
-.header-logo span {
-  display: none;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.header-tel {
-  font-size: 18px;
-  color: var(--navy);
-  font-weight: 800;
-  text-align: right;
-  line-height: 1.2;
-  text-decoration: none;
-  flex-shrink: 1;
-  min-width: 0;
-  letter-spacing: .03em;
-}
-
-.header-tel-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  background: var(--navy);
-  border-radius: 50%;
-  margin-right: 4px;
-  vertical-align: middle;
-}
-
-.header-tel small {
-  display: block;
-  font-size: 11px;
-  color: var(--accent);
-  font-weight: 700;
-  letter-spacing: .02em;
-}
-
-.header-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--accent);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 800;
-  padding: 8px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  line-height: 1.3;
-  letter-spacing: .03em;
-  box-shadow: 0 2px 8px rgba(232,80,26,.25);
-  transition: background .2s, transform .15s;
-  white-space: nowrap;
-}
-
-.header-cta-btn:hover {
-  background: var(--accent2);
-  transform: translateY(-1px);
-}
-
-.header-cta-btn small {
-  display: block;
-  font-size: 10px;
-  font-weight: 400;
-  opacity: .9;
-}
 
 /* ============================
    AREA ANNOUNCEMENT TICKER
@@ -306,8 +186,8 @@ body {
 
 .fv-photo {
   width: 100%;
-  height: 320px;
-  background: url('images/hero-couple.png') 35% center/cover no-repeat;
+  height: 360px;
+  background: url('images/hero-couple.png?v=2') center 25%/cover no-repeat;
   position: relative;
   display: flex;
   align-items: center;
@@ -365,40 +245,223 @@ body {
 }
 
 /* 夫婦バッジ（FV左下・A案） */
-.fv-couple-badge {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  background: #FFFFFF;
-  border-radius: 8px;
-  padding: 10px 14px;
-  box-shadow: 0 4px 20px rgba(0,0,0,.15);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border-left: 4px solid var(--accent);
-  z-index: 3;
+
+/* ==== 劣化イメージ ==== */
+.deterioration-visual {
+  background: linear-gradient(135deg, #f4f0eb 0%, #e8e0d8 100%);
+  padding: 28px 20px 20px;
+  position: relative;
 }
 
-.fv-couple-avatar {
+.dv-house {
+  width: 220px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.dv-roof {
+  width: 0;
+  height: 0;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-bottom: 60px solid #7a6e62;
+  margin: 0 auto;
+  position: relative;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,.15));
+}
+.dv-roof::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: -60px;
+  width: 100px;
+  height: 20px;
+  background: rgba(80,120,60,.45);
+  border-radius: 50%;
+  filter: blur(3px);
+}
+
+.dv-wall {
+  width: 200px;
+  height: 150px;
+  margin: 0 auto;
+  background: #d4ccc2;
+  position: relative;
+  border-bottom: 4px solid #8a7e72;
+  box-shadow: inset 0 0 30px rgba(0,0,0,.08);
+}
+
+.dv-window {
+  position: absolute;
   width: 36px;
   height: 36px;
+  background: linear-gradient(135deg, #a8c8e8 0%, #7baed0 100%);
+  border: 3px solid #8a7e72;
+  border-radius: 2px;
+}
+.dv-window::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #8a7e72;
+}
+.dv-window::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #8a7e72;
+}
+.dv-window-1 { top: 20px; left: 25px; }
+.dv-window-2 { top: 20px; right: 25px; }
+
+.dv-door {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34px;
+  height: 56px;
+  background: linear-gradient(180deg, #6b5b4e 0%, #5a4a3e 100%);
+  border-radius: 2px 2px 0 0;
+  border: 2px solid #4a3a2e;
+  border-bottom: none;
+}
+.dv-door::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  width: 5px;
+  height: 5px;
+  background: #c8a84e;
   border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
 }
 
-.fv-couple-name {
-  font-size: 13px;
-  font-weight: 900;
+/* ひび割れ */
+.dv-crack {
+  position: absolute;
+  background: none;
+}
+.dv-crack-1 {
+  top: 30px;
+  right: 18px;
+  width: 40px;
+  height: 60px;
+  border-right: 2px solid #6b5e50;
+  clip-path: polygon(100% 0%, 60% 30%, 100% 50%, 50% 70%, 80% 100%, 100% 100%, 100% 0%);
+}
+.dv-crack-2 {
+  bottom: 20px;
+  left: 15px;
+  width: 30px;
+  height: 45px;
+  border-left: 2px solid #6b5e50;
+  clip-path: polygon(0% 0%, 40% 25%, 0% 55%, 50% 80%, 20% 100%, 0% 100%, 0% 0%);
+}
+.dv-crack-3 {
+  top: 70px;
+  left: 75px;
+  width: 20px;
+  height: 30px;
+  border-left: 1.5px solid rgba(107,94,80,.7);
+  clip-path: polygon(0% 0%, 60% 40%, 0% 100%);
+}
+
+/* 塗膜の剥がれ */
+.dv-peel {
+  position: absolute;
+  border-radius: 30% 70% 50% 40%;
+  border: 1.5px dashed rgba(139,119,101,.6);
+  background: rgba(180,165,148,.3);
+}
+.dv-peel-1 {
+  top: 80px;
+  right: 12px;
+  width: 28px;
+  height: 18px;
+}
+.dv-peel-2 {
+  top: 15px;
+  left: 70px;
+  width: 22px;
+  height: 14px;
+  border-radius: 50% 30% 60% 40%;
+}
+.dv-peel-3 {
+  bottom: 30px;
+  right: 50px;
+  width: 18px;
+  height: 12px;
+  border-radius: 40% 60% 30% 50%;
+}
+
+/* 雨染み */
+.dv-stain {
+  position: absolute;
+  background: rgba(100,90,75,.15);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+.dv-stain-1 {
+  top: 5px;
+  right: 70px;
+  width: 35px;
+  height: 50px;
+  border-radius: 40% 40% 50% 50%;
+  background: linear-gradient(180deg, rgba(100,90,75,.2) 0%, rgba(80,100,60,.15) 100%);
+}
+.dv-stain-2 {
+  top: 60px;
+  left: 8px;
+  width: 20px;
+  height: 35px;
+  border-radius: 40% 40% 50% 50%;
+  background: linear-gradient(180deg, rgba(100,90,75,.18) 0%, rgba(80,100,60,.12) 100%);
+}
+
+/* コケ */
+.dv-moss {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: linear-gradient(0deg, rgba(70,110,55,.3) 0%, transparent 100%);
+  border-radius: 0 0 0 0;
+}
+
+/* ラベル */
+.dv-labels {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.dv-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: .05em;
+  line-height: 1.4;
+}
+
+.dv-caption {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--navy);
-  line-height: 1.3;
-}
-
-.fv-couple-sub {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 1px;
+  margin: 12px 0 0;
+  letter-spacing: .05em;
 }
 
 .fv-copy {
@@ -524,17 +587,7 @@ body {
 }
 
 .area-section::before {
-  content: 'AREA';
-  position: absolute;
-  right: -20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: 'Oswald', sans-serif;
-  font-size: 100px;
-  font-weight: 700;
-  color: rgba(255,255,255,.04);
-  letter-spacing: .1em;
-  pointer-events: none;
+  display: none;
 }
 
 .area-headline {
@@ -609,16 +662,19 @@ body {
 
 .area-map-placeholder {
   background: rgba(255,255,255,.06);
-  border: 1px dashed rgba(255,255,255,.2);
   border-radius: 8px;
-  height: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,.35);
-  font-size: 14px;
-  letter-spacing: .08em;
-  margin-top: 8px;
+  overflow: hidden;
+  margin: 12px 0 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.area-map-placeholder img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: contain;
 }
 
 .area-note {
@@ -1035,20 +1091,46 @@ body {
    屋根だけ塗装セクション
 ============================ */
 .roof-only-section {
-  padding: 40px 20px;
-  background: var(--navy);
+  padding: 48px 20px 40px;
+  background: linear-gradient(170deg, #0F2847 0%, var(--navy) 40%, #1B3A6B 70%, #243E6B 100%);
   color: white;
   position: relative;
+  overflow: hidden;
+}
+.roof-only-section::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(74,159,212,.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.roof-only-section::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(245,200,66,.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 .roof-only-section .section-title { color: white; }
 
 .roof-only-card {
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 12px;
-  padding: 24px 20px;
+  background: linear-gradient(135deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.05) 100%);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 16px;
+  padding: 28px 20px;
   margin-top: 20px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
 }
 
 .roof-only-headline {
@@ -1081,17 +1163,20 @@ body {
 .roof-only-point {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  background: rgba(255,255,255,.06);
-  border-radius: 8px;
-  padding: 14px;
+  gap: 12px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+  padding: 16px;
+  transition: background .2s;
 }
 
 .roof-only-point-icon {
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   background: rgba(245,200,66,.15);
+  border: 1px solid rgba(245,200,66,.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1448,7 +1533,7 @@ body {
   gap: 6px;
 }
 
-.promise-icon { font-size: 25px; }
+.promise-icon { width: 64px; height: 64px; margin-bottom: 8px; }
 .promise-title { font-size: 15px; font-weight: 900; color: var(--navy); line-height: 1.3; }
 .promise-desc  { font-size: 13px; color: var(--muted); line-height: 1.5; }
 
@@ -1576,37 +1661,10 @@ body {
 .ba-img {
   aspect-ratio: 16/9;
   width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 12px;
   position: relative;
   overflow: hidden;
 }
 
-.ba-img-text {
-  font-size: 13px;
-  font-weight: 700;
-  color: rgba(255,255,255,.85);
-  text-align: center;
-  line-height: 1.45;
-  letter-spacing: .02em;
-  text-shadow: 0 1px 4px rgba(0,0,0,.5);
-}
-
-.ba-label {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 13px;
-  font-weight: 900;
-  padding: 4px 10px;
-  border-radius: 3px;
-  letter-spacing: .08em;
-}
-
-.ba-label.b { background: rgba(0,0,0,.55); color: #ddd; }
-.ba-label.a { background: var(--accent);   color: #fff; }
 
 .ba-divider {
   position: absolute;
@@ -2547,21 +2605,35 @@ body {
   margin-bottom: 10px;
 }
 
-.inst-example {
+.inst-plan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.inst-plan-item {
   background: rgba(255,255,255,.1);
   border-radius: 4px;
   padding: 10px 14px;
-  margin-bottom: 8px;
 }
 
-.inst-ex-label {
-  font-size: 12px;
-  color: rgba(255,255,255,.55);
+.inst-plan-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,.85);
   margin-bottom: 4px;
 }
 
+.inst-plan-name span {
+  font-weight: 500;
+  color: rgba(255,255,255,.5);
+  font-size: 12px;
+  margin-left: 6px;
+}
+
 .inst-ex-content {
-  font-size: 16px;
+  font-size: 15px;
   color: #fff;
   font-weight: 700;
   line-height: 1.5;
@@ -2569,7 +2641,7 @@ body {
 
 .inst-ex-content strong {
   font-family: 'Oswald', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   color: var(--gold);
 }
 
@@ -2759,25 +2831,6 @@ body {
   box-shadow: 0 2px 0 #b33d08;
 }
 
-.scb-btn-tel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 13px;
-  background: var(--navy);
-  border: 2px solid var(--navy);
-  border-radius: 6px;
-  color: var(--white);
-  font-size: 16px;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: .03em;
-  transition: opacity .2s;
-}
-
-.scb-btn-tel:hover { opacity: .85; }
 
 .scb-note {
   font-size: 13px;
@@ -3268,27 +3321,6 @@ body {
   line-height: 1.6;
 }
 
-/* FV 電話サブボタン */
-.btn-tel-sub {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  width: 100%;
-  padding: 12px 16px;
-  background: var(--white);
-  border: 2px solid var(--sky);
-  border-radius: 6px;
-  color: var(--navy);
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: .03em;
-  margin-top: 10px;
-  transition: background .2s;
-  box-sizing: border-box;
-}
-.btn-tel-sub:hover { background: #f0f4f8; }
 
 /* 中間CTA 2ボタングループ */
 .mid-cta-group {
@@ -3314,63 +3346,61 @@ body {
 }
 .mid-cta-form:hover { opacity: .9; transform: translateY(-1px); }
 .mid-cta-form:active { transform: translateY(0); }
-.mid-cta-tel {
+
+/* LINE CTAボタン（共通） */
+.scb-btn-line,
+.mid-cta-line {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   width: 100%;
-  padding: 13px 16px;
-  background: var(--navy);
+  padding: 16px;
+  background: #06C755;
   border: none;
   border-radius: 6px;
   color: white;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  cursor: pointer;
   text-decoration: none;
-  letter-spacing: .03em;
-  transition: opacity .2s;
-  box-sizing: border-box;
+  box-shadow: 0 5px 0 #049940;
+  transition: transform .1s, box-shadow .1s;
 }
-.mid-cta-tel svg path { stroke: white; }
-.mid-cta-tel small {
-  font-size: 13px;
-  font-weight: 400;
-  opacity: .75;
-  margin-left: 4px;
+.scb-btn-line:active,
+.mid-cta-line:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #049940;
 }
-.mid-cta-tel:hover { opacity: .8; }
-
-/* フォームセクション 電話バナー */
-.contact-tel-banner {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--white);
-  border: 2px solid var(--sky);
+.mid-cta-line {
   border-radius: 8px;
-  padding: 14px 16px;
-  margin-bottom: 16px;
-  text-decoration: none;
-  color: var(--navy);
-  transition: background .2s;
+  font-size: 18px;
+  padding: 17px;
+  box-shadow: 0 4px 16px rgba(6,199,85,0.45);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
-.contact-tel-banner:hover { background: #f0f4f8; }
-.ctb-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(15,42,69,.08);
-  border-radius: 50%;
+.mid-cta-line:hover { opacity: .9; transform: translateY(-1px); }
+
+/* フローティングバー LINE */
+.float-line-btn {
+  flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  gap: 1px;
+  padding: 11px 8px;
+  background: #06C755;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: opacity .2s;
+  text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
 }
-.ctb-body { flex: 1; }
-.ctb-label { font-size: 12px; color: var(--muted); margin-bottom: 2px; letter-spacing: .04em; }
-.ctb-num { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); letter-spacing: .05em; line-height: 1.2; }
-.ctb-hours { font-size: 12px; color: var(--muted); margin-top: 2px; }
-.ctb-arrow { font-size: 22px; color: var(--muted); flex-shrink: 0; }
+.float-line-btn:hover { opacity: .9; }
+
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -3405,9 +3435,12 @@ body {
 .logo-on-blue img {
   display: block;
   position: relative;
-  height: 80px;
-  width: auto;
-  filter: drop-shadow(0 2px 8px rgba(27,58,107,.15));
+  height: 88px;
+  width: 88px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--navy);
+  box-shadow: 0 2px 12px rgba(0,0,0,.12);
 }
 
 /* ===== 青背景セクションの装飾枠 ===== */
@@ -3580,22 +3613,6 @@ body {
 
 <div class="lp-wrap">
 
-  <!-- ヘッダー -->
-  <header class="header-strip">
-    <div class="header-logo">
-      <img src="images/ysk-logo.png" alt="YSK塗装ロゴ" class="header-logo-img">
-    </div>
-    <div class="header-right">
-      <a href="tel:09040041821" class="header-tel">
-        <span class="header-tel-icon"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="#fff" stroke-width="1.4" stroke-linejoin="round" fill="rgba(255,255,255,0.3)"/></svg></span>090-4004-1821
-        <small>受付中 8:00〜20:00</small>
-      </a>
-      <a href="#contact" class="header-cta-btn">
-        無料見積もり<small>かんたん60秒</small>
-      </a>
-    </div>
-  </header>
-
   <!-- エリアティッカー -->
   <div class="area-ticker">
     <div class="ticker-inner">
@@ -3628,13 +3645,6 @@ body {
     <div class="fv-photo">
       <div class="fv-photo-label">📸 施工写真（夫婦）</div>
       <div class="fv-photo-overlay"></div>
-      <!-- 夫婦バッジ（A案特徴：左下） -->
-      <div class="fv-couple-badge">
-        <svg class="fv-couple-avatar" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="18" fill="#1B3A6B"/><circle cx="18" cy="13" r="6" fill="#fff" opacity=".8"/><ellipse cx="18" cy="30" rx="10" ry="8" fill="#fff" opacity=".8"/></svg>
-        <div class="fv-couple-info">
-          <div class="fv-couple-sub">夫婦で直接施工します</div>
-        </div>
-      </div>
       <div class="fv-badge-group">
         <div class="fv-badge">
           累計施工
@@ -3646,6 +3656,33 @@ body {
         </div>
       </div>
     </div>
+    <!-- 劣化イメージ -->
+    <div class="deterioration-visual">
+      <div class="dv-house">
+        <div class="dv-roof"></div>
+        <div class="dv-wall">
+          <div class="dv-window dv-window-1"></div>
+          <div class="dv-window dv-window-2"></div>
+          <div class="dv-door"></div>
+          <div class="dv-crack dv-crack-1"></div>
+          <div class="dv-crack dv-crack-2"></div>
+          <div class="dv-crack dv-crack-3"></div>
+          <div class="dv-peel dv-peel-1"></div>
+          <div class="dv-peel dv-peel-2"></div>
+          <div class="dv-peel dv-peel-3"></div>
+          <div class="dv-stain dv-stain-1"></div>
+          <div class="dv-stain dv-stain-2"></div>
+          <div class="dv-moss"></div>
+        </div>
+      </div>
+      <div class="dv-labels">
+        <span class="dv-label dv-label-1">ひび割れ</span>
+        <span class="dv-label dv-label-2">塗膜の剥がれ</span>
+        <span class="dv-label dv-label-3">雨染み・カビ</span>
+      </div>
+      <p class="dv-caption">こんな症状、見て見ぬふりしていませんか？</p>
+    </div>
+
     <div class="fv-copy">
       <div class="fv-eyebrow">栃木・北関東の塗装専門夫婦店</div>
       <div class="fv-headline">
@@ -3663,12 +3700,6 @@ body {
         【無料】夫婦に直接相談してみる
         <span class="arrow">›</span>
       </button>
-      <a href="tel:09040041821" class="btn-tel-sub">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-          <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="var(--navy)" stroke-width="1.2" stroke-linejoin="round" fill="rgba(26,46,69,0.1)"/>
-        </svg>
-        電話で相談する（無料）&ensp;090-4004-1821
-      </a>
     </div>
     <div class="fv-note">しつこい営業は一切しません。まずはお気軽に。</div>
     <div style="text-align:center;"><span class="speed-badge">24時間以内にご連絡します</span></div>
@@ -3723,12 +3754,7 @@ body {
     </div>
 
     <div class="area-map-placeholder">
-      <svg viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;border-radius:8px;">
-        <rect width="300" height="140" fill="rgba(255,255,255,.06)" rx="8"/>
-        <text x="150" y="60" text-anchor="middle" fill="rgba(255,255,255,.5)" font-size="14" font-family="sans-serif">📍 北関東エリア</text>
-        <text x="150" y="85" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="11" font-family="sans-serif">栃木・群馬・茨城・埼玉北部</text>
-        <text x="150" y="110" text-anchor="middle" fill="rgba(255,255,255,.25)" font-size="10" font-family="sans-serif">片道1.5時間圏内対応</text>
-      </svg>
+      <img src="images/area-map.png" alt="北関東エリアマップ — 栃木・群馬・茨城・埼玉北部 片道1.5時間圏内対応">
     </div>
 
     <div class="area-note">
@@ -4085,9 +4111,6 @@ body {
       <button class="scb-btn-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         【無料】夫婦に直接相談してみる
       </button>
-      <a href="tel:09040041821" class="scb-btn-tel">
-        📞 今すぐ電話する &ensp; 090-4004-1821
-      </a>
     </div>
     <div class="scb-note">しつこい営業・追加費用は一切なし</div>
   </div>
@@ -4096,7 +4119,7 @@ body {
   <div class="merit1-section">
     <div class="section-header">
       <div class="section-label-tag">MERIT 01</div>
-      <div class="section-title">同じ工事なのに、<br>なぜYSKは<em style="font-style:normal;color:var(--accent)">最低でも40%安い</em>のか？</div>
+      <div class="section-title">同じ工事なのに、<br>なぜYSK塗装は<em style="font-style:normal;color:var(--accent)">最低でも40%安い</em>のか？</div>
     </div>
 
     <!-- 割合グラフ比較 -->
@@ -4156,7 +4179,7 @@ body {
         <div class="ratio-result-icon">💡</div>
         <div class="ratio-result-text">
           大手の費用の<strong>40〜60%は「無駄な中間コスト」</strong>。<br>
-          YSKはそこをまるごとカットするから、<br>
+          YSK塗装はそこをまるごとカットするから、<br>
           <em>同じ品質で最低でも40%安くなります。</em>
         </div>
       </div>
@@ -4206,9 +4229,10 @@ body {
         <a href="https://www.onuki-paint.com/" target="_blank" rel="noopener" class="partner-img-link">
           <div class="partner-img-wrap">
             <img
-              src="https://www.onuki-paint.com/wp-content/themes/onuki/images/ogp.jpg"
+              src="images/onuki-logo.png?v=2"
               alt="大貫塗料店"
               class="partner-img"
+              style="object-fit: contain; background: #fff; padding: 12px;"
               onerror="this.parentElement.innerHTML='<div class=\'partner-img-fallback\'><span>🎨</span><span>大貫塗料店</span></div>'"
             >
             <div class="partner-img-overlay">
@@ -4232,14 +4256,15 @@ body {
       <!-- 城間仮設 -->
       <div class="partner-card-v2">
         <a href="https://shiroma-kasetsu.jp/" target="_blank" rel="noopener" class="partner-img-link">
-          <div class="partner-img-wrap">
+          <div class="partner-img-wrap" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: #fff;">
             <img
-              src="images/shiroma-logo.png"
+              src="images/shiroma-logo.png?v=2"
               alt="城間仮設"
               class="partner-img"
-              style="object-fit: contain; background: #fff; padding: 12px;"
+              style="object-fit: contain; background: #fff; padding: 8px 12px 0; height: 130px; width: auto;"
               onerror="this.parentElement.innerHTML='<div class=\'partner-img-fallback\'><span>🏗️</span><span>城間仮設</span></div>'"
             >
+            <span style="font-size: 15px; font-weight: 700; color: #3A5A8C; letter-spacing: 0.1em; padding-bottom: 4px;">城間仮設</span>
             <div class="partner-img-overlay">
               <span class="partner-img-role">足場専属パートナー</span>
               <span class="partner-img-visit">サイトを見る →</span>
@@ -4271,9 +4296,6 @@ body {
       <button class="scb-btn-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         【無料】夫婦に直接相談してみる
       </button>
-      <a href="tel:09040041821" class="scb-btn-tel">
-        📞 電話で聞いてみる &ensp; 090-4004-1821
-      </a>
     </div>
     <div class="scb-note">出張費・見積もり費は完全無料</div>
   </div>
@@ -4288,7 +4310,6 @@ body {
     <div class="couple-intro">
       <div class="couple-avatar-wrap">
         <svg class="avatar-circle" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" rx="40" fill="#1B3A6B"/><circle cx="40" cy="28" r="13" fill="#fff" opacity=".8"/><ellipse cx="40" cy="66" rx="22" ry="18" fill="#fff" opacity=".8"/></svg>
-        <div class="avatar-name">ユースケ & なお</div>
       </div>
       <div class="couple-text">
         <div class="couple-title">はじめまして。<br>YSK塗装の夫婦です。</div>
@@ -4298,22 +4319,77 @@ body {
 
     <div class="promise-grid">
       <div class="promise-card">
-        <div class="promise-icon">👫</div>
+        <div class="promise-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- 夫婦イラスト -->
+            <!-- 旦那さん（左） -->
+            <circle cx="22" cy="18" r="10" fill="#FDDCB5"/>
+            <path d="M22 8C17.5 8 14 11 14 15.5C14 16 14.2 17 14.2 17L16 15C16 15 17.5 12 22 12C26.5 12 28 15 28 15L29.8 17C29.8 17 30 16 30 15.5C30 11 26.5 8 22 8Z" fill="#1B3A6B"/>
+            <ellipse cx="19.5" cy="17.5" rx="1" ry="1.2" fill="#1A1A1A"/>
+            <ellipse cx="24.5" cy="17.5" rx="1" ry="1.2" fill="#1A1A1A"/>
+            <path d="M20 22C20.5 23 23.5 23 24 22" stroke="#D4836A" stroke-width="0.8" stroke-linecap="round"/>
+            <path d="M12 56V42C12 36 16.5 32 22 32C27.5 32 32 36 32 42V56" fill="#2A5298"/>
+            <!-- 奥さん（右） -->
+            <circle cx="42" cy="18" r="9.5" fill="#FDDCB5"/>
+            <path d="M42 8.5C38 8.5 35 11 35 15C35 15.5 35.2 16.5 35.2 16.5C36 13 38.5 11.5 42 11.5C45.5 11.5 48 13 48.8 16.5C48.8 16.5 49 15.5 49 15C49 11 46 8.5 42 8.5Z" fill="#1B3A6B"/>
+            <ellipse cx="39.5" cy="17.5" rx="1" ry="1.2" fill="#1A1A1A"/>
+            <ellipse cx="44.5" cy="17.5" rx="1" ry="1.2" fill="#1A1A1A"/>
+            <path d="M40 22C40.5 23 43.5 23 44 22" stroke="#D4836A" stroke-width="0.8" stroke-linecap="round"/>
+            <path d="M32 56V43C32 37 36 33 42 33C48 33 52 37 52 43V56" fill="#E8501A"/>
+          </svg>
+        </div>
         <div class="promise-title">夫婦2人のみが<br>訪問・施工</div>
         <div class="promise-desc">外部業者・下請け一切なし。知らない人が来ることはありません。</div>
       </div>
       <div class="promise-card">
-        <div class="promise-icon">👩</div>
+        <div class="promise-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- 女性イラスト -->
+            <circle cx="28" cy="18" r="11" fill="#FDDCB5"/>
+            <path d="M28 7C23 7 19.5 10 19.5 14.5C19.5 15 19.8 16.5 19.8 16.5C20.5 12.5 23.5 11 28 11C32.5 11 35.5 12.5 36.2 16.5C36.2 16.5 36.5 15 36.5 14.5C36.5 10 33 7 28 7Z" fill="#1B3A6B"/>
+            <ellipse cx="24.5" cy="17" rx="1.2" ry="1.4" fill="#1A1A1A"/>
+            <ellipse cx="31.5" cy="17" rx="1.2" ry="1.4" fill="#1A1A1A"/>
+            <path d="M26 22C26.5 23.2 29.5 23.2 30 22" stroke="#D4836A" stroke-width="1" stroke-linecap="round"/>
+            <path d="M16 58V42C16 35 21 31 28 31C35 31 40 35 40 42V58" fill="#E8501A"/>
+            <path d="M23 31L28 37L33 31" fill="#fff" opacity="0.3"/>
+            <!-- チェックマーク -->
+            <circle cx="48" cy="46" r="10" fill="#00A832"/>
+            <path d="M43 46L47 50L53 43" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
         <div class="promise-title">奥さんが現場に<br>立ち合うから安心</div>
         <div class="promise-desc">女性のお客様も安心。女性目線で細部まで確認します。</div>
       </div>
       <div class="promise-card">
-        <div class="promise-icon">📱</div>
+        <div class="promise-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- スマートフォン＋メッセージ -->
+            <rect x="12" y="4" width="24" height="40" rx="4" stroke="#1B3A6B" stroke-width="2" fill="#fff"/>
+            <rect x="14" y="10" width="20" height="28" fill="#E8F4FD"/>
+            <circle cx="24" cy="42" r="1.5" fill="#1B3A6B"/>
+            <rect x="18" y="6" width="12" height="2" rx="1" fill="#ccc"/>
+            <!-- チャット吹き出し -->
+            <rect x="16" y="14" width="14" height="6" rx="3" fill="#00A832"/>
+            <polygon points="17,20 16,23 20,20" fill="#00A832"/>
+            <rect x="17.5" y="16" width="8" height="1" rx="0.5" fill="#fff"/>
+            <rect x="21" y="24" width="13" height="6" rx="3" fill="#2A5298"/>
+            <polygon points="33,30 35,33 31,30" fill="#2A5298"/>
+            <rect x="23" y="26.5" width="8" height="1" rx="0.5" fill="#fff"/>
+          </svg>
+        </div>
         <div class="promise-title">施工後もLINEで<br>アフターフォロー</div>
         <div class="promise-desc">「やりっぱなし」はしません。何かあればいつでも連絡を。</div>
       </div>
       <div class="promise-card">
-        <div class="promise-icon">🚫</div>
+        <div class="promise-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- 盾＋バツ（しつこい営業ゼロ） -->
+            <path d="M24 4L8 12V24C8 34 15 40 24 44C33 40 40 34 40 24V12L24 4Z" fill="rgba(27,58,107,0.08)" stroke="#1B3A6B" stroke-width="2" stroke-linejoin="round"/>
+            <circle cx="24" cy="24" r="10" fill="rgba(232,80,26,0.12)" stroke="#E8501A" stroke-width="2"/>
+            <path d="M18 18L30 30" stroke="#E8501A" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M30 18L18 30" stroke="#E8501A" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div class="promise-title">しつこい営業・<br>追加費用ゼロ</div>
         <div class="promise-desc">見積もり後のしつこい連絡・急かしは一切しません。</div>
       </div>
@@ -4415,7 +4491,7 @@ body {
 
       <!-- 看板塗装 -->
       <div class="menu-card">
-        <div class="menu-img" style="background:url('images/service-sign.jpg') center/cover no-repeat;">
+        <div class="menu-img" style="background:url('images/service-sign.jpg?v=2') center/cover no-repeat;">
           <div class="menu-img-label">看板塗装</div>
         </div>
         <div class="menu-body">
@@ -4427,7 +4503,7 @@ body {
 
       <!-- フェンス塗装 -->
       <div class="menu-card">
-        <div class="menu-img" style="background:url('images/service-fence.jpg') center/cover no-repeat;">
+        <div class="menu-img" style="background:url('images/service-fence.jpg?v=2') center/cover no-repeat;">
           <div class="menu-img-label">フェンス塗装</div>
         </div>
         <div class="menu-body">
@@ -4439,7 +4515,7 @@ body {
 
       <!-- 樋（とい）塗装 -->
       <div class="menu-card">
-        <div class="menu-img" style="background:url('images/service-gutter.jpg') center/cover no-repeat;">
+        <div class="menu-img" style="background:url('images/service-gutter.jpg?v=2') center/cover no-repeat;">
           <div class="menu-img-label">樋（とい）塗装</div>
         </div>
         <div class="menu-body">
@@ -4451,7 +4527,7 @@ body {
 
       <!-- 雨戸・戸袋塗装 -->
       <div class="menu-card">
-        <div class="menu-img" style="background:url('images/service-shutter.jpg') center/cover no-repeat;">
+        <div class="menu-img" style="background:url('images/service-shutter.jpg?v=2') center/cover no-repeat;">
           <div class="menu-img-label">雨戸・戸袋塗装</div>
         </div>
         <div class="menu-body">
@@ -4463,7 +4539,7 @@ body {
 
       <!-- シーリング（コーキング） -->
       <div class="menu-card">
-        <div class="menu-img" style="background:url('images/service-caulking.jpg') center/cover no-repeat;">
+        <div class="menu-img" style="background:url('images/service-caulking.jpg?v=2') center/cover no-repeat;">
           <div class="menu-img-label">シーリング工事</div>
         </div>
         <div class="menu-body">
@@ -4475,7 +4551,7 @@ body {
 
       <!-- 小規模・単品塗装 -->
       <div class="menu-card menu-card-wide">
-        <div class="menu-img" style="background:url('images/service-small.jpg') center/cover no-repeat;">
+        <div class="menu-img" style="background:url('images/service-small.jpg?v=2') center/cover no-repeat;">
           <div class="menu-img-label">その他・単品塗装</div>
         </div>
         <div class="menu-body">
@@ -4493,12 +4569,6 @@ body {
         <button class="mid-cta-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
           【無料】夫婦に直接相談してみる
         </button>
-        <a href="tel:09040041821" class="mid-cta-tel">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-            <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="white" stroke-width="1.2" stroke-linejoin="round" fill="rgba(255,255,255,0.2)"/>
-          </svg>
-          電話で相談<small>090-4004-1821</small>
-        </a>
       </div>
     </div>
   </div>
@@ -4521,21 +4591,21 @@ body {
 
       <div class="roof-only-points">
         <div class="roof-only-point">
-          <div class="roof-only-point-icon">🏠</div>
+          <div class="roof-only-point-icon"><svg viewBox="0 0 48 48" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6L4 22h6v18h10v-12h8v12h10V22h6L24 6z" fill="#F5C842" opacity=".85"/><path d="M24 6L4 22h6v18h10v-12h8v12h10V22h6L24 6z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" fill="none"/><rect x="20" y="28" width="8" height="12" rx="1" fill="#1B3A6B" opacity=".5"/><circle cx="24" cy="16" r="3" fill="#fff" opacity=".6"/></svg></div>
           <div class="roof-only-point-body">
             <div class="roof-only-point-title">屋根だけでもOK</div>
             <div class="roof-only-point-desc">大手が断るような小規模案件にも対応。「屋根だけ相談できるか不安」という方も安心です。</div>
           </div>
         </div>
         <div class="roof-only-point">
-          <div class="roof-only-point-icon">☔</div>
+          <div class="roof-only-point-icon"><svg viewBox="0 0 48 48" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 4C14 4 6 12 6 22h36C42 12 34 4 24 4z" fill="#4A9FD4" opacity=".7"/><path d="M24 4C14 4 6 12 6 22h36C42 12 34 4 24 4z" stroke="#fff" stroke-width="1.5" fill="none"/><line x1="24" y1="22" x2="24" y2="40" stroke="#fff" stroke-width="2"/><path d="M24 40c0 3 3 5 6 3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="12" y1="28" x2="12" y2="34" stroke="#4A9FD4" stroke-width="1.5" stroke-linecap="round" opacity=".6"/><line x1="16" y1="30" x2="16" y2="36" stroke="#4A9FD4" stroke-width="1.5" stroke-linecap="round" opacity=".6"/><line x1="36" y1="28" x2="36" y2="34" stroke="#4A9FD4" stroke-width="1.5" stroke-linecap="round" opacity=".6"/><line x1="32" y1="30" x2="32" y2="36" stroke="#4A9FD4" stroke-width="1.5" stroke-linecap="round" opacity=".6"/></svg></div>
           <div class="roof-only-point-body">
             <div class="roof-only-point-title">雨漏り防止が最優先</div>
             <div class="roof-only-point-desc">瓦・スレート・金属屋根、どのタイプでも対応。苔の除去から防水塗装まで。</div>
           </div>
         </div>
         <div class="roof-only-point">
-          <div class="roof-only-point-icon">👨‍👩‍👦</div>
+          <div class="roof-only-point-icon"><svg viewBox="0 0 48 48" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="14" r="5" fill="#F5C842" opacity=".8"/><circle cx="32" cy="14" r="5" fill="#4A9FD4" opacity=".8"/><circle cx="24" cy="22" r="4" fill="#fff" opacity=".7"/><path d="M8 38c0-6 4-10 8-10s8 4 8 10" fill="#F5C842" opacity=".4"/><path d="M24 38c0-6 4-10 8-10s8 4 8 10" fill="#4A9FD4" opacity=".4"/><path d="M14 38c0-5 4-9 10-9s10 4 10 9" fill="#fff" opacity=".3"/><path d="M8 38h32" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".5"/></svg></div>
           <div class="roof-only-point-body">
             <div class="roof-only-point-title">息子さんからのご相談も歓迎</div>
             <div class="roof-only-point-desc">「親の家の屋根が心配で…」という息子さん世代（50代）からのお問い合わせも多数。ご家族での相談も大歓迎です。</div>
@@ -4560,7 +4630,7 @@ body {
   <div class="ba-section">
     <div class="section-header">
       <div class="section-label-tag">WORKS</div>
-      <div class="section-title">北関東 施工実績ギャラリー<br><span style="font-size:16px;font-weight:500;color:var(--muted);">全9件 — 栃木・群馬・茨城・埼玉</span></div>
+      <div class="section-title">北関東 施工実績ギャラリー<br><span style="font-size:16px;font-weight:500;color:var(--muted);">全11件 — 栃木・群馬・茨城</span></div>
     </div>
 
     <!-- エリア別フィルター -->
@@ -4569,7 +4639,6 @@ body {
       <button class="filter-btn" data-filter="tochigi">栃木県</button>
       <button class="filter-btn" data-filter="gunma">群馬県</button>
       <button class="filter-btn" data-filter="ibaraki">茨城県</button>
-      <button class="filter-btn" data-filter="saitama">埼玉県</button>
     </div>
 
     <!-- 施工件数バナー -->
@@ -4580,318 +4649,344 @@ body {
 
     <div class="ba-cards" id="works-list">
 
-      <!-- 事例①：日光市 外壁+屋根 -->
+      <!-- CASE 01：金属板金屋根塗装（30万円） -->
       <div class="ba-card" data-area="tochigi">
         <div class="ba-card-header">
           <span class="case-num">CASE 01</span>
-          <span class="case-area-badge tochigi">栃木県 / 日光市</span>
+          <span class="case-area-badge tochigi">栃木県</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:url('images/case01-before.jpg') center/cover no-repeat;">
-            <div class="ba-label b">BEFORE</div>
-            <div class="ba-img-text">外壁：ひび割れ・色褪せ<br>屋根：苔・雨染み</div>
+          <div class="ba-img before" style="background:url('images/case10-before.jpg?v=2') center/cover no-repeat;">
           </div>
-          <div class="ba-img after" style="background:url('images/case01-after.jpg') center/cover no-repeat;">
-            <div class="ba-label a">AFTER</div>
-            <div class="ba-img-text">外壁：ネイビー系で<br>一新。防水も完璧</div>
+          <div class="ba-img after" style="background:url('images/case10-after.jpg?v=2') center/cover no-repeat;">
           </div>
           <div class="ba-divider"></div>
         </div>
         <div class="ba-detail">
           <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>日光市</strong> 今市地区</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>木造2階 / 築<strong>18年</strong></span></div>
+            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>栃木県</strong></span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>金属板金屋根 / 築<strong>30年</strong></span></div>
           </div>
           <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁＋屋根セット塗装</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>8日間</strong></span></div>
-          </div>
-          <div class="ba-price-row">
-            <div class="ba-price-other">他社見積 <s>250万円</s></div>
-            <div class="ba-price-ysk">YSK <strong>128万円</strong></div>
-            <div class="ba-price-save">▼ 122万円お得</div>
-          </div>
-          <div class="ba-voice">「屋根まで一緒にやってもらって、半額以下でした。近所の方にも紹介しました！」<span>— T.K様（50代）</span></div>
-        </div>
-      </div>
-
-      <!-- 事例②：宇都宮市 外壁塗装 -->
-      <div class="ba-card" data-area="tochigi">
-        <div class="ba-card-header">
-          <span class="case-num">CASE 02</span>
-          <span class="case-area-badge tochigi">栃木県 / 宇都宮市</span>
-        </div>
-        <div class="ba-images">
-          <div class="ba-img before" style="background:url('images/case02-before.jpg') center/cover no-repeat;">
-            <div class="ba-label b">BEFORE</div>
-            <div class="ba-img-text">全体的に薄汚れ<br>シーリング劣化</div>
-          </div>
-          <div class="ba-img after" style="background:url('images/case02-after.jpg') center/cover no-repeat;">
-            <div class="ba-label a">AFTER</div>
-            <div class="ba-img-text">暖かみあるベージュで<br>高級感が増した</div>
-          </div>
-          <div class="ba-divider"></div>
-        </div>
-        <div class="ba-detail">
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>宇都宮市</strong> 雀宮地区</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>木造2階 / 築<strong>22年</strong></span></div>
-          </div>
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁フル塗装＋シーリング打替</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>6日間</strong></span></div>
-          </div>
-          <div class="ba-price-row">
-            <div class="ba-price-other">他社見積 <s>280万円</s></div>
-            <div class="ba-price-ysk">YSK <strong>145万円</strong></div>
-            <div class="ba-price-save">▼ 135万円お得</div>
-          </div>
-          <div class="ba-voice">「訪問販売で嫌な思いをしてたので半信半疑でしたが、奥さんが来てくれて安心しました。」<span>— M.S様（40代）</span></div>
-        </div>
-      </div>
-
-      <!-- 事例③：鹿沼市 屋根塗装 -->
-      <div class="ba-card" data-area="tochigi">
-        <div class="ba-card-header">
-          <span class="case-num">CASE 03</span>
-          <span class="case-area-badge tochigi">栃木県 / 鹿沼市</span>
-        </div>
-        <div class="ba-images">
-          <div class="ba-img before" style="background:url('images/case03-before.jpg') center/cover no-repeat;">
-            <div class="ba-label b">BEFORE</div>
-            <div class="ba-img-text">屋根：黒ずみ・<br>苔・ひび割れ</div>
-          </div>
-          <div class="ba-img after" style="background:url('images/case03-after.jpg') center/cover no-repeat;">
-            <div class="ba-label a">AFTER</div>
-            <div class="ba-img-text">チャコールグレーで<br>引き締まった印象に</div>
-          </div>
-          <div class="ba-divider"></div>
-        </div>
-        <div class="ba-detail">
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>鹿沼市</strong></span></div>
-            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>木造2階 / 築<strong>20年</strong></span></div>
-          </div>
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>屋根塗装（高耐久フッ素系）</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>金属板金屋根 塗装</span></div>
             <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>4日間</strong></span></div>
           </div>
           <div class="ba-price-row">
-            <div class="ba-price-other">他社見積 <s>90万円</s></div>
-            <div class="ba-price-ysk">YSK <strong>52万円</strong></div>
-            <div class="ba-price-save">▼ 38万円お得</div>
+            <div class="ba-price-other">他社見積 <s>80万円</s></div>
+            <div class="ba-price-ysk">YSK <strong>30万円</strong></div>
+            <div class="ba-price-save">▼ 50万円お得</div>
           </div>
-          <div class="ba-voice">「屋根だけでも相談できるか不安でしたが、快く対応いただき本当に助かりました。」<span>— A.W様（60代）</span></div>
+          <div class="ba-voice">「屋根だけお願いしましたが、丁寧に対応していただき大満足です。」<span>— S.M様（50代）</span></div>
         </div>
       </div>
 
-      <!-- 事例④：芳賀郡 外壁+屋根 -->
+      <!-- CASE 02：金属板金屋根塗装（30万円） -->
       <div class="ba-card" data-area="tochigi">
         <div class="ba-card-header">
-          <span class="case-num">CASE 04</span>
-          <span class="case-area-badge tochigi">栃木県 / 芳賀郡</span>
+          <span class="case-num">CASE 02</span>
+          <span class="case-area-badge tochigi">栃木県</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:url('images/case04-before.jpg') center/cover no-repeat;">
-            <div class="ba-label b">BEFORE</div>
-            <div class="ba-img-text">モルタル外壁に<br>大きなクラック</div>
+          <div class="ba-img before" style="background:url('images/case11-before.jpg?v=2') center/cover no-repeat;">
           </div>
-          <div class="ba-img after" style="background:url('images/case04-after.jpg') center/cover no-repeat;">
-            <div class="ba-label a">AFTER</div>
-            <div class="ba-img-text">クラック補修後に<br>明るいホワイト系で</div>
+          <div class="ba-img after" style="background:url('images/case11-after.jpg?v=2') center/cover no-repeat;">
           </div>
           <div class="ba-divider"></div>
         </div>
         <div class="ba-detail">
           <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>芳賀郡</strong> 芳賀町</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>モルタル外壁 / 築<strong>25年</strong></span></div>
+            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>栃木県</strong></span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>金属板金屋根 / 築<strong>30年</strong></span></div>
           </div>
           <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁クラック補修＋全面塗装</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>7日間</strong></span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>金属板金屋根 塗装</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>4日間</strong></span></div>
           </div>
           <div class="ba-price-row">
-            <div class="ba-price-other">他社見積 <s>220万円</s></div>
-            <div class="ba-price-ysk">YSK <strong>118万円</strong></div>
-            <div class="ba-price-save">▼ 102万円お得</div>
+            <div class="ba-price-other">他社見積 <s>80万円</s></div>
+            <div class="ba-price-ysk">YSK <strong>30万円</strong></div>
+            <div class="ba-price-save">▼ 50万円お得</div>
           </div>
-          <div class="ba-voice">「ひび割れが心配で問い合わせたら、補修もまとめてやってくれて安心です。」<span>— H.N様（50代）</span></div>
+          <div class="ba-voice">「費用を抑えて屋根をきれいにできました。対応も早くて助かりました。」<span>— T.Y様（40代）</span></div>
         </div>
       </div>
 
-      <!-- 事例⑤：群馬県前橋市 外壁 -->
+      <!-- CASE 03：高崎市 コロニアル屋根塗装（40万円） -->
       <div class="ba-card" data-area="gunma">
         <div class="ba-card-header">
-          <span class="case-num">CASE 05</span>
-          <span class="case-area-badge gunma">群馬県 / 前橋市</span>
-        </div>
-        <div class="ba-images">
-          <div class="ba-img before" style="background:url('images/case05-before.jpg') center/cover no-repeat;">
-            <div class="ba-label b">BEFORE</div>
-            <div class="ba-img-text">サイディング目地の<br>コーキング劣化・浮き</div>
-          </div>
-          <div class="ba-img after" style="background:url('images/case05-after.jpg') center/cover no-repeat;">
-            <div class="ba-label a">AFTER</div>
-            <div class="ba-img-text">落ち着いたオリーブグリーン<br>で個性的な仕上がりに</div>
-          </div>
-          <div class="ba-divider"></div>
-        </div>
-        <div class="ba-detail">
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>前橋市</strong>（群馬県）</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>サイディング / 築<strong>15年</strong></span></div>
-          </div>
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁塗装＋コーキング全打替</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>5日間</strong></span></div>
-          </div>
-          <div class="ba-price-row">
-            <div class="ba-price-other">他社見積 <s>210万円</s></div>
-            <div class="ba-price-ysk">YSK <strong>122万円</strong></div>
-            <div class="ba-price-save">▼ 88万円お得</div>
-          </div>
-          <div class="ba-voice">「群馬でも来てもらえて助かりました。色選びも丁寧に相談に乗ってもらえました。」<span>— R.K様（40代）</span></div>
-        </div>
-      </div>
-
-      <!-- 事例⑥：茨城県水戸市 外壁+屋根 -->
-      <div class="ba-card" data-area="ibaraki">
-        <div class="ba-card-header">
-          <span class="case-num">CASE 06</span>
-          <span class="case-area-badge ibaraki">茨城県 / 水戸市</span>
-        </div>
-        <div class="ba-images">
-          <div class="ba-img before" style="background:url('images/case06-before.jpg') center/cover no-repeat;">
-            <div class="ba-label b">BEFORE</div>
-            <div class="ba-img-text">外壁：チョーキング<br>屋根：錆び・塗膜剥がれ</div>
-          </div>
-          <div class="ba-img after" style="background:url('images/case06-after.jpg') center/cover no-repeat;">
-            <div class="ba-label a">AFTER</div>
-            <div class="ba-img-text">外壁はサンドベージュ<br>屋根はブラックで一新</div>
-          </div>
-          <div class="ba-divider"></div>
-        </div>
-        <div class="ba-detail">
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>水戸市</strong>（茨城県）</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>木造2階 / 築<strong>28年</strong></span></div>
-          </div>
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁＋屋根セット（シリコン系）</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>9日間</strong></span></div>
-          </div>
-          <div class="ba-price-row">
-            <div class="ba-price-other">他社見積 <s>270万円</s></div>
-            <div class="ba-price-ysk">YSK <strong>148万円</strong></div>
-            <div class="ba-price-save">▼ 122万円お得</div>
-          </div>
-          <div class="ba-voice">「水戸まで来てくれるか心配でしたが、快く対応いただき、古い家が新築同様になりました！」<span>— Y.T様（60代）</span></div>
-        </div>
-      </div>
-
-      <!-- 事例⑦：埼玉県熊谷市 外壁 -->
-      <div class="ba-card" data-area="saitama">
-        <div class="ba-card-header">
-          <span class="case-num">CASE 07</span>
-          <span class="case-area-badge saitama">埼玉県 / 熊谷市</span>
-        </div>
-        <div class="ba-images">
-          <div class="ba-img before" style="background:url('images/case07-before.jpg') center/cover no-repeat;">
-            <div class="ba-label b">BEFORE</div>
-            <div class="ba-img-text">ALC外壁の<br>全体的な経年劣化</div>
-          </div>
-          <div class="ba-img after" style="background:url('images/case07-after.jpg') center/cover no-repeat;">
-            <div class="ba-label a">AFTER</div>
-            <div class="ba-img-text">クリーンホワイトで<br>清潔感のある外観に</div>
-          </div>
-          <div class="ba-divider"></div>
-        </div>
-        <div class="ba-detail">
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>熊谷市</strong>（埼玉県）</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>ALC外壁 / 築<strong>17年</strong></span></div>
-          </div>
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁全面塗装（弾性塗料）</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>6日間</strong></span></div>
-          </div>
-          <div class="ba-price-row">
-            <div class="ba-price-other">他社見積 <s>190万円</s></div>
-            <div class="ba-price-ysk">YSK <strong>108万円</strong></div>
-            <div class="ba-price-save">▼ 82万円お得</div>
-          </div>
-          <div class="ba-voice">「埼玉にも来てもらえると聞いて即お願いしました。仕上がりが想像以上でびっくり！」<span>— N.O様（30代）</span></div>
-        </div>
-      </div>
-
-      <!-- 事例⑧：日光市 屋根のみ -->
-      <div class="ba-card" data-area="tochigi">
-        <div class="ba-card-header">
-          <span class="case-num">CASE 08</span>
-          <span class="case-area-badge tochigi">栃木県 / 日光市</span>
-        </div>
-        <div class="ba-images">
-          <div class="ba-img before" style="background:url('images/case08-before.jpg') center/cover no-repeat;">
-            <div class="ba-label b">BEFORE</div>
-            <div class="ba-img-text">瓦屋根：苔・雨漏り<br>心配あり</div>
-          </div>
-          <div class="ba-img after" style="background:url('images/case08-after.jpg') center/cover no-repeat;">
-            <div class="ba-label a">AFTER</div>
-            <div class="ba-img-text">ディープブラウンで<br>重厚感のある仕上がり</div>
-          </div>
-          <div class="ba-divider"></div>
-        </div>
-        <div class="ba-detail">
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>日光市</strong> 足尾地区</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>瓦屋根 / 築<strong>30年</strong></span></div>
-          </div>
-          <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>屋根塗装＋棟板金補修</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>5日間</strong></span></div>
-          </div>
-          <div class="ba-price-row">
-            <div class="ba-price-other">他社見積 <s>110万円</s></div>
-            <div class="ba-price-ysk">YSK <strong>62万円</strong></div>
-            <div class="ba-price-save">▼ 48万円お得</div>
-          </div>
-          <div class="ba-voice">「雨漏りが心配で急ぎで相談したのに、すぐ現地を見に来てくれました。対応の速さに感謝。」<span>— K.F様（70代）</span></div>
-        </div>
-      </div>
-
-      <!-- 事例⑨：群馬県高崎市 外壁+屋根 -->
-      <div class="ba-card" data-area="gunma">
-        <div class="ba-card-header">
-          <span class="case-num">CASE 09</span>
+          <span class="case-num">CASE 03</span>
           <span class="case-area-badge gunma">群馬県 / 高崎市</span>
         </div>
         <div class="ba-images">
-          <div class="ba-img before" style="background:url('images/case09-before.jpg') center/cover no-repeat;">
-            <div class="ba-label b">BEFORE</div>
-            <div class="ba-img-text">外壁：色褪せ・汚れ<br>付帯部も劣化</div>
+          <div class="ba-img before" style="background:url('images/case09-before.jpg?v=2') center/cover no-repeat;">
           </div>
-          <div class="ba-img after" style="background:url('images/case09-after.jpg') center/cover no-repeat;">
-            <div class="ba-label a">AFTER</div>
-            <div class="ba-img-text">スレートグレーで<br>モダンな外観に変身</div>
+          <div class="ba-img after" style="background:url('images/case09-after.jpg?v=2') center/cover no-repeat;">
           </div>
           <div class="ba-divider"></div>
         </div>
         <div class="ba-detail">
           <div class="ba-detail-row">
             <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>高崎市</strong>（群馬県）</span></div>
-            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>窯業系サイディング / 築<strong>19年</strong></span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>コロニアル屋根 / 築<strong>30年</strong></span></div>
           </div>
           <div class="ba-detail-row">
-            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁＋屋根＋付帯部フル塗装</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>コロニアル屋根塗装＋割れ補修</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>4日間</strong></span></div>
+          </div>
+          <div class="ba-price-row">
+            <div class="ba-price-other">他社見積 <s>80万円</s></div>
+            <div class="ba-price-ysk">YSK <strong>40万円</strong></div>
+            <div class="ba-price-save">▼ 40万円お得</div>
+          </div>
+          <div class="ba-voice">「屋根だけでも相談できるか不安でしたが、快く対応いただき本当に助かりました。」<span>— D.I様（50代）</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 04：鹿沼市 モルタル外壁フル塗装（90万円） -->
+      <div class="ba-card" data-area="tochigi">
+        <div class="ba-card-header">
+          <span class="case-num">CASE 04</span>
+          <span class="case-area-badge tochigi">栃木県 / 鹿沼市</span>
+        </div>
+        <div class="ba-images">
+          <div class="ba-img before" style="background:url('images/case03-before.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-img after" style="background:url('images/case03-after.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-detail">
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>鹿沼市</strong></span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>木造2階 / 築<strong>30年</strong></span></div>
+          </div>
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>モルタル・板金・外壁フル塗装＋玄関フェンス塗装＋クラック補修</span></div>
             <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>10日間</strong></span></div>
           </div>
           <div class="ba-price-row">
-            <div class="ba-price-other">他社見積 <s>260万円</s></div>
-            <div class="ba-price-ysk">YSK <strong>138万円</strong></div>
-            <div class="ba-price-save">▼ 122万円お得</div>
+            <div class="ba-price-other">他社見積 <s>150万円</s></div>
+            <div class="ba-price-ysk">YSK <strong>90万円</strong></div>
+            <div class="ba-price-save">▼ 60万円お得</div>
           </div>
-          <div class="ba-voice">「付帯部まで全部きれいにしてもらって大満足。群馬でもこんなにコスパよくできるとは。」<span>— D.I様（50代）</span></div>
+          <div class="ba-voice">「モルタルのひび割れが心配でしたが、玄関フェンスまでまとめてきれいにしてもらえました。」<span>— A.W様（60代）</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 05：芳賀郡 サイディング外壁塗装（90万円） -->
+      <div class="ba-card" data-area="tochigi">
+        <div class="ba-card-header">
+          <span class="case-num">CASE 05</span>
+          <span class="case-area-badge tochigi">栃木県 / 芳賀郡</span>
+        </div>
+        <div class="ba-images">
+          <div class="ba-img before" style="background:url('images/case04-before.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-img after" style="background:url('images/case04-after.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-detail">
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>芳賀郡</strong> 芳賀町</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>木造2階（サイディング） / 築<strong>14年</strong></span></div>
+          </div>
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁塗装＋軒天＋樋（とい）塗装＋シーリング工事</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>10日間</strong></span></div>
+          </div>
+          <div class="ba-price-row">
+            <div class="ba-price-other">他社見積 <s>220万円</s></div>
+            <div class="ba-price-ysk">YSK <strong>90万円</strong></div>
+            <div class="ba-price-save">▼ 130万円お得</div>
+          </div>
+          <div class="ba-voice">「ひび割れが心配で問い合わせたら、補修もまとめてやってくれて安心です。」<span>— H.N様（50代）</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 06：日光市 板金壁フル塗装（100万円）※BEFORE/AFTER画像逆 -->
+      <div class="ba-card" data-area="tochigi">
+        <div class="ba-card-header">
+          <span class="case-num">CASE 06</span>
+          <span class="case-area-badge tochigi">栃木県 / 日光市</span>
+        </div>
+        <div class="ba-images">
+          <div class="ba-img before" style="background:url('images/case08-after.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-img after" style="background:url('images/case08-before.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-detail">
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>日光市</strong></span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>金属板金壁 / 築<strong>35年</strong></span></div>
+          </div>
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>板金壁フル塗装＋波板張替え</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>8日間</strong></span></div>
+          </div>
+          <div class="ba-price-row">
+            <div class="ba-price-other">他社見積 <s>150万円</s></div>
+            <div class="ba-price-ysk">YSK <strong>100万円</strong></div>
+            <div class="ba-price-save">▼ 50万円お得</div>
+          </div>
+          <div class="ba-voice">「雨漏りが心配で急ぎで相談したのに、すぐ現地を見に来てくれました。対応の速さに感謝。」<span>— K.F様（70代）</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 07：日光市 外壁屋根フル塗装（110万円） -->
+      <div class="ba-card" data-area="tochigi">
+        <div class="ba-card-header">
+          <span class="case-num">CASE 07</span>
+          <span class="case-area-badge tochigi">栃木県 / 日光市</span>
+        </div>
+        <div class="ba-images">
+          <div class="ba-img before" style="background:url('images/case01-before.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-img after" style="background:url('images/case01-after.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-detail">
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>日光市</strong> 今市地区</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>木造2階 / 築<strong>25年</strong></span></div>
+          </div>
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁・屋根・樋・軒天・破風 塗装＋シーリング工事</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>11日間</strong></span></div>
+          </div>
+          <div class="ba-price-row">
+            <div class="ba-price-other">他社見積 <s>250万円</s></div>
+            <div class="ba-price-ysk">YSK <strong>110万円</strong></div>
+            <div class="ba-price-save">▼ 140万円お得</div>
+          </div>
+          <div class="ba-voice">「屋根まで一緒にやってもらって、半額以下でした。近所の方にも紹介しました！」<span>— T.K様（50代）</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 08：水戸市 サイディング外壁屋根フル塗装（110万円） -->
+      <div class="ba-card" data-area="ibaraki">
+        <div class="ba-card-header">
+          <span class="case-num">CASE 08</span>
+          <span class="case-area-badge ibaraki">茨城県 / 水戸市</span>
+        </div>
+        <div class="ba-images">
+          <div class="ba-img before" style="background:url('images/case06-before.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-img after" style="background:url('images/case06-after.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-detail">
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>水戸市</strong>（茨城県）</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>サイディング壁 / 築<strong>25年</strong></span></div>
+          </div>
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁・屋根・樋・軒天・破風 塗装＋シーリング工事</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>8日間</strong></span></div>
+          </div>
+          <div class="ba-price-row">
+            <div class="ba-price-other">他社見積 <s>180万円</s></div>
+            <div class="ba-price-ysk">YSK <strong>110万円</strong></div>
+            <div class="ba-price-save">▼ 70万円お得</div>
+          </div>
+          <div class="ba-voice">「水戸まで来てくれるか心配でしたが、快く対応いただき、古い家が新築同様になりました！」<span>— Y.T様（60代）</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 09：宇都宮市 外壁屋根フル塗装（125万円） -->
+      <div class="ba-card" data-area="tochigi">
+        <div class="ba-card-header">
+          <span class="case-num">CASE 09</span>
+          <span class="case-area-badge tochigi">栃木県 / 宇都宮市</span>
+        </div>
+        <div class="ba-images">
+          <div class="ba-img before" style="background:url('images/case02-before.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-img after" style="background:url('images/case02-after.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-detail">
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>宇都宮市</strong> 雀宮地区</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>木造2階 / 築<strong>25年</strong></span></div>
+          </div>
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁・屋根・樋・軒天・破風 塗装＋板金貫板工事</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>11日間</strong></span></div>
+          </div>
+          <div class="ba-price-row">
+            <div class="ba-price-other">他社見積 <s>280万円</s></div>
+            <div class="ba-price-ysk">YSK <strong>125万円</strong></div>
+            <div class="ba-price-save">▼ 155万円お得</div>
+          </div>
+          <div class="ba-voice">「訪問販売で嫌な思いをしてたので半信半疑でしたが、奥さんが来てくれて安心しました。」<span>— M.S様（40代）</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 10：前橋市 モルタル外壁屋根フル塗装（145万円） -->
+      <div class="ba-card" data-area="gunma">
+        <div class="ba-card-header">
+          <span class="case-num">CASE 10</span>
+          <span class="case-area-badge gunma">群馬県 / 前橋市</span>
+        </div>
+        <div class="ba-images">
+          <div class="ba-img before" style="background:url('images/case05-before.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-img after" style="background:url('images/case05-after.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-detail">
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>前橋市</strong>（群馬県）</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>モルタル壁 / 築<strong>28年</strong></span></div>
+          </div>
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>モルタル外壁・屋根フル塗装＋クラック補修＋板金貫板工事</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>14日間</strong></span></div>
+          </div>
+          <div class="ba-price-row">
+            <div class="ba-price-other">他社見積 <s>220万円</s></div>
+            <div class="ba-price-ysk">YSK <strong>145万円</strong></div>
+            <div class="ba-price-save">▼ 75万円お得</div>
+          </div>
+          <div class="ba-voice">「群馬でも来てもらえて助かりました。色選びも丁寧に相談に乗ってもらえました。」<span>— R.K様（40代）</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 11：宇都宮市 歯医者様 フル塗装（280万円） -->
+      <div class="ba-card" data-area="tochigi">
+        <div class="ba-card-header">
+          <span class="case-num">CASE 11</span>
+          <span class="case-area-badge tochigi">栃木県 / 宇都宮市</span>
+        </div>
+        <div class="ba-images">
+          <div class="ba-img before" style="background:url('images/case07-before.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-img after" style="background:url('images/case07-after.jpg?v=2') center/cover no-repeat;">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-detail">
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">📍</span><span><strong>宇都宮市</strong>（栃木県）歯医者様</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">🏠</span><span>サイディング壁（木造） / 築<strong>31年</strong></span></div>
+          </div>
+          <div class="ba-detail-row">
+            <div class="ba-detail-item"><span class="bd-icon">🔧</span><span>外壁・屋根・樋・軒天・破風 塗装＋シーリング＋木部・鉄骨・フェンス塗装＋板金貫板工事</span></div>
+            <div class="ba-detail-item"><span class="bd-icon">📅</span><span>工期 <strong>25日間</strong></span></div>
+          </div>
+          <div class="ba-price-row">
+            <div class="ba-price-other">他社見積 <s>485万円</s></div>
+            <div class="ba-price-ysk">YSK <strong>280万円</strong></div>
+            <div class="ba-price-save">▼ 205万円お得</div>
+          </div>
+          <div class="ba-voice">「大規模な工事でしたが、鉄骨やフェンスまで全てきれいにしてもらい大満足です。」<span>— N.O様</span></div>
         </div>
       </div>
 
@@ -4903,12 +4998,6 @@ body {
         <button class="mid-cta-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
           【無料】夫婦に直接相談してみる
         </button>
-        <a href="tel:09040041821" class="mid-cta-tel">
-          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-            <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="white" stroke-width="1.2" stroke-linejoin="round" fill="rgba(255,255,255,0.2)"/>
-          </svg>
-          電話で相談<small>090-4004-1821</small>
-        </a>
       </div>
     </div>
 
@@ -4988,13 +5077,27 @@ body {
         一括払いが難しい方も安心
       </div>
       <div class="inst-body">
-        <div class="inst-example">
-          <div class="inst-ex-label">分割払いの例</div>
-          <div class="inst-ex-content">
-            頭金 <strong>50万円</strong> + 月々 <strong>2万円 × 24回</strong>
+        <div class="inst-plan-list">
+          <div class="inst-plan-item">
+            <div class="inst-plan-name">外壁＋屋根セット<span>100万円の場合</span></div>
+            <div class="inst-ex-content">
+              頭金 <strong>50万円</strong> + 月々 <strong>2.1万円 × 24回</strong>
+            </div>
+          </div>
+          <div class="inst-plan-item">
+            <div class="inst-plan-name">屋根のみ塗装<span>50万円の場合</span></div>
+            <div class="inst-ex-content">
+              頭金 <strong>20万円</strong> + 月々 <strong>1.3万円 × 24回</strong>
+            </div>
+          </div>
+          <div class="inst-plan-item">
+            <div class="inst-plan-name">外壁フル塗装<span>80万円の場合</span></div>
+            <div class="inst-ex-content">
+              頭金 <strong>30万円</strong> + 月々 <strong>2.1万円 × 24回</strong>
+            </div>
           </div>
         </div>
-        <div class="inst-desc">最大24回分割に対応。無理のない支払いで、大切なお家を守ることができます。詳しくはご相談ください。</div>
+        <div class="inst-desc">最大24回分割に対応。無理のない支払いで、大切なお家を守ることができます。金額・回数はご状況に合わせて調整可能です。</div>
       </div>
     </div>
   </div>
@@ -5007,9 +5110,6 @@ body {
       <button class="scb-btn-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         【無料】夫婦に直接相談してみる
       </button>
-      <a href="tel:09040041821" class="scb-btn-tel">
-        📞 電話で聞いてみる &ensp; 090-4004-1821
-      </a>
     </div>
     <div class="scb-note">出張費・見積もり費は完全無料</div>
   </div>
@@ -5066,7 +5166,7 @@ body {
         <div class="flow-line"></div>
         <div class="flow-content">
           <div class="flow-title">お問い合わせ・ご相談</div>
-          <div class="flow-desc">フォーム・お電話・LINEからお気軽にご連絡ください。ご相談だけでも大歓迎です。</div>
+          <div class="flow-desc">フォーム・LINEからお気軽にご連絡ください。ご相談だけでも大歓迎です。</div>
           <div class="flow-time">最短即日ご連絡</div>
         </div>
       </div>
@@ -5114,7 +5214,7 @@ body {
 
     <div class="flow-note">
       <div class="flow-note-speed">お問い合わせから最短24時間以内にご連絡</div>
-      <div class="flow-note-sub">お電話なら即日対応。フォーム・LINEも<strong>原則24時間以内</strong>にお返事します。<br>「まだ検討中…」という段階でもお気軽にどうぞ。</div>
+      <div class="flow-note-sub">フォーム・LINEなら<strong>原則24時間以内</strong>にお返事します。<br>「まだ検討中…」という段階でもお気軽にどうぞ。</div>
     </div>
   </div>
 
@@ -5126,9 +5226,6 @@ body {
       <button class="scb-btn-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         【無料】夫婦に直接相談してみる
       </button>
-      <a href="tel:09040041821" class="scb-btn-tel">
-        📞 今すぐ電話する &ensp; 090-4004-1821
-      </a>
     </div>
     <div class="scb-note">出張費・見積もり費は完全無料</div>
   </div>
@@ -5142,12 +5239,9 @@ body {
       <button class="scb-btn-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
         【無料】夫婦に直接相談してみる
       </button>
-      <a href="tel:09040041821" class="scb-btn-tel">
-        📞 電話でも受付中 &ensp; 090-4004-1821
-      </a>
     </div>
     <div class="scb-note">受付時間 8:00〜20:00 ／ 断っても一切しつこくしません</div>
-    <div style="text-align:center;margin-top:8px;"><span class="speed-badge">フォーム・LINEは原則24時間以内にご返信</span></div>
+    <div style="text-align:center;margin-top:8px;"><span class="speed-badge">フォームは原則24時間以内にご返信</span></div>
   </div>
 
   <!-- ⑩ お問い合わせフォーム -->
@@ -5164,20 +5258,6 @@ body {
     <!-- 白カード本体 -->
     <div style="margin:-28px 16px 32px;position:relative;z-index:2;background:var(--white);border-radius:12px;padding:24px 20px;box-shadow:0 4px 24px rgba(27,58,107,.12);border:1px solid rgba(27,58,107,.08);">
 
-    <!-- 電話でもOKバナー -->
-    <a href="tel:09040041821" class="contact-tel-banner">
-      <div class="ctb-icon">
-        <svg width="22" height="22" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="var(--navy)" stroke-width="1.4" stroke-linejoin="round" fill="rgba(15,42,69,0.1)"/>
-        </svg>
-      </div>
-      <div class="ctb-body">
-        <div class="ctb-label">お電話でもご相談できます</div>
-        <div class="ctb-num">090-4004-1821</div>
-        <div class="ctb-hours">受付 8:00〜20:00 / 年中無休</div>
-      </div>
-      <div class="ctb-arrow">›</div>
-    </a>
 
     <div class="form-guarantees">
       <span class="fg-item">✓ 見積もり・出張費 完全無料</span>
@@ -5350,7 +5430,7 @@ body {
 
     <!-- 送信エラーメッセージ -->
     <div class="form-error-msg" id="form-error" style="display:none;">
-      <div>⚠️ 送信に失敗しました。時間をおいて再度お試しいただくか、お電話でご連絡ください。</div>
+      <div>⚠️ 送信に失敗しました。時間をおいて再度お試しください。</div>
     </div>
 
     </div><!-- /white card -->
@@ -5375,13 +5455,6 @@ body {
 
 <!-- フローティングCTAバー -->
 <div class="float-bar">
-  <a href="tel:09040041821" class="float-tel">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 1.5C3 1.5 2 1.5 1.5 2.5C1 3.5 1.5 6 4 8.5C6.5 11 9 11.5 10 11C11 10.5 11 9.5 11 9.5L9 7.5L7.5 8.5C7.5 8.5 6.5 8 5.5 7C4.5 6 4 5 4 5L5 3.5L3 1.5Z" stroke="white" stroke-width="1.3" stroke-linejoin="round" fill="rgba(255,255,255,0.15)"/>
-    </svg>
-    <span class="float-btn-main">電話で相談</span>
-    <span class="float-btn-sub">090-4004-1821</span>
-  </a>
   <button class="float-form" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
     <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="2" y="3" width="12" height="9" rx="1.5" stroke="white" stroke-width="1.3" fill="rgba(255,255,255,0.15)"/>
