@@ -5482,7 +5482,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     var GAS_URL = 'https://script.google.com/macros/s/AKfycbwKI_mowTslMfF3JKiBXKtC74OCOJAWT0CcyaxQQ6cUJxvVP9O6AtASgCO6jtTv8OM/exec';
 
     // Lead イベントを先に発火（ページ遷移前に確実に送信）
-    fbq('track', 'Lead');
+    fbq('track', 'CompleteRegistration');
 
     // GAS へ送信（no-cors で CORS エラー回避）
     fetch(GAS_URL, {
