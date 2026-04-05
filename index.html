@@ -5481,18 +5481,21 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
     var GAS_URL = 'https://script.google.com/macros/s/AKfycbwKI_mowTslMfF3JKiBXKtC74OCOJAWT0CcyaxQQ6cUJxvVP9O6AtASgCO6jtTv8OM/exec';
 
-    const res = await fetch(GAS_URL, {
+    // Lead イベントを先に発火（ページ遷移前に確実に送信）
+    fbq('track', 'Lead');
+
+    // GAS へ送信（no-cors で CORS エラー回避）
+    fetch(GAS_URL, {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
     });
 
-    if (res.ok) {
-      fbq('track', 'Lead');
+    // Pixel ビーコン送信を待ってからリダイレクト
+    setTimeout(function() {
       window.location.href = 'thanks.html';
-    } else {
-      throw new Error('送信失敗');
-    }
+    }, 500);
   } catch {
     document.getElementById('form-error').style.display = 'block';
     btn.disabled = false;
