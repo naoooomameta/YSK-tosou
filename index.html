@@ -5295,7 +5295,7 @@ body {
       <!-- 電話番号 -->
       <div class="form-group">
         <label class="form-label" for="phone">
-          電話番号 <span class="form-required">必須</span>
+          電話番号 <span class="form-optional">任意</span>
         </label>
         <input
           class="form-input"
@@ -5303,9 +5303,23 @@ body {
           id="phone"
           name="phone"
           placeholder="例：090-1234-5678"
-          required
         >
         <div class="form-hint">折り返しご連絡しやすい番号をご入力ください</div>
+      </div>
+
+      <!-- メールアドレス -->
+      <div class="form-group">
+        <label class="form-label" for="email">
+          メールアドレス <span class="form-required">必須</span>
+        </label>
+        <input
+          class="form-input"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="例：example@mail.com"
+          required
+        >
       </div>
 
       <!-- 住所 -->
@@ -5459,7 +5473,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
   // バリデーション
   let valid = true;
-  ['name','phone','address'].forEach(id => {
+  ['name','email','address'].forEach(id => {
     const el = document.getElementById(id);
     if (!el.value.trim()) {
       el.classList.add('error');
@@ -5484,6 +5498,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
     var payload = {
       name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
       phone: document.getElementById('phone').value,
       address: document.getElementById('address').value,
       age: [document.getElementById('age').value, document.getElementById('building-type').value].filter(Boolean).join(' / '),
