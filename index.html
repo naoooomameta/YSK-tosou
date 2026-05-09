@@ -5492,8 +5492,18 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 
     var GAS_URL = 'https://script.google.com/macros/s/AKfycbwKI_mowTslMfF3JKiBXKtC74OCOJAWT0CcyaxQQ6cUJxvVP9O6AtASgCO6jtTv8OM/exec';
 
-    // Lead イベントを先に発火（ページ遷移前に確実に送信）
-    fbq('track', 'CompleteRegistration');
+   // Pixel受信完了後に thanks.html へ遷移する仕組み
+    var redirected = false;
+    function goThanks() {
+      if (redirected) return;
+      redirected = true;
+      window.location.href = 'thanks.html';
+    }
+
+    // CompleteRegistration を発火、Meta側受信完了で goThanks 実行
+    fbq('track', 'CompleteRegistration', {}, {
+      eventCallback: goThanks
+    });
 
     // GAS へ送信（no-cors で CORS エラー回避）
     fetch(GAS_URL, {
@@ -5503,10 +5513,8 @@ document.getElementById('contact-form').addEventListener('submit', async functio
       body: JSON.stringify(payload)
     });
 
-    // Pixel ビーコン送信を待ってからリダイレクト
-    setTimeout(function() {
-      window.location.href = 'thanks.html';
-    }, 500);
+    // フォールバック: 2秒応答なければ強制遷移
+    setTimeout(goThanks, 2000);
   } catch {
     document.getElementById('form-error').style.display = 'block';
     btn.disabled = false;
