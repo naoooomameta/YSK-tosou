@@ -79,9 +79,9 @@ a{color:inherit;text-decoration:none}
   border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s,background .3s}
 .hdr.scrolled{border-color:var(--line);box-shadow:0 10px 30px -22px rgba(24,42,64,.4)}
 .hdr-in{max-width:var(--maxw);margin:0 auto;padding:0 28px;height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brandmark{display:flex;align-items:baseline;gap:12px;min-width:0}
-.brandmark .name{font-family:'Zen Old Mincho',serif;font-weight:900;font-size:24px;letter-spacing:.04em;white-space:nowrap}
-.brandmark .logo{height:52px;width:auto;display:block}
+.brandmark{display:flex;align-items:center;gap:12px;min-width:0}
+.brandmark .name{font-family:'Zen Old Mincho',serif;font-weight:900;font-size:26px;letter-spacing:.04em;white-space:nowrap}
+.brandmark .logo{height:72px;width:auto;display:block}
 .brandmark .tag{font-size:11px;color:var(--muted);letter-spacing:.12em;font-weight:700;white-space:nowrap}
 .nav{display:flex;align-items:center;gap:30px}
 .nav a.navlink{font-size:14px;font-weight:700;color:var(--ink2);position:relative;padding:6px 0;letter-spacing:.04em}
@@ -299,6 +299,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
   <div class="hdr-in">
     <a class="brandmark" href="#top" aria-label="YSK塗装 トップへ">
       <img class="logo" src="images/ysk-logo.png" alt="YSK塗装">
+      <span class="name">YSK塗装</span>
       <span class="tag">栃木・北関東の外壁・屋根塗装</span>
     </a>
     <nav class="nav" id="nav" aria-label="メインナビゲーション">
@@ -491,7 +492,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
       <article class="work reveal">
         <div class="ba">
           <figure class="bef"><img src="images/case07-before.jpg" alt="施工前"><figcaption>Before</figcaption></figure>
-          <figure class="aft"><img src="images/case07-after.jpg" alt="施工後"><figcaption>After</figcaption></figure>
+          <figure class="aft"><img src="images/case07-after.jpg" alt="施工後" style="transform:rotate(90deg)"><figcaption>After</figcaption></figure>
         </div>
         <div class="wbd"><span class="t">外壁塗装</span><span class="a">鹿沼市</span></div>
       </article>
