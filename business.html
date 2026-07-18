@@ -541,12 +541,9 @@ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// contact form → Google スプレッドシート（Apps Script）B2B用
-// ▼▼▼ 差し替え箇所 ▼▼▼
-// B2B用のApps Scriptをデプロイしたら、下の "REPLACE_WITH_B2B_GAS_URL" を
-// ウェブアプリのURL（/exec で終わる）に差し替えてください
-const GAS_ENDPOINT_B2B="REPLACE_WITH_B2B_GAS_URL";
-// ▲▲▲ 差し替え箇所 ▲▲▲
+// contact form → Google スプレッドシート（Apps Script）
+// 個人用と同じウェブアプリ。GAS側が「会社名・屋号」の有無で事業者用タブに振り分ける
+const GAS_ENDPOINT_B2B="https://script.google.com/macros/s/AKfycbzxhjRguwgl-DGlxVAL-Hw4HlzZs5JPeVaKz7V3v2TDEyOQXb0rtI-rYTeOPFilUlST/exec";
 const cform=document.getElementById('cform');
 if(cform){
   cform.addEventListener('submit',(e)=>{
