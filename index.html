@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YSK塗装｜栃木・北関東の外壁・屋根塗装｜完全自社施工・中間手数料0円</title>
-<meta name="description" content="栃木を拠点に北関東全域で外壁・屋根の塗り替えを手がける夫婦の塗装店。下請けを使わない完全自社施工で、中間手数料0円。大手より最低40%安く、見積もりから施工まで夫婦が責任をもって対応します。">
+<meta name="description" content="栃木を拠点に北関東・南東北で外壁・屋根の塗り替えを手がける夫婦の塗装店。下請けを使わない完全自社施工で、中間手数料0円。大手より最低40%安く、見積もりから施工まで夫婦が責任をもって対応します。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
@@ -203,6 +203,20 @@ a{color:inherit;text-decoration:none}
 .voice .who{margin-top:16px;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.06em}
 .voice-note{text-align:center;margin-top:30px;font-size:13px;color:var(--muted)}
 
+/* ============ FAQ ============ */
+.faq-list{max-width:860px;margin:0 auto;display:grid;gap:12px}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.faq-q{width:100%;display:flex;align-items:center;gap:14px;text-align:left;background:none;border:none;cursor:pointer;
+  font-family:inherit;font-size:15px;font-weight:700;color:var(--ink);line-height:1.6;padding:18px 20px;letter-spacing:.02em}
+.faq-q .mark{font-family:'Zen Old Mincho',serif;color:var(--gold-d);font-size:19px;line-height:1;flex-shrink:0}
+.faq-q .tgl{margin-left:auto;font-family:'Jost',sans-serif;font-size:19px;color:var(--gold-d);line-height:1;flex-shrink:0;transition:transform .3s ease}
+.faq-item.open .faq-q .tgl{transform:rotate(45deg)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a-clip{overflow:hidden;min-height:0}
+.faq-a-in{display:flex;gap:14px;padding:0 20px 18px;font-size:14px;color:var(--ink2);line-height:1.85}
+.faq-a-in .mark{font-family:'Zen Old Mincho',serif;color:var(--blue-d);font-size:19px;line-height:1.4;flex-shrink:0}
+
 /* ============ CONTACT ============ */
 .contact{background:var(--paper2)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
@@ -251,6 +265,21 @@ a{color:inherit;text-decoration:none}
 .ft-bottom{border-top:1px solid rgba(255,255,255,.12);padding:18px 0;font-size:12px;color:#9AA3B2;
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .ft-bottom .lat{letter-spacing:.2em;font-size:11px}
+
+/* ============ MOBILE FIXED CTA ============ */
+.mcta{display:none}
+@media(max-width:768px){
+  .mcta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(246,241,231,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .mcta a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+    font-weight:700;font-size:15px;letter-spacing:.04em;padding:14px 10px;border-radius:3px;
+    box-shadow:0 10px 22px -14px rgba(24,42,64,.45)}
+  .mcta-tel{background:var(--gold);color:var(--ink)}
+  .mcta-form{background:var(--ink);color:#fff}
+  /* バーの高さ分、コンテンツが隠れないよう余白を確保 */
+  body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
@@ -323,7 +352,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
       <div class="hero-copy reveal">
         <span class="eyebrow">Fully in-house <span class="ja">完全自社施工</span></span>
         <h1 class="disp">塗るのは、<br><span class="em">私たち夫婦です。</span></h1>
-        <p class="hero-sub">大手より、最低40%安い。下請けを通さず、浮いた分はそのままお客様へ。栃木から北関東全域へ伺います。</p>
+        <p class="hero-sub">大手より、最低40%安い。下請けを通さず、浮いた分はそのままお客様へ。栃木から北関東・南東北へ伺います。</p>
         <div class="hero-cta">
           <a class="btn btn-gold" href="#contact">無料で相談する <span class="ar">→</span></a>
           <a class="btn btn-line" href="#price">料金を見る</a>
@@ -347,7 +376,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
 <section class="strip" aria-label="対応エリア">
   <div class="wrap">
     <span class="lab">Service area</span>
-    <span class="area">栃木・群馬・茨城・埼玉 ─ 北関東全域</span>
+    <span class="area">栃木・群馬・茨城・埼玉・福島 ─ 北関東・南東北</span>
     <span class="note">日光・宇都宮から片道1.5時間圏内は、出張費0円でお伺いします。</span>
   </div>
 </section>
@@ -364,7 +393,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
         <span class="eyebrow">About us <span class="ja">会社案内</span></span>
         <h2 class="sec-title disp">見積もりも、施工も、<br>同じ二人。</h2>
         <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
-        <p>はじめまして。栃木を拠点に、北関東全域で外壁・屋根の塗り替えをしている夫婦です。</p>
+        <p>はじめまして。栃木を拠点に、北関東・南東北で外壁・屋根の塗り替えをしている夫婦です。</p>
         <p>下請けは使いません。見積もりから施工まで、現場に立つのはいつも私たち。営業担当も来ないので、話したことが、そのまま仕上がりに反映されます。</p>
         <p>「知らない人が家に来る」という不安を、ゼロにしたい。一軒ずつ、自分たちの手で丁寧に塗っています。</p>
         <div class="about-chips">
@@ -411,7 +440,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
       <article class="serv reveal">
         <div class="ph"><img src="images/case02-after.jpg" alt="屋根塗装の施工例"></div>
         <div class="bd"><span class="lat">Roof</span><h3>屋根塗装</h3>
-          <p>雨漏り対策に。築30年以上のお家からの「屋根だけ」のご依頼が9割を占めます。</p>
+          <p>雨漏り対策に。築30年以上のお家からは「屋根だけ」のご依頼も多くいただきます。</p>
           <div class="price">目安 <b>40万円</b>〜</div></div>
       </article>
       <article class="serv reveal">
@@ -554,6 +583,62 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
+<section class="section tight" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ <span class="ja">よくあるご質問</span></span>
+      <h2 class="sec-title disp">気になることは、先に。</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a1">
+          <span class="mark">Q</span>見積もりは本当に無料ですか？<span class="tgl" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a" id="faq-a1"><div class="faq-a-clip"><div class="faq-a-in">
+          <span class="mark" aria-hidden="true">A</span><p>はい、お見積もり・現地調査・出張費はすべて無料です。見積もり後に断っていただいても、費用は一切かかりません。</p>
+        </div></div></div>
+      </div>
+      <!-- 要クライアント確認：足場代の扱い（谷田部さんへの事実確認前の暫定文言） -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2">
+          <span class="mark">Q</span>足場代は料金に含まれていますか？<span class="tgl" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a" id="faq-a2"><div class="faq-a-clip"><div class="faq-a-in">
+          <span class="mark" aria-hidden="true">A</span><p>はい、掲載している目安料金には足場代を含んでいます。追加費用が発生する場合は、必ず事前にご説明します。</p>
+        </div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3">
+          <span class="mark">Q</span>工事中、家にいる必要はありますか？<span class="tgl" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a" id="faq-a3"><div class="faq-a-clip"><div class="faq-a-in">
+          <span class="mark" aria-hidden="true">A</span><p>いいえ、外部の工事のためお留守でも施工できます。ご在宅の必要がある工程は事前にお伝えします。</p>
+        </div></div></div>
+      </div>
+      <!-- 要クライアント確認：工期の目安（谷田部さんへの事実確認前の暫定文言） -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4">
+          <span class="mark">Q</span>工期はどれくらいかかりますか？<span class="tgl" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a" id="faq-a4"><div class="faq-a-clip"><div class="faq-a-in">
+          <span class="mark" aria-hidden="true">A</span><p>外壁＋屋根の全体塗装で、天候にもよりますが2〜3週間が目安です。屋根のみの場合はより短くなります。</p>
+        </div></div></div>
+      </div>
+      <!-- 要クライアント確認：支払い方法（谷田部さんへの事実確認前の暫定文言） -->
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5">
+          <span class="mark">Q</span>支払い方法は選べますか？<span class="tgl" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a" id="faq-a5"><div class="faq-a-clip"><div class="faq-a-in">
+          <span class="mark" aria-hidden="true">A</span><p>お支払い方法・タイミングはご契約時にご相談ください。ご不明な点は見積もり時にお気軽にお尋ねください。</p>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section class="section contact" id="contact">
   <div class="wrap">
@@ -573,12 +658,12 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
           </div>
           <div class="row2">
             <div class="field">
-              <label for="f-tel">電話番号 <span class="opt">任意</span></label>
-              <input id="f-tel" type="tel" name="電話番号" placeholder="例：090-1234-5678">
+              <label for="f-tel">電話番号 <span class="req">必須</span></label>
+              <input id="f-tel" type="tel" name="電話番号" required placeholder="例：090-1234-5678">
             </div>
             <div class="field">
-              <label for="f-mail">メールアドレス <span class="req">必須</span></label>
-              <input id="f-mail" type="email" name="メールアドレス" required placeholder="例：example@mail.com">
+              <label for="f-mail">メールアドレス <span class="opt">任意</span></label>
+              <input id="f-mail" type="email" name="メールアドレス" placeholder="例：example@mail.com">
             </div>
           </div>
           <div class="field">
@@ -647,6 +732,15 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
   </div>
 </footer>
 
+<!-- ============ MOBILE FIXED CTA ============ -->
+<!-- ※ LINE公式アカウントのURLが確定したら、下の「無料で相談」を
+     <a class="mcta-form" href="LINEのURL" target="_blank" rel="noopener">LINEで相談</a>
+     に差し替える -->
+<div class="mcta" role="navigation" aria-label="お問い合わせメニュー">
+  <a class="mcta-tel" href="tel:09040041821">電話する</a>
+  <a class="mcta-form" href="#contact">無料で相談</a>
+</div>
+
 <script>
 // header scrolled state
 const hdr=document.getElementById('hdr');
@@ -663,7 +757,14 @@ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
 // scroll reveal
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-// contact form (Web3Forms)
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q=item.querySelector('.faq-q');
+  q.addEventListener('click',()=>{
+    const open=item.classList.toggle('open');
+    q.setAttribute('aria-expanded',open);
+  });
+});
 // contact form → Google スプレッドシート（Apps Script）
 // ▼ 下のURLを、デプロイした Apps Script ウェブアプリのURL（/exec で終わる）に差し替えてください
 const GAS_ENDPOINT="https://script.google.com/macros/s/AKfycbzxhjRguwgl-DGlxVAL-Hw4HlzZs5JPeVaKz7V3v2TDEyOQXb0rtI-rYTeOPFilUlST/exec";
