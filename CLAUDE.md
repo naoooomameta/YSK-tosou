@@ -1,5 +1,9 @@
 # CLAUDE.md — YSK塗装 Landing Page
 
+## Workflow Policy
+
+- **PRは作成後、ユーザーの確認を待たずに自動でマージすること**（ready化 → squash merge まで実行する）。ユーザー（リポジトリオーナー）が2026-07-18に恒久指示済み。
+
 ## Project Overview
 
 This is a **single-page landing page (LP)** for **YSK塗装** (YSK Painting), a painting contractor specializing in exterior wall and roof painting in Tochigi and North Kanto, Japan. The entire site is a single `index.html` file (~5,500 lines) containing embedded CSS, HTML, and vanilla JavaScript.
