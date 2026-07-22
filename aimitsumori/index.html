@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大手さんとの相見積もり、お待ちしております。｜栃木の外壁・屋根塗装 YSK塗装</title>
+<meta name="description" content="栃木県内にお住まいの方へ。大手の見積書、そのままお持ちください。中間手数料0円・完全自社施工のYSK塗装なら、同じ工事内容で大手より最低40%安く。見積もり・出張費は無料、断っていただいてもOKです。">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F1E7;     /* 生成り（紙） */
+  --paper2:#EFE8D8;    /* やや濃い生成り */
+  --card:#FBFAF6;      /* 白磁（カード） */
+  --ink:#182A40;       /* 墨紺（文字・暗色面） */
+  --ink2:#33445A;      /* やや明るい紺 */
+  --gold:#C8A05A;      /* 金 */
+  --gold-d:#A87C2A;    /* 深い金 */
+  --blue:#3C9CD8;      /* ロゴの青（アクセント） */
+  --blue-d:#2C7FB8;    /* 濃い青（淡背景のリンク） */
+  --line:#DED5C2;      /* 罫 */
+  --muted:#6B6354;     /* 補助テキスト */
+  --green:#06C755;     /* LINEグリーン */
+  --maxw:980px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.85;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:"palt" 1;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ---- shared ---- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.disp{font-family:'Zen Old Mincho',serif;font-weight:700;line-height:1.34;letter-spacing:.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Jost',sans-serif;
+  letter-spacing:.3em;text-transform:uppercase;font-size:12px;color:var(--gold-d);font-weight:600}
+.eyebrow .ja{font-family:'Zen Kaku Gothic New',sans-serif;letter-spacing:.18em;color:var(--muted);font-size:12px;font-weight:700}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold)}
+.section{padding:88px 0;position:relative}
+.section.tight{padding:70px 0}
+.sec-head{margin-bottom:42px}
+.sec-title{font-size:clamp(25px,3.4vw,38px)}
+.lead{color:var(--ink2);font-size:16.5px;max-width:60ch}
+
+/* 署名要素：刷毛ストローク */
+.brush{display:block;width:132px;height:13px;margin-top:14px;color:var(--gold)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-weight:700;font-size:15px;padding:16px 28px;border-radius:4px;cursor:pointer;
+  transition:transform .15s ease,box-shadow .2s ease,background .2s ease,color .2s ease;border:1.5px solid transparent}
+.btn-gold{background:linear-gradient(180deg,#D8B469,#C8A05A 55%,#B0863A);color:#16223A;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 12px 26px -12px rgba(24,42,64,.5)}
+.btn-gold:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn-green{background:var(--green);color:#fff;box-shadow:0 12px 26px -12px rgba(6,199,85,.6)}
+.btn-green:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn .ar{font-family:'Jost',sans-serif}
+
+/* CTAブロック（中間CTA） */
+.ctabox{background:var(--ink);border-radius:8px;padding:40px 30px;text-align:center;color:var(--paper)}
+.ctabox .t{font-family:'Zen Old Mincho',serif;font-size:clamp(20px,2.6vw,26px);font-weight:700;line-height:1.5}
+.ctabox .s{font-size:14px;color:#C9CEDA;margin-top:10px}
+.ctabox .btns{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.ctabox .tel-note{margin-top:14px;font-size:13px;color:#C9CEDA}
+.ctabox .tel-note b{font-family:'Jost',sans-serif;font-size:20px;color:var(--gold);letter-spacing:.04em}
+
+/* ============ HEADER ============ */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(246,241,231,.9);backdrop-filter:blur(10px);
+  border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.hdr.scrolled{border-color:var(--line);box-shadow:0 10px 30px -22px rgba(24,42,64,.4)}
+.hdr-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brandmark{display:flex;align-items:center;gap:10px;min-width:0}
+.brandmark .logo{height:52px;width:auto;display:block}
+.brandmark .name{font-family:'Zen Old Mincho',serif;font-weight:900;font-size:22px;letter-spacing:.04em;white-space:nowrap}
+.brandmark .tag{font-size:10.5px;color:var(--muted);letter-spacing:.08em;font-weight:700;white-space:nowrap}
+.hdr-cta{display:flex;align-items:center;gap:10px}
+.hdr-tel{display:flex;flex-direction:column;align-items:flex-end;line-height:1.3}
+.hdr-tel b{font-family:'Jost',sans-serif;font-size:18px;letter-spacing:.02em}
+.hdr-tel span{font-size:10px;color:var(--muted);font-weight:700}
+.hdr-btn{font-size:13px;font-weight:700;color:#16223A;background:var(--gold);padding:10px 16px;border-radius:4px;letter-spacing:.04em;white-space:nowrap}
+.hdr-btn:hover{background:var(--gold-d);color:#fff}
+
+/* ============ HERO ============ */
+.hero{padding:120px 0 70px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero .who{display:inline-block;background:var(--ink);color:var(--paper);font-size:13.5px;font-weight:700;
+  letter-spacing:.08em;padding:7px 16px;border-radius:3px;margin-bottom:18px}
+.hero h1{font-size:clamp(31px,4.6vw,52px);line-height:1.3;letter-spacing:.02em}
+.hero h1 .em{color:var(--gold-d)}
+.hero-sub{margin-top:22px;font-size:16.5px;color:var(--ink2);max-width:46ch}
+.hero-sub b{color:var(--ink)}
+.hero-cta{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-note{margin-top:14px;font-size:13px;color:var(--muted)}
+.hero-meta{margin-top:28px;display:flex;gap:26px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}
+.hero-meta .m{display:flex;flex-direction:column}
+.hero-meta .m b{font-family:'Zen Old Mincho',serif;font-size:24px;line-height:1}
+.hero-meta .m span{font-size:12px;color:var(--muted);letter-spacing:.08em;margin-top:6px;font-weight:700}
+.hero-art{position:relative;align-self:stretch;min-height:400px}
+.hero-art .frame{position:absolute;inset:18px 0 0 18px;overflow:hidden;border-radius:4px}
+.hero-art .frame img{width:100%;height:100%;object-fit:cover}
+.hero-art .goldblock{position:absolute;left:0;bottom:0;width:62%;height:78%;
+  background:linear-gradient(150deg,var(--gold),var(--gold-d));border-radius:4px;z-index:-1}
+.hero-art .vlabel{position:absolute;top:18px;right:-6px;writing-mode:vertical-rl;
+  font-family:'Jost',sans-serif;letter-spacing:.34em;text-transform:uppercase;font-size:12px;
+  color:var(--ink);background:var(--paper);padding:14px 6px;font-weight:600}
+
+/* ============ AREA STRIP ============ */
+.strip{background:var(--ink);color:var(--paper)}
+.strip .wrap{display:flex;align-items:center;gap:22px;padding-top:20px;padding-bottom:20px;flex-wrap:wrap}
+.strip .lab{font-family:'Jost',sans-serif;letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--gold)}
+.strip .area{font-family:'Zen Old Mincho',serif;font-size:clamp(17px,2.2vw,23px);font-weight:600}
+.strip .note{font-size:13px;color:#C9CEDA;margin-left:auto}
+
+/* ============ 宣言 ============ */
+.declare{text-align:center}
+.declare .brush{margin-left:auto;margin-right:auto}
+.declare p{color:var(--ink2);max-width:38em;margin:18px auto 0;text-align:left}
+.declare .strong{background:linear-gradient(transparent 62%,rgba(200,160,90,.4) 62%);font-weight:700;color:var(--ink)}
+
+/* ============ 安さの秘訣 ============ */
+.secret{background:var(--paper2)}
+.secret-list{display:grid;gap:22px;margin-top:8px}
+.secret-item{display:grid;grid-template-columns:96px 1fr;gap:0;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.secret-item .no{background:var(--ink);color:var(--gold);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:4px;padding:18px 8px}
+.secret-item .no .lat{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.24em;text-transform:uppercase}
+.secret-item .no b{font-family:'Zen Old Mincho',serif;font-size:36px;line-height:1}
+.secret-item .bd{padding:26px 28px}
+.secret-item h3{font-family:'Zen Old Mincho',serif;font-size:clamp(19px,2.4vw,23px);line-height:1.5;margin-bottom:8px}
+.secret-item h3 .em{color:var(--gold-d)}
+.secret-item p{font-size:14.5px;color:var(--ink2)}
+.secret-quality{margin-top:30px;background:var(--card);border:1.5px solid var(--gold);border-radius:8px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+.secret-quality .ic{font-family:'Zen Old Mincho',serif;font-size:30px;color:var(--gold-d);line-height:1.2}
+.secret-quality h3{font-family:'Zen Old Mincho',serif;font-size:19px;margin-bottom:6px}
+.secret-quality p{font-size:14.5px;color:var(--ink2)}
+
+/* ============ PRICE ============ */
+.ptable{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.ptable th,.ptable td{padding:17px 18px;text-align:left;border-bottom:1px solid var(--line)}
+.ptable thead th{background:var(--ink);color:var(--paper);font-size:13px;letter-spacing:.06em;font-weight:700}
+.ptable tbody th{font-weight:700;font-size:14.5px;width:42%}
+.ptable .market{color:var(--muted);text-decoration:line-through;font-size:14px;white-space:nowrap}
+.ptable .ysk{font-family:'Zen Old Mincho',serif;font-size:21px;color:var(--gold-d);font-weight:700;white-space:nowrap}
+.ptable tbody tr:last-child td,.ptable tbody tr:last-child th{border-bottom:none}
+.pnote{font-size:13px;color:var(--muted);margin-top:16px}
+
+/* ============ WORKS ============ */
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.work{border-radius:5px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.work .ba{display:grid;grid-template-columns:1fr 1fr;gap:2px;position:relative}
+.work .ba figure{position:relative;margin:0}
+.work .ba img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.work .ba figcaption{position:absolute;top:8px;left:8px;font-family:'Jost',sans-serif;font-size:10px;
+  letter-spacing:.18em;background:rgba(24,42,64,.82);color:var(--paper);padding:3px 8px;border-radius:2px}
+.work .ba figure.aft figcaption{background:var(--gold);color:#16223A}
+.work .wbd{padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.work .wbd .t{font-weight:700;font-size:14px}
+.work .wbd .a{font-size:12px;color:var(--muted);font-weight:700}
+
+/* ============ VOICE ============ */
+.voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.voice{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px 26px;position:relative}
+.voice .q{font-family:'Zen Old Mincho',serif;font-size:46px;color:var(--gold);line-height:.6;height:24px}
+.voice p{font-size:14px;color:var(--ink2);line-height:1.85}
+.voice .who{margin-top:16px;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.06em}
+.voice-note{text-align:center;margin-top:28px;font-size:13px;color:var(--muted)}
+
+/* ============ PROFILE ============ */
+.prof{background:var(--paper2)}
+.prof-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.prof-photo{position:relative}
+.prof-photo img{width:100%;border-radius:4px;aspect-ratio:4/5;object-fit:cover}
+.prof-photo .cap{position:absolute;left:16px;bottom:16px;background:var(--paper);color:var(--ink);
+  font-size:13px;font-weight:700;padding:8px 14px;border-radius:3px;box-shadow:0 8px 20px -12px rgba(24,42,64,.5)}
+.prof-body p{margin-top:16px;color:var(--ink2)}
+.prof-chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.chip{display:flex;flex-direction:column;border:1px solid var(--line);background:var(--card);border-radius:4px;padding:13px 20px}
+.chip b{font-family:'Zen Old Mincho',serif;font-size:21px;line-height:1}
+.chip span{font-size:11px;color:var(--muted);letter-spacing:.1em;margin-top:6px;font-weight:700}
+
+/* ============ FLOW ============ */
+.flow-list{display:grid;gap:14px;max-width:760px;margin:0 auto;counter-reset:flow}
+.flow-item{display:grid;grid-template-columns:64px 1fr;gap:20px;background:var(--card);
+  border:1px solid var(--line);border-radius:8px;padding:24px 26px;align-items:start}
+.flow-item .no{counter-increment:flow;font-family:'Zen Old Mincho',serif;font-size:15px;color:var(--gold-d);
+  display:flex;flex-direction:column;align-items:center;line-height:1.2;padding-top:2px}
+.flow-item .no::before{content:"0" counter(flow);font-size:30px;font-weight:700}
+.flow-item .no::after{content:"STEP";font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.28em;color:var(--muted)}
+.flow-item h3{font-family:'Zen Old Mincho',serif;font-size:18px;margin-bottom:5px}
+.flow-item p{font-size:14px;color:var(--ink2)}
+
+/* ============ FAQ ============ */
+.faq-list{max-width:820px;margin:0 auto;display:grid;gap:12px}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.faq-q{width:100%;display:flex;align-items:center;gap:14px;text-align:left;background:none;border:none;cursor:pointer;
+  font-family:inherit;font-size:15px;font-weight:700;color:var(--ink);line-height:1.6;padding:18px 20px;letter-spacing:.02em}
+.faq-q .mark{font-family:'Zen Old Mincho',serif;color:var(--gold-d);font-size:19px;line-height:1;flex-shrink:0}
+.faq-q .tgl{margin-left:auto;font-family:'Jost',sans-serif;font-size:19px;color:var(--gold-d);line-height:1;flex-shrink:0;transition:transform .3s ease}
+.faq-item.open .faq-q .tgl{transform:rotate(45deg)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a-clip{overflow:hidden;min-height:0}
+.faq-a-in{display:flex;gap:14px;padding:0 20px 18px;font-size:14px;color:var(--ink2);line-height:1.85}
+.faq-a-in .mark{font-family:'Zen Old Mincho',serif;color:var(--blue-d);font-size:19px;line-height:1.4;flex-shrink:0}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--paper2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.cform{display:grid;gap:16px}
+.cform .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field label{font-size:13px;font-weight:700;letter-spacing:.04em;display:flex;align-items:center;gap:8px}
+.field .req{font-size:10px;font-weight:700;color:#fff;background:var(--gold-d);padding:2px 7px;border-radius:2px;letter-spacing:.06em}
+.field .opt{font-size:11px;color:var(--muted);font-weight:700}
+.field input,.field textarea{font-family:inherit;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:5px;padding:13px 14px;width:100%;transition:border-color .2s,box-shadow .2s}
+.field input::placeholder,.field textarea::placeholder{color:#A9A091}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(60,156,216,.18)}
+.field textarea{resize:vertical;min-height:120px;line-height:1.7}
+.cform .submit .btn{width:100%}
+.form-note{font-size:12px;color:var(--muted);line-height:1.7}
+.form-status{font-size:14px;font-weight:700;padding:12px 14px;border-radius:5px;display:none}
+.form-status.ng{display:block;background:#FBECEC;color:#A6402F;border:1px solid #EFC9C4}
+.form-done{display:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:40px 30px;text-align:center}
+.form-done.show{display:block}
+.form-done .ic{font-family:'Jost',sans-serif;color:var(--gold-d);letter-spacing:.2em;font-size:12px;margin-bottom:14px}
+.form-done h3{font-family:'Zen Old Mincho',serif;font-size:23px;margin-bottom:12px}
+.form-done p{color:var(--ink2);font-size:14px;line-height:1.85}
+.info{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.info dl{display:grid;grid-template-columns:34% 66%}
+.info dt,.info dd{padding:15px 22px;border-bottom:1px solid var(--line);font-size:14px}
+.info dt{background:var(--paper);font-weight:700;letter-spacing:.04em}
+.info dd{color:var(--ink2)}
+.info dl>:nth-last-child(1),.info dl>:nth-last-child(2){border-bottom:none}
+.contact-alt{margin-top:20px;border-top:1px solid var(--line);padding-top:20px}
+.contact-alt p{font-size:13px;color:var(--muted);margin-bottom:12px;line-height:1.7}
+.contact-alt .btn{margin:0 10px 10px 0;padding:12px 20px;font-size:14px}
+
+/* ============ FOOTER ============ */
+.ft{background:var(--ink);color:var(--paper)}
+.ft-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding:48px 0 26px}
+.ft .name{font-family:'Zen Old Mincho',serif;font-weight:900;font-size:24px;letter-spacing:.04em}
+.ft .ftag{font-size:12px;color:#AEB6C4;margin-top:8px;letter-spacing:.1em}
+.ft-nav{display:flex;gap:24px;flex-wrap:wrap}
+.ft-nav a{font-size:13px;color:#C9CEDA;font-weight:700}
+.ft-nav a:hover{color:var(--blue)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.12);padding:18px 0;font-size:12px;color:#9AA3B2;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ft-bottom .lat{font-family:'Jost',sans-serif;letter-spacing:.2em;font-size:11px;text-transform:uppercase}
+
+/* ============ MOBILE FIXED CTA ============ */
+.mcta{display:none}
+@media(max-width:768px){
+  .mcta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:flex;gap:10px;
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(246,241,231,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .mcta a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+    font-weight:700;font-size:15px;letter-spacing:.04em;padding:14px 10px;border-radius:4px;
+    box-shadow:0 10px 22px -14px rgba(24,42,64,.45)}
+  .mcta-tel{background:var(--gold);color:var(--ink)}
+  .mcta-line{background:var(--green);color:#fff}
+  body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .hero-art{min-height:340px;max-width:420px}
+  .prof-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+  .works-grid,.voice-grid{grid-template-columns:1fr}
+  .section{padding:68px 0}
+  .strip .note{margin-left:0;width:100%}
+  .hdr-tel{display:none}
+}
+@media(max-width:520px){
+  .wrap,.hdr-in{padding-left:18px;padding-right:18px}
+  .brandmark .tag{display:none}
+  .hero{padding-top:104px}
+  .cform .row2{grid-template-columns:1fr}
+  .secret-item{grid-template-columns:1fr}
+  .secret-item .no{flex-direction:row;padding:10px}
+  .secret-item .no b{font-size:26px}
+  .secret-quality{grid-template-columns:1fr;gap:10px}
+  .flow-item{grid-template-columns:52px 1fr;gap:14px;padding:20px 18px}
+  .info dl{grid-template-columns:38% 62%}
+  .hdr-btn{display:none}
+}
+a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:3px}
+</style>
+</head>
+<body>
+
+<!-- 刷毛ストローク（署名要素） -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="brush" viewBox="0 0 132 13" preserveAspectRatio="none">
+<path d="M1 7.5C18 3 33 10 52 6.5C71 3 86 9.5 104 5.5C115 3.2 124 5 131 4.2C126 6 120 7.2 110 8C92 9.5 77 5.5 58 8.2C40 10.7 24 6.5 8 9.8C5.5 10.3 3 10 1 9.2Z" fill="currentColor"/>
+</symbol></svg>
+
+<!-- ============ HEADER ============ -->
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a class="brandmark" href="#top" aria-label="YSK塗装 トップへ">
+      <img class="logo" src="../images/ysk-logo.png" alt="YSK塗装">
+      <span class="name">YSK塗装</span>
+      <span class="tag">栃木の外壁・屋根塗装</span>
+    </a>
+    <div class="hdr-cta">
+      <a class="hdr-tel" href="tel:09040041821"><b>090-4004-1821</b><span>9:00〜18:00（日曜も電話対応可）</span></a>
+      <a class="hdr-btn" href="#contact">無料で相見積もり</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy reveal">
+        <span class="who">栃木県内にお住まいの方へ ─ 外壁・屋根塗装</span>
+        <h1 class="disp">大手さんとの<br><span class="em">相見積もり</span>、<br>お待ちしております。</h1>
+        <p class="hero-sub">大手の見積書、そのままお持ちください。<b>同じ工事内容で、いくら変わるか</b>お見せします。見積もり・出張費は無料。比べたうえで、断っていただいてOKです。</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#contact">無料で相見積もりする <span class="ar">→</span></a>
+          <a class="btn btn-green" href="https://lin.ee/VBTRgQ0" target="_blank" rel="noopener">LINEで見積書を送る</a>
+        </div>
+        <p class="hero-note">お電話でも：<a href="tel:09040041821" style="font-weight:700;color:var(--ink)">090-4004-1821</a>（9:00〜18:00）</p>
+        <div class="hero-meta">
+          <div class="m"><b>120<small style="font-size:13px"> 件</small></b><span>累計施工</span></div>
+          <div class="m"><b>40<small style="font-size:13px"> % 安</small></b><span>大手相場との差</span></div>
+          <div class="m"><b>0<small style="font-size:13px"> 円</small></b><span>中間手数料</span></div>
+        </div>
+      </div>
+      <div class="hero-art reveal">
+        <div class="goldblock"></div>
+        <div class="frame"><img src="../images/hero-couple.jpg" alt="YSK塗装の夫婦"></div>
+        <span class="vlabel">YSK&nbsp;PAINTING</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AREA STRIP ============ -->
+<section class="strip" aria-label="対応エリア">
+  <div class="wrap">
+    <span class="lab">Service area</span>
+    <span class="area">栃木県全域に対応（宇都宮・日光・鹿沼・栃木・小山ほか）</span>
+    <span class="note">日光・宇都宮から片道1.5時間圏内は、出張費0円でお伺いします。</span>
+  </div>
+</section>
+
+<!-- ============ 宣言 ============ -->
+<section class="section declare" id="declare">
+  <div class="wrap reveal">
+    <span class="eyebrow" style="justify-content:center">Why compare <span class="ja">相見積もりのすすめ</span></span>
+    <h2 class="sec-title disp" style="margin-top:8px">比べてもらえれば、わかります。</h2>
+    <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    <p>「相見積もりなんて失礼かな」と思われる方も多いのですが、逆です。<span class="strong">塗装工事は、比べないと適正価格がわからない仕事</span>です。同じ塗料・同じ工程でも、会社によって数十万円変わることは珍しくありません。</p>
+    <p>私たちは、比べてもらった方が強い。だから、大手さんの見積書を持ってきていただくのを歓迎しています。項目を一つずつ見ながら、どこにいくらかかっているのか、正直にご説明します。</p>
+  </div>
+</section>
+
+<!-- ============ 安さの秘訣 ============ -->
+<section class="section secret" id="secret">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Reason <span class="ja">安さの秘訣</span></span>
+      <h2 class="sec-title disp">なぜ、大手より安くできるのか。</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+      <p class="lead" style="margin-top:16px">安いのには、はっきりした理由があります。品質を削っているのではなく、<b>工事以外にかかるお金</b>を削っています。</p>
+    </div>
+    <div class="secret-list">
+      <article class="secret-item reveal">
+        <div class="no"><span class="lat">Reason</span><b>1</b></div>
+        <div class="bd">
+          <h3>中間手数料<span class="em">0円</span>。下請けに出さず、自分たちで塗るから。</h3>
+          <p>大手に頼むと、実際に塗るのは下請け・孫請けの職人で、各段階で手数料が上乗せされます。YSK塗装は見積もりから施工まで夫婦で対応する完全自社施工。手数料が乗らない分、同じ工事が安くなります。</p>
+        </div>
+      </article>
+      <article class="secret-item reveal">
+        <div class="no"><span class="lat">Reason</span><b>2</b></div>
+        <div class="bd">
+          <h3>従業員を雇わない<span class="em">個人事業主</span>だから、固定費が最小限。</h3>
+          <p>従業員を雇用していないため、社会保険料などの人件費や、事務所・広告にかかる経費がほとんど発生しません。会社を維持するためのお金をお客様からいただく必要がない。だからコスパの良い価格でご提供できます。</p>
+        </div>
+      </article>
+      <article class="secret-item reveal">
+        <div class="no"><span class="lat">Reason</span><b>3</b></div>
+        <div class="bd">
+          <h3>専門業者と<span class="em">直接</span>つながっているから、余計な中抜きがない。</h3>
+          <p>足場などの専門工事は、長年付き合いのある栃木県内の専門業者へ直接依頼します。営業会社や仲介を挟まないので、専門工事の費用も適正価格のまま。信頼できる職人の手で、品質も担保されます。</p>
+        </div>
+      </article>
+    </div>
+    <div class="secret-quality reveal">
+      <div class="ic">質</div>
+      <div>
+        <h3>安くしても、品質は削りません。</h3>
+        <p>塗料のグレードを落としたり、工程を省いたりはしません。見積もりをした本人がそのまま現場で塗るので、「話した内容と違う仕上がり」になりようがないのです。工事完了後には保証書もお渡しします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICE ============ -->
+<section class="section tight" id="price">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Price <span class="ja">料金の目安</span></span>
+      <h2 class="sec-title disp">どれくらい変わるのか。</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    </div>
+    <div class="reveal">
+      <table class="ptable">
+        <thead><tr><th>施工内容</th><th>大手相場</th><th>YSK塗装</th></tr></thead>
+        <tbody>
+          <tr><th>外壁＋屋根（全体・30坪目安）</th><td class="market">150〜200万円</td><td class="ysk">100〜120万円</td></tr>
+          <tr><th>外壁のみ（30坪目安）</th><td class="market">120万円前後</td><td class="ysk">80万円〜</td></tr>
+          <tr><th>屋根のみ</th><td class="market">80万円前後</td><td class="ysk">40〜60万円</td></tr>
+        </tbody>
+      </table>
+      <p class="pnote">※ いずれも足場代込みの概算です。お手元の見積書と見比べてみてください。写真を送っていただくだけで、無料で概算お見積もりをお出しできます。</p>
+    </div>
+    <div class="ctabox reveal" style="margin-top:44px">
+      <p class="t">大手の見積書、お持ちください。<br>同じ内容で、いくらになるかお答えします。</p>
+      <p class="s">見積書をLINEで撮って送るだけでもOK。もちろん無料です。</p>
+      <div class="btns">
+        <a class="btn btn-gold" href="#contact">フォームで相談する <span class="ar">→</span></a>
+        <a class="btn btn-green" href="https://lin.ee/VBTRgQ0" target="_blank" rel="noopener">LINEで見積書を送る</a>
+      </div>
+      <p class="tel-note">お電話なら <b><a href="tel:09040041821" style="color:inherit">090-4004-1821</a></b>（9:00〜18:00）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKS ============ -->
+<section class="section" id="works">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Works <span class="ja">施工実績</span></span>
+      <h2 class="sec-title disp">安くても、この仕上がり。</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+      <p class="lead" style="margin-top:16px">栃木を中心に、累計120件。すべて自分たちの手で塗ってきました。</p>
+    </div>
+    <div class="works-grid">
+      <article class="work reveal">
+        <div class="ba">
+          <figure class="bef"><img src="../images/case01-before.jpg" alt="施工前"><figcaption>Before</figcaption></figure>
+          <figure class="aft"><img src="../images/case01-after.jpg" alt="施工後"><figcaption>After</figcaption></figure>
+        </div>
+        <div class="wbd"><span class="t">外壁＋屋根 全体塗装</span><span class="a">宇都宮市</span></div>
+      </article>
+      <article class="work reveal">
+        <div class="ba">
+          <figure class="bef"><img src="../images/case04-before.jpg" alt="施工前"><figcaption>Before</figcaption></figure>
+          <figure class="aft"><img src="../images/case04-after.jpg" alt="施工後"><figcaption>After</figcaption></figure>
+        </div>
+        <div class="wbd"><span class="t">外壁塗装</span><span class="a">日光市</span></div>
+      </article>
+      <article class="work reveal">
+        <div class="ba">
+          <figure class="bef"><img src="../images/case07-before.jpg" alt="施工前"><figcaption>Before</figcaption></figure>
+          <figure class="aft"><img src="../images/case07-after.jpg" alt="施工後" style="transform:rotate(90deg)"><figcaption>After</figcaption></figure>
+        </div>
+        <div class="wbd"><span class="t">外壁＋屋根 全体塗装</span><span class="a">宇都宮市</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOICE ============ -->
+<section class="section tight" id="voice" style="background:var(--paper2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Voice <span class="ja">お客様の声</span></span>
+      <h2 class="sec-title disp">比べて選ばれた方の声。</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    </div>
+    <div class="voice-grid">
+      <blockquote class="voice reveal">
+        <div class="q">“</div>
+        <p>色々な業者で見積もりを取りましたが、値段も仕上がりも大変満足です。お人柄も良く、気持ちの良い取引をさせてもらいました。</p>
+        <div class="who">― 栃木県内 / 紹介のお客様</div>
+      </blockquote>
+      <blockquote class="voice reveal">
+        <div class="q">“</div>
+        <p>色味やツヤのバランスが美しく、ムラのない均一な仕上がりでした。事前の説明も分かりやすく、終始安心してお任せできました。</p>
+        <div class="who">― N.O 様</div>
+      </blockquote>
+      <blockquote class="voice reveal">
+        <div class="q">“</div>
+        <p>時期や費用、色合いまで親身に相談に乗っていただき、素敵な外壁になりました。また何かあればお願いしたいです。</p>
+        <div class="who">― 屋根・外壁塗装のお客様</div>
+      </blockquote>
+    </div>
+    <p class="voice-note">Googleのクチコミにも、多数の評価をいただいています。</p>
+  </div>
+</section>
+
+<!-- ============ PROFILE ============ -->
+<section class="section prof" id="about" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="prof-grid">
+      <div class="prof-photo reveal">
+        <img src="../images/couple-profile.jpg" alt="YSK塗装 代表の谷田部夫妻">
+        <span class="cap">見積もりに伺うのは、この二人です</span>
+      </div>
+      <div class="prof-body reveal">
+        <span class="eyebrow">Profile <span class="ja">私たちについて</span></span>
+        <h2 class="sec-title disp">見積もりも、施工も、<br>同じ二人。</h2>
+        <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+        <p>はじめまして。YSK塗装 代表の谷田部です。栃木県日光市を拠点に、夫婦で外壁・屋根の塗り替えをしています。</p>
+        <p>営業担当はいません。見積もりに伺うのも、実際に塗るのも、私たち二人。だから相見積もりの席でも、その場で「この項目はこういう理由でこの金額です」と即答できます。</p>
+        <p>比べて、納得して、それから決めてください。断られても、気を悪くしたりしません。</p>
+        <div class="prof-chips">
+          <div class="chip"><b>120件</b><span>累計施工</span></div>
+          <div class="chip"><b>保証書</b><span>工事後に発行</span></div>
+          <div class="chip"><b>日光市</b><span>栃木県内拠点</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section class="section tight" id="flow" style="background:var(--paper2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Flow <span class="ja">相見積もりの流れ</span></span>
+      <h2 class="sec-title disp">流れは、かんたん。</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    </div>
+    <div class="flow-list">
+      <div class="flow-item reveal">
+        <div class="no"></div>
+        <div><h3>他社の見積書を用意する（なくてもOK）</h3>
+        <p>大手や他社の見積書があれば、比較がスムーズです。まだ取っていない方は、そのままご相談いただいて構いません。</p></div>
+      </div>
+      <div class="flow-item reveal">
+        <div class="no"></div>
+        <div><h3>電話・LINE・フォームでご連絡</h3>
+        <p>見積書やお家の写真は、LINEで撮って送っていただくのが一番ラクです。「相見積もりしたい」の一言だけでも大丈夫です。</p></div>
+      </div>
+      <div class="flow-item reveal">
+        <div class="no"></div>
+        <div><h3>無料で概算 → 現地調査</h3>
+        <p>写真から無料で概算をお出しします。話を進めたい場合のみ、現地調査へ。調査・出張費も無料です。</p></div>
+      </div>
+      <div class="flow-item reveal">
+        <div class="no"></div>
+        <div><h3>じっくり比べて、決める</h3>
+        <p>金額・内容を見比べて、ご家族でゆっくりご検討ください。しつこい営業は一切しません。断っていただいてOKです。</p></div>
+      </div>
+    </div>
+    <div class="ctabox reveal" style="margin-top:44px">
+      <p class="t">「相見積もりしたい」の一言で、始まります。</p>
+      <p class="s">見積もり・現地調査・出張費すべて無料。断ってもOKです。</p>
+      <div class="btns">
+        <a class="btn btn-gold" href="#contact">フォームで相談する <span class="ar">→</span></a>
+        <a class="btn btn-green" href="https://lin.ee/VBTRgQ0" target="_blank" rel="noopener">LINEで相談する</a>
+      </div>
+      <p class="tel-note">お電話なら <b><a href="tel:09040041821" style="color:inherit">090-4004-1821</a></b>（9:00〜18:00）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section tight" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">FAQ <span class="ja">よくあるご質問</span></span>
+      <h2 class="sec-title disp">相見積もり、気になること。</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a1">
+          <span class="mark">Q</span>他社の見積書を見せても大丈夫ですか？<span class="tgl" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a" id="faq-a1"><div class="faq-a-clip"><div class="faq-a-in">
+          <span class="mark" aria-hidden="true">A</span><p>はい、むしろ見せていただいた方が正確に比較できます。項目ごとに「どこにいくらかかっているか」をご説明したうえで、同じ工事内容でのお見積もりをお出しします。</p>
+        </div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a2">
+          <span class="mark">Q</span>見積もりだけ取って、断ってもいいですか？<span class="tgl" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a" id="faq-a2"><div class="faq-a-clip"><div class="faq-a-in">
+          <span class="mark" aria-hidden="true">A</span><p>もちろんです。相見積もりは比べるためのものなので、他社さんに決めていただいても構いません。見積もり後のしつこい営業や催促の電話は一切しません。</p>
+        </div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a3">
+          <span class="mark">Q</span>安い分、塗料や工事の質が落ちませんか？<span class="tgl" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a" id="faq-a3"><div class="faq-a-clip"><div class="faq-a-in">
+          <span class="mark" aria-hidden="true">A</span><p>落としません。安い理由は、中間手数料と会社の固定費がかからないことです。塗料のグレードや工程は見積書に明記し、工事完了後には保証書もお渡しします。</p>
+        </div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a4">
+          <span class="mark">Q</span>見積もりや現地調査にお金はかかりますか？<span class="tgl" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a" id="faq-a4"><div class="faq-a-clip"><div class="faq-a-in">
+          <span class="mark" aria-hidden="true">A</span><p>お見積もり・現地調査・出張費はすべて無料です。見積もり後に断っていただいても、費用は一切かかりません。</p>
+        </div></div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false" aria-controls="faq-a5">
+          <span class="mark">Q</span>足場代は料金に含まれていますか？<span class="tgl" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a" id="faq-a5"><div class="faq-a-clip"><div class="faq-a-in">
+          <span class="mark" aria-hidden="true">A</span><p>はい、掲載している目安料金には足場代を含んでいます。追加費用が発生する場合は、必ず事前にご説明します。</p>
+        </div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Contact <span class="ja">無料相見積もり</span></span>
+      <h2 class="sec-title disp">まずは、比べてみて<br>ください。</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+      <p class="lead" style="margin-top:18px">見積もり・現地調査・出張費は無料。断っていただいてもOKです。下のフォーム（またはお電話・LINE）から、お気軽にご連絡ください。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <form class="cform" id="cform">
+          <input type="text" name="botcheck" style="position:absolute;left:-9999px;top:-9999px" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="送信元" value="相見積もりLP">
+          <div class="field">
+            <label for="f-name">お名前 <span class="req">必須</span></label>
+            <input id="f-name" type="text" name="お名前" required placeholder="例：山田 太郎">
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="f-tel">電話番号 <span class="req">必須</span></label>
+              <input id="f-tel" type="tel" name="電話番号" required placeholder="例：090-1234-5678">
+            </div>
+            <div class="field">
+              <label for="f-mail">メールアドレス <span class="opt">任意</span></label>
+              <input id="f-mail" type="email" name="メールアドレス" placeholder="例：example@mail.com">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-city">お住まいの市区町村 <span class="req">必須</span></label>
+            <input id="f-city" type="text" name="お住まいの市区町村" required placeholder="例：宇都宮市">
+          </div>
+          <div class="field">
+            <label for="f-msg">ご相談内容 <span class="opt">任意</span></label>
+            <textarea id="f-msg" name="ご相談内容" placeholder="「他社の見積もりと比べたい」だけでもOKです。他社見積もりの有無、築年数、気になっている箇所（外壁／屋根など）をわかる範囲でお書きください。"></textarea>
+          </div>
+          <div id="formStatus" class="form-status" role="alert"></div>
+          <div class="submit"><button type="submit" class="btn btn-gold">この内容で送信する <span class="ar">→</span></button></div>
+          <p class="form-note">見積もり・出張費は無料です。いただいた内容は、ご相談への対応のみに使用します。</p>
+        </form>
+        <div id="formDone" class="form-done">
+          <div class="ic">THANK YOU</div>
+          <h3>送信ありがとうございます。</h3>
+          <p>内容を確認のうえ、原則24時間以内にご連絡します。<br>少々お待ちください。</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="info">
+          <dl>
+            <dt>会社名</dt><dd>YSK塗装</dd>
+            <dt>代表</dt><dd>谷田部</dd>
+            <dt>所在地</dt><dd>栃木県日光市</dd>
+            <dt>電話</dt><dd><a href="tel:09040041821" style="color:inherit">090-4004-1821</a></dd>
+            <dt>営業時間</dt><dd>9:00〜18:00 ／ 定休日 日曜（お電話は対応可）</dd>
+            <dt>対応エリア</dt><dd>栃木県全域（北関東・南東北も対応可）</dd>
+            <dt>事業内容</dt><dd>外壁塗装・屋根塗装・付帯部塗装・各種単品塗装</dd>
+          </dl>
+        </div>
+        <div class="contact-alt">
+          <p>お電話・LINEでも受け付けています。他社の見積書やお家の写真は、LINEで送っていただくとスムーズです。</p>
+          <a class="btn btn-line" href="tel:09040041821">電話する</a>
+          <a class="btn btn-green" href="https://lin.ee/VBTRgQ0" target="_blank" rel="noopener">LINEで相談</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div>
+        <div class="name">YSK塗装</div>
+        <div class="ftag">栃木の外壁・屋根塗装 ／ 完全自社施工・中間手数料0円</div>
+      </div>
+      <nav class="ft-nav" aria-label="フッターナビゲーション">
+        <a href="#secret">安さの秘訣</a>
+        <a href="#price">料金</a>
+        <a href="#works">施工実績</a>
+        <a href="#voice">お客様の声</a>
+        <a href="#contact">お問い合わせ</a>
+        <a href="../index.html">公式サイト</a>
+      </nav>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 YSK塗装</span>
+      <span class="lat">YSK Painting ─ Tochigi</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MOBILE FIXED CTA ============ -->
+<div class="mcta" role="navigation" aria-label="お問い合わせメニュー">
+  <a class="mcta-tel" href="tel:09040041821">電話する</a>
+  <a class="mcta-line" href="https://lin.ee/VBTRgQ0" target="_blank" rel="noopener">LINEで相談</a>
+</div>
+
+<script>
+// header scrolled state
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10),{passive:true});
+// scroll reveal
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q=item.querySelector('.faq-q');
+  q.addEventListener('click',()=>{
+    const open=item.classList.toggle('open');
+    q.setAttribute('aria-expanded',open);
+  });
+});
+// contact form → Google スプレッドシート（Apps Script）※本体サイトと同一の本番エンドポイント
+const GAS_ENDPOINT="https://script.google.com/macros/s/AKfycbzxhjRguwgl-DGlxVAL-Hw4HlzZs5JPeVaKz7V3v2TDEyOQXb0rtI-rYTeOPFilUlST/exec";
+const cform=document.getElementById('cform');
+if(cform){
+  cform.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    const status=document.getElementById('formStatus');
+    const btn=cform.querySelector('button[type=submit]');
+    status.className='form-status'; status.textContent='';
+    const label=btn.innerHTML; btn.disabled=true; btn.textContent='送信中…';
+    try{
+      await fetch(GAS_ENDPOINT,{method:'POST',mode:'no-cors',body:new FormData(cform)});
+      cform.style.display='none';
+      const done=document.getElementById('formDone');
+      done.classList.add('show');
+      done.scrollIntoView({behavior:'smooth',block:'center'});
+    }catch(err){
+      status.textContent='送信に失敗しました。お手数ですが、お電話・LINEでご連絡ください。';
+      status.classList.add('ng'); btn.disabled=false; btn.innerHTML=label;
+    }
+  });
+}
+</script>
+</body>
+</html>
