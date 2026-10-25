@@ -203,6 +203,23 @@ a{color:inherit;text-decoration:none}
 .voice .who{margin-top:16px;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.06em}
 .voice-note{text-align:center;margin-top:30px;font-size:13px;color:var(--muted)}
 
+/* ============ NOTE (読みもの) ============ */
+.column{background:var(--paper2)}
+.column-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.post{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:6px;
+  padding:26px 26px 22px 30px;position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease}
+.post::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--gold),var(--gold-d))}
+.post:hover{transform:translateY(-4px);box-shadow:0 24px 44px -28px rgba(24,42,64,.5)}
+.post .meta{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.06em}
+.post .cat{color:var(--gold-d);border:1px solid var(--gold);border-radius:2px;padding:2px 8px;font-size:11px;letter-spacing:.08em}
+.post h3{font-family:'Zen Old Mincho',serif;font-size:18px;line-height:1.55;margin:14px 0 10px;color:var(--ink)}
+.post p{font-size:13.5px;color:var(--ink2);line-height:1.8;flex:1}
+.post .more{margin-top:18px;font-size:13px;font-weight:700;color:var(--blue-d);display:inline-flex;align-items:center;gap:6px}
+.post .more .ar{font-family:'Jost',sans-serif;transition:transform .2s ease}
+.post:hover .more .ar{transform:translateX(4px)}
+.column-more{margin-top:38px;text-align:center}
+.column-more .sub{font-size:12px;color:var(--muted);margin-top:12px}
+
 /* ============ FAQ ============ */
 .faq-list{max-width:860px;margin:0 auto;display:grid;gap:12px}
 .faq-item{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
@@ -296,7 +313,7 @@ a{color:inherit;text-decoration:none}
   .about-grid,.price-wrap,.contact-grid{grid-template-columns:1fr;gap:36px}
   .serv-grid{grid-template-columns:1fr 1fr}
   .why-list{grid-template-columns:1fr}
-  .works-grid,.voice-grid{grid-template-columns:1fr}
+  .works-grid,.voice-grid,.column-grid{grid-template-columns:1fr}
   .onsite-grid{grid-template-columns:1fr;gap:12px}
   .onsite-grid img{aspect-ratio:16/10}
   .info dl{grid-template-columns:38% 62%}
@@ -335,6 +352,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
       <a class="navlink" href="#why">選ばれる理由</a>
       <a class="navlink" href="#works">施工事例</a>
       <a class="navlink" href="#price">料金</a>
+      <a class="navlink" href="#column">読みもの</a>
       <a class="navlink" href="business.html" style="font-size:12.5px;color:var(--muted)">事業者の方へ</a>
       <a class="navcta" href="#contact">無料で相談する</a>
     </nav>
@@ -584,6 +602,47 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
   </div>
 </section>
 
+<!-- ============ NOTE（読みもの） ============ -->
+<!--
+  noteの記事を追加するときは、下の <a class="post reveal"> ブロックを1つコピーして
+  カテゴリ・タイトル・本文・URL・日付を差し替えてください（新しい記事ほど上に）。
+  記事一覧：https://note.com/ysk_tosou
+-->
+<section class="section tight column" id="column">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Note <span class="ja">読みもの</span></span>
+      <h2 class="sec-title disp">塗装屋の、ほんとうの話。</h2>
+      <svg class="brush" aria-hidden="true"><use href="#brush"/></svg>
+      <p class="lead" style="margin-top:18px">価格のこと、地域のこと、夫婦で塗装屋を始めた理由。ホームページには書ききれない話を、noteに綴っています。</p>
+    </div>
+    <div class="column-grid">
+      <a class="post reveal" href="https://note.com/ysk_tosou/n/n9ba78968f3f5" target="_blank" rel="noopener">
+        <div class="meta"><span class="cat">地域密着</span><time datetime="2026-10-22">2026.10.22</time></div>
+        <h3>栃木から北関東へ。地域に根ざした塗装で、地元に恩返しを。</h3>
+        <p>栃木を拠点に、群馬・茨城・埼玉・福島まで。地元で塗装屋を続ける理由と、地域への思いを綴りました。</p>
+        <span class="more">noteで読む <span class="ar">→</span></span>
+      </a>
+      <a class="post reveal" href="https://note.com/ysk_tosou/n/n91a3ef30f15a" target="_blank" rel="noopener">
+        <div class="meta"><span class="cat">価格のこと</span><time datetime="2026-10-20">2026.10.20</time></div>
+        <h3>YSK塗装はなぜ安い？大手との価格差の理由と、安くても妥協しない施工へのこだわり</h3>
+        <p>下請けを使わず、営業担当も置かない。大手との価格差が生まれる仕組みと、安くても品質に妥協しない理由をお話しします。</p>
+        <span class="more">noteで読む <span class="ar">→</span></span>
+      </a>
+      <a class="post reveal" href="https://note.com/ysk_tosou/n/ne75b6580da56" target="_blank" rel="noopener">
+        <div class="meta"><span class="cat">創業の話</span><time datetime="2026-10-17">2026.10.17</time></div>
+        <h3>YSK塗装の誕生秘話｜お客様にもっと寄り添いたい。その思いから始まった、夫婦二人の塗装屋さん</h3>
+        <p>「お客様にもっと寄り添いたい」。夫婦二人で塗装屋を始めるまでの経緯と、いま大切にしていることを書きました。</p>
+        <span class="more">noteで読む <span class="ar">→</span></span>
+      </a>
+    </div>
+    <div class="column-more reveal">
+      <a class="btn btn-line" href="https://note.com/ysk_tosou" target="_blank" rel="noopener">noteで記事一覧を見る <span class="ar">→</span></a>
+      <p class="sub">新しい記事は、noteで随時更新しています。</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FAQ ============ -->
 <section class="section tight" id="faq">
   <div class="wrap">
@@ -723,6 +782,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
         <a href="#why">選ばれる理由</a>
         <a href="#works">施工事例</a>
         <a href="#price">料金</a>
+        <a href="#column">読みもの</a>
         <a href="#contact">お問い合わせ</a>
         <a href="business.html">事業者の方へ</a>
       </nav>
