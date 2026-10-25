@@ -205,11 +205,10 @@ a{color:inherit;text-decoration:none}
 
 /* ============ NOTE (読みもの) ============ */
 .column{background:var(--paper2)}
-.column-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
-.post-embed{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;min-height:200px;
-  transition:transform .25s ease,box-shadow .25s ease}
-.post-embed:hover{transform:translateY(-4px);box-shadow:0 24px 44px -28px rgba(24,42,64,.5)}
-.post-embed iframe.note-embed{border:0;display:block;width:100%;max-width:100%;height:400px;margin:0;padding:0;background:#fff}
+.column-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+/* noteカード自体が枠・角丸を持つため、ラッパーは装飾しない。高さはnoteのembed.jsがiframeのheight属性で自動調整する（CSSで高さを固定しない） */
+.post-embed{min-width:0}
+.post-embed iframe.note-embed{border:0;display:block;width:100%;max-width:100%;margin:0;padding:0;overflow:hidden}
 .column-more{margin-top:38px;text-align:center}
 .column-more .sub{font-size:12px;color:var(--muted);margin-top:12px}
 
@@ -312,6 +311,7 @@ a{color:inherit;text-decoration:none}
   .serv-grid{grid-template-columns:1fr 1fr}
   .why-list{grid-template-columns:1fr}
   .works-grid,.voice-grid,.column-grid{grid-template-columns:1fr}
+  .column-grid{gap:14px}
   .onsite-grid{grid-template-columns:1fr;gap:12px}
   .onsite-grid img{aspect-ratio:16/10}
   .info dl{grid-template-columns:38% 62%}
@@ -617,13 +617,13 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
     </div>
     <div class="column-grid">
       <div class="post-embed reveal">
-        <iframe class="note-embed" src="https://note.com/embed/notes/n9ba78968f3f5" title="栃木から北関東へ。地域に根ざした塗装で、地元に恩返しを。（note）" loading="lazy" height="400"></iframe>
+        <iframe class="note-embed" src="https://note.com/embed/notes/n9ba78968f3f5" title="栃木から北関東へ。地域に根ざした塗装で、地元に恩返しを。（note）" loading="lazy" scrolling="no" height="200"></iframe>
       </div>
       <div class="post-embed reveal">
-        <iframe class="note-embed" src="https://note.com/embed/notes/n91a3ef30f15a" title="YSK塗装はなぜ安い？大手との価格差の理由と、安くても妥協しない施工へのこだわり（note）" loading="lazy" height="400"></iframe>
+        <iframe class="note-embed" src="https://note.com/embed/notes/n91a3ef30f15a" title="YSK塗装はなぜ安い？大手との価格差の理由と、安くても妥協しない施工へのこだわり（note）" loading="lazy" scrolling="no" height="200"></iframe>
       </div>
       <div class="post-embed reveal">
-        <iframe class="note-embed" src="https://note.com/embed/notes/ne75b6580da56" title="YSK塗装の誕生秘話｜お客様にもっと寄り添いたい。その思いから始まった、夫婦二人の塗装屋さん（note）" loading="lazy" height="400"></iframe>
+        <iframe class="note-embed" src="https://note.com/embed/notes/ne75b6580da56" title="YSK塗装の誕生秘話｜お客様にもっと寄り添いたい。その思いから始まった、夫婦二人の塗装屋さん（note）" loading="lazy" scrolling="no" height="200"></iframe>
       </div>
     </div>
     <script async src="https://note.com/scripts/embed.js" charset="utf-8"></script>
@@ -807,6 +807,16 @@ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
 // scroll reveal
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// note埋め込みカードの高さ調整（embed.jsの補助。note.comからの高さ通知にのみ反応）
+addEventListener('message',(e)=>{
+  if(e.origin!=='https://note.com')return;
+  let d=e.data; if(typeof d==='string'){try{d=JSON.parse(d)}catch(_){return}}
+  const h=d&&(d.height||(d.data&&d.data.height));
+  if(!(h>80&&h<2000))return;
+  document.querySelectorAll('iframe.note-embed').forEach(f=>{
+    if(f.contentWindow===e.source){f.height=h;f.style.height=h+'px';}
+  });
+});
 // FAQ accordion
 document.querySelectorAll('.faq-item').forEach(item=>{
   const q=item.querySelector('.faq-q');
