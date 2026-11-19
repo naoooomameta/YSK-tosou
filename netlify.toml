@@ -2,3 +2,10 @@
 [build]
   publish = "."
   command = ""
+
+# 旧トップの複製ページは正規URLへ301
+[[redirects]]
+  from = "/home.html"
+  to = "/"
+  status = 301
+  force = true
