@@ -4,6 +4,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- 計測（Googleタグ / Metaピクセル）: /js/ysk-track.js で一元管理 -->
+<script src="/js/ysk-track.js"></script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1685592229128625&ev=PageView&noscript=1"/></noscript>
 
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
@@ -14,26 +20,10 @@
     })(window, document, "clarity", "script", "w7018906m1");
 </script>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1685592229128625');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1685592229128625&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 <!-- FV画像を優先読み込み -->
 <link rel="preload" as="image" href="../images/hero-couple.jpg?v=3">
 <title>YSK塗装｜栃木・北関東の外壁・屋根塗装 完全自社施工 中間手数料0円</title>
+<link rel="canonical" href="https://ysk-tosou.com/">
 
 <!-- OGP / SNS共有設定 -->
 <meta property="og:title" content="YSK塗装｜栃木・北関東の外壁・屋根塗装">
@@ -5514,21 +5504,17 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     function goThanks() {
       if (redirected) return;
       redirected = true;
-      window.location.href = '../thanks.html';
+      window.location.href = '/thanks.html';
     }
 
-    // CompleteRegistration を発火、Meta側受信完了で goThanks 実行
-    fbq('track', 'CompleteRegistration', {}, {
-      eventCallback: goThanks
-    });
-
-    // GAS へ送信（no-cors で CORS エラー回避）
+    // GAS へ送信（no-cors で CORS エラー回避）→ 完了後に thanks へ（Lead計測はthanks側）
     fetch(GAS_URL, {
       method: 'POST',
       mode: 'no-cors',
+      keepalive: true,
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
-    });
+    }).then(goThanks).catch(goThanks);
 
     // フォールバック: 2秒応答なければ強制遷移
     setTimeout(goThanks, 2000);
