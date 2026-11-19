@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="zDeyMSC8RYpcG76_KwiYWQ_K6IraVAWsjZ3Y2Zd7MKs">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- 計測（Googleタグ / Metaピクセル）: /js/ysk-track.js で一元管理 -->
+<script src="/js/ysk-track.js"></script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1685592229128625&ev=PageView&noscript=1"/></noscript>
 <title>YSK塗装｜栃木・北関東の外壁・屋根塗装｜完全自社施工・中間手数料0円</title>
 <meta name="description" content="栃木を拠点に北関東・南東北で外壁・屋根の塗り替えを手がける夫婦の塗装店。下請けを使わない完全自社施工で、中間手数料0円。大手より最低40%安く、見積もりから施工まで夫婦が責任をもって対応します。">
 <meta property="og:type" content="website">
@@ -23,6 +29,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+.consent{font-size:12px;color:var(--muted);text-align:center;margin:10px 0 0}.consent a{color:inherit;text-decoration:underline}
+
 :root{
   --paper:#F6F1E7;     /* 生成り（紙） */
   --paper2:#EFE8D8;    /* やや濃い生成り */
@@ -741,6 +749,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
           </div>
           <div id="formStatus" class="form-status" role="alert"></div>
           <div class="submit"><button type="submit" class="btn btn-gold">この内容で送信する <span class="ar">→</span></button></div>
+          <p class="consent">送信により<a href="/privacy/">プライバシーポリシー</a>に同意いただいたものとします。</p>
           <p class="form-note">見積もり・出張費は無料です。いただいた内容は、ご相談への対応のみに使用します。</p>
         </form>
         <div id="formDone" class="form-done">
@@ -792,6 +801,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
         <a href="#works">施工事例</a>
         <a href="#contact">お問い合わせ</a>
         <a href="business.html">事業者の方へ</a>
+        <a href="/privacy/">プライバシーポリシー</a>
       </nav>
     </div>
     <div class="ft-bottom">
@@ -853,11 +863,8 @@ if(cform){
     status.className='form-status'; status.textContent='';
     const label=btn.innerHTML; btn.disabled=true; btn.textContent='送信中…';
     try{
-      await fetch(GAS_ENDPOINT,{method:'POST',mode:'no-cors',body:new FormData(cform)});
-      cform.style.display='none';
-      const done=document.getElementById('formDone');
-      done.classList.add('show');
-      done.scrollIntoView({behavior:'smooth',block:'center'});
+      await fetch(GAS_ENDPOINT,{method:'POST',mode:'no-cors',keepalive:true,body:new FormData(cform)});
+      window.location.href='/thanks.html';
     }catch(err){
       status.textContent='送信に失敗しました。お手数ですが、お電話・LINEでご連絡ください。';
       status.classList.add('ng'); btn.disabled=false; btn.innerHTML=label;

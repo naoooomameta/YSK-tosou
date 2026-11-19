@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="zDeyMSC8RYpcG76_KwiYWQ_K6IraVAWsjZ3Y2Zd7MKs">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- 計測（Googleタグ / Metaピクセル）: /js/ysk-track.js で一元管理 -->
+<script src="/js/ysk-track.js"></script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1685592229128625&ev=PageView&noscript=1"/></noscript>
 <title>事業者の方へ｜YSK塗装｜物件の外壁・屋根塗装も完全自社施工・中間手数料0円</title>
 <link rel="canonical" href="https://ysk-tosou.com/business.html">
 <meta name="description" content="不動産オーナー様・管理会社様・民泊運営者様の物件塗装も、下請けなしの完全自社施工。中間手数料0円で大手より最低40%安く、空室期間や予約カレンダーに合わせて工期を調整します。栃木から北関東・南東北まで対応。">
@@ -19,28 +25,13 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ysk-tosou.com/ogp.png">
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1685592229128625');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1685592229128625&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;600;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+.consent{font-size:12px;color:var(--muted);text-align:center;margin:10px 0 0}.consent a{color:inherit;text-decoration:underline}
+
 :root{
   --paper:#F6F1E7;     /* 生成り（紙） */
   --paper2:#F8F5EF;    /* やや白寄りの生成り */
@@ -481,6 +472,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
           </div>
           <div id="formStatus" class="form-status" role="alert"></div>
           <div class="submit"><button type="submit" class="btn btn-gold">この内容で送信する <span class="ar">→</span></button></div>
+          <p class="consent">送信により<a href="/privacy/">プライバシーポリシー</a>に同意いただいたものとします。</p>
           <p class="form-note">見積もり・現地調査は無料です。いただいた内容は、ご相談への対応のみに使用します。</p>
         </form>
         <div class="contact-alt">
@@ -522,6 +514,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible{outline:3px solid var(--
         <a href="#price">料金</a>
         <a href="#contact">お問い合わせ</a>
         <a href="index.html">個人のお客様へ</a>
+        <a href="/privacy/">プライバシーポリシー</a>
       </nav>
     </div>
     <div class="ft-bottom">
@@ -559,24 +552,15 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const GAS_ENDPOINT_B2B="https://script.google.com/macros/s/AKfycbzxhjRguwgl-DGlxVAL-Hw4HlzZs5JPeVaKz7V3v2TDEyOQXb0rtI-rYTeOPFilUlST/exec";
 const cform=document.getElementById('cform');
 if(cform){
-  cform.addEventListener('submit',(e)=>{
+  cform.addEventListener('submit',async(e)=>{
     e.preventDefault();
     const status=document.getElementById('formStatus');
     const btn=cform.querySelector('button[type=submit]');
     status.className='form-status'; status.textContent='';
     btn.disabled=true; btn.textContent='送信中…';
     try{
-      // GAS へ送信（no-cors で CORS エラー回避）
-      fetch(GAS_ENDPOINT_B2B,{method:'POST',mode:'no-cors',body:new FormData(cform)}).catch(()=>{});
-      // Pixel受信完了後に thanks.html へ遷移する仕組み
-      let redirected=false;
-      const goThanks=()=>{ if(redirected)return; redirected=true; window.location.href='thanks.html'; };
-      if(typeof fbq==='function'){
-        // B2Bリードは Lead で計測（B2CのCompleteRegistrationと区別）
-        fbq('track','Lead',{},{eventCallback:goThanks});
-      }
-      // フォールバック: 2秒応答なければ強制遷移
-      setTimeout(goThanks,2000);
+      await fetch(GAS_ENDPOINT_B2B,{method:'POST',mode:'no-cors',keepalive:true,body:new FormData(cform)});
+      window.location.href='/thanks.html';
     }catch(err){
       status.textContent='送信に失敗しました。お手数ですが、お電話でご連絡ください。';
       status.classList.add('ng'); btn.disabled=false; btn.innerHTML='この内容で送信する <span class="ar">→</span>';
