@@ -12,10 +12,10 @@
 (function () {
   var CFG = {
     GA4_ID: '',                      // 例 'G-XXXXXXXXXX'
-    AW_ID: '',                       // 例 'AW-1234567890'
-    AW_LABEL_LEAD: '',               // Google広告CV：フォーム送信（/thanks.html 到達）
-    AW_LABEL_TEL: '',                // Google広告CV：電話タップ
-    AW_LABEL_LINE: '',               // Google広告CV：LINEタップ
+    AW_ID: 'AW-18205350045',         // Google広告（YSK塗装 373-537-5625）
+    AW_LABEL_LEAD: '3oT3CIGf77sdEJ2x_uhD',  // Google広告CV：問い合わせフォーム送信（サンクス到達）
+    AW_LABEL_TEL: 'zXIgCISf77sdEJ2x_uhD',   // Google広告CV：電話番号タップ
+    AW_LABEL_LINE: 'UtYwCIef77sdEJ2x_uhD',  // Google広告CV：LINEボタンタップ
     META_PIXEL: '1685592229128625'   // Metaピクセル（YSK塗装）
   };
   window.YSK_TRACK = CFG;
